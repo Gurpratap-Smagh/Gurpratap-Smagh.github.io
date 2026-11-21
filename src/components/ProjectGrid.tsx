@@ -25,7 +25,7 @@ export function ProjectGrid({ onOpenLightbox }: ProjectGridProps) {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <span className="font-mono text-xs uppercase tracking-widest text-teal-bright">
-              05 // Engineering Inventory
+              06 // Engineering Inventory
             </span>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Security Tooling, Hardware, Robotics &amp; Shipped Apps

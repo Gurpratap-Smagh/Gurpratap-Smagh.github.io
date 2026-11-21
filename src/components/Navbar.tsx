@@ -4,6 +4,7 @@ import { PROFILE } from '../data/profile';
 
 const NAV_ITEMS = [
   { label: 'Institutional', href: '#institutional' },
+  { label: 'Hackathons', href: '#hackathons' },
   { label: 'Skills -> Proof', href: '#skills-proof' },
   { label: 'Architecture', href: '#architecture' },
   { label: 'Field Stories', href: '#stories' },

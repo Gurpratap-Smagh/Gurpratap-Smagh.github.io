@@ -357,16 +357,74 @@ export const BUILD_PROJECTS: BuildProject[] = [
   },
   {
     id: 'fandrop',
-    name: 'Catalyst Fan Drop / Encore Campaign Hub',
+    name: 'FanDrop: Apple & Google Wallet Fan Passport',
     category: 'Full-Stack & Web3',
-    venue: 'Catalyst Concert Experience Hackathon',
+    venue: 'Catalyst by Speer Hackathon (Track Winners)',
     date: 'Oct 2026',
     summary:
-      'Single-page live concert companion spanning Countdown, Drop, and Afterglow phases with venue-verified check-in stamps and tiered fan passports (1x to 10x Legend).',
+      'Replaced high-friction concert sign-up forms with a one-tap anonymous Apple Wallet & Google Wallet pass acting as a direct artist push-notification and loyalty layer.',
     architectureNote:
-      'No app install required; clock-driven tour override states and fraud-resistant in-venue stamp verification built with React + TypeScript.',
-    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase / SQL'],
-    outcome: 'Dual fan-facing and artist-campaign prototype built in sprint',
+      'Signed .pkpass generation (node-forge PKCS#7 + fflate), PassKit device endpoints, RS256 Google Wallet JWTs, Drizzle SQL migrations, one-shot FanCam, and Vitest test coverage.',
+    stack: ['TypeScript', 'Apple PassKit', 'Google Wallet API', 'Drizzle SQL', 'Vitest'],
+    outcome: 'Track Winners after pitching founders Raine Maida & Mathew Mozaffari',
+    photos: [
+      {
+        src: '/photos/hackathons/fandrop-wallet-ui.jpg',
+        alt: 'FanDrop Apple and Google Wallet Passport UI',
+        caption: 'Anonymous Fan Passport (FP-MMGH-G95B) with native Apple and Google Wallet actions.',
+        location: 'Catalyst by Speer',
+        date: 'Oct 18, 2026',
+      },
+    ],
+  },
+  {
+    id: 'skillstake',
+    name: 'SkillStake (Revenium Solana Anchor dApp)',
+    category: 'Full-Stack & Web3',
+    venue: 'Personal Solana & Rust Systems Build',
+    date: 'Oct 2025',
+    summary:
+      'Solana Devnet dApp built around a Rust Anchor program where users mint SPL tokens, submit Keccak Proof-of-Work tasks, stake balances, and claim time-based rewards.',
+    architectureNote:
+      'Anchor Rust smart contract + custom IDL bindings + Next.js Phantom/Solflare wallet hooks (app/src/hooks/useSkillStakeProgram.ts).',
+    stack: ['Rust', 'Solana Anchor', 'SPL Tokens', 'Next.js', 'TypeScript'],
+    outcome: 'Live Solana Devnet deployment tested with Phantom wallet',
+    repoUrl: 'https://github.com/Gurpratap-Smagh/revenium',
+    liveUrl: 'https://revenium-app.vercel.app',
+    photos: [
+      {
+        src: '/photos/web3/skillstake-phantom-devnet.jpg',
+        alt: 'SkillStake connected to Phantom wallet on Solana Devnet',
+        caption: 'SkillStake running on Solana Devnet with Phantom wallet connected (Oct 23, 2025).',
+        location: 'Solana Devnet',
+        date: 'Oct 23, 2025',
+      },
+    ],
+  },
+  {
+    id: 'eth-hd-wallet',
+    name: 'Ethereum BIP-32 HD Wallet Generator',
+    category: 'Full-Stack & Web3',
+    venue: 'Client-Side Cryptography & Web3 Tooling',
+    date: 'Jul to Sep 2025',
+    summary:
+      'Client-side React wallet deriving unlimited BIP-32 Ethereum addresses from mnemonic seed phrases with Alchemy RPC balance checks and private-to-public key utilities.',
+    architectureNote:
+      'Zero server persistence: all seed derivation and key conversion execute locally in browser memory (23 commits).',
+    stack: ['React', 'JavaScript', 'BIP-32 / Ethers', 'Alchemy RPC'],
+    outcome: 'Live Vercel deployment with zero-persistence mnemonic derivation',
+    repoUrl: 'https://github.com/Gurpratap-Smagh/etherium_wallet',
+    liveUrl: 'https://etherium-wallet-rouge.vercel.app',
+    postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7355032614967099393',
+    photos: [
+      {
+        src: '/photos/web3/eth-hd-wallet-live.jpg',
+        alt: 'Bromskiii Ethereum HD Wallet web interface',
+        caption: 'Live client-side BIP-32 wallet, RPC balance checker, and key converter.',
+        location: 'Vercel Production',
+        date: 'Sep 2025',
+      },
+    ],
   },
   {
     id: 'parasynth',

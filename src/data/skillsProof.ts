@@ -203,6 +203,42 @@ export const PROOF_ARTIFACTS: Record<string, ProofArtifact> = {
     detail: 'Decentralized agricultural marketplace built across distributed international timezones.',
     url: 'https://agro-mart-beta.vercel.app',
   },
+  'proof-fandrop-wallet': {
+    id: 'proof-fandrop-wallet',
+    title: 'FanDrop Apple & Google Wallet Integration (Catalyst Track Winner)',
+    kind: 'EVENT PHOTO',
+    detail:
+      'Signed .pkpass (node-forge PKCS#7 + fflate), PassKit endpoints, RS256 Google Wallet JWTs, Drizzle migrations, and whiteboard flow pitched to founders Raine Maida & Mathew Mozaffari.',
+    anchorId: 'hackathons',
+    photoSrc: '/photos/hackathons/fandrop-wallet-ui.jpg',
+  },
+  'proof-skillstake': {
+    id: 'proof-skillstake',
+    title: 'SkillStake / Revenium (Solana Rust + Anchor Devnet Staking)',
+    kind: 'LIVE DEMO',
+    detail:
+      'Anchor program + Next.js Phantom/Solflare wallet dApp with SPL token faucet, Keccak Proof-of-Work rewards, and Devnet IDL integration.',
+    url: 'https://revenium-app.vercel.app',
+    photoSrc: '/photos/web3/skillstake-phantom-devnet.jpg',
+  },
+  'proof-eth-wallet': {
+    id: 'proof-eth-wallet',
+    title: 'Ethereum BIP-32 HD Wallet Generator & Key Converter',
+    kind: 'LIVE DEMO',
+    detail:
+      'Client-side deterministic HD wallet derivation, Alchemy RPC balance check, and private-to-public key tools (23 commits).',
+    url: 'https://etherium-wallet-rouge.vercel.app',
+    photoSrc: '/photos/web3/eth-hd-wallet-live.jpg',
+  },
+  'proof-hackathon-softskills': {
+    id: 'proof-hackathon-softskills',
+    title: 'Scope Pruning, Mentor Synthesis & Virtual Team Co-Leadership',
+    kind: 'EVENT PHOTO',
+    detail:
+      'Cut 12 SupplyChek features down to 1 signing hook after Day 2 mentor feedback; mentored first-timers in SafeScan; synced async Canada <-> Africa sprints in Agro-Mart.',
+    anchorId: 'hackathons',
+    photoSrc: '/photos/hackathons/achievaflow-1st-place.jpg',
+  },
   'proof-gfact': {
     id: 'proof-gfact',
     title: 'GIAC GFACT & ISC2 CC Certifications',
@@ -368,8 +404,15 @@ export const SKILL_NODES: SkillNode[] = [
     id: 'sk-react-next',
     name: 'React, Next.js 14 & TypeScript',
     domainId: 'systems',
-    levelNote: 'Production hackathons & live Vercel apps across 5+ builds',
-    proofIds: ['proof-safescan', 'proof-givehub', 'proof-agromart'],
+    levelNote: 'Production hackathons & live Vercel apps across 7+ builds',
+    proofIds: ['proof-safescan', 'proof-givehub', 'proof-agromart', 'proof-fandrop-wallet'],
+  },
+  {
+    id: 'sk-wallet-passes',
+    name: 'Apple Wallet (.pkpass) & Google Wallet JWTs',
+    domainId: 'systems',
+    levelNote: 'PKCS#7 signing, PassKit web service & RS256 Wallet passes (Track Winner)',
+    proofIds: ['proof-fandrop-wallet', 'proof-hackathon-softskills'],
   },
   {
     id: 'sk-python-api',
@@ -380,9 +423,16 @@ export const SKILL_NODES: SkillNode[] = [
   },
   {
     id: 'sk-solidity',
-    name: 'Solidity, Foundry & Cross-Chain Web3',
+    name: 'Solidity, Solana Anchor, Hedera & BIP-32 Web3',
     domainId: 'systems',
-    levelNote: 'ZetaChain omnichain ZRC-20 contracts & Hedera trust layers',
-    proofIds: ['proof-givehub', 'proof-agromart', 'proof-cicd-hardening'],
+    levelNote: 'ZetaChain ZRC-20, Solana Rust/Anchor, Hedera trust layer & HD wallets',
+    proofIds: ['proof-givehub', 'proof-skillstake', 'proof-eth-wallet', 'proof-agromart', 'proof-cicd-hardening'],
+  },
+  {
+    id: 'sk-softskills',
+    name: 'Technical Co-Leadership, Scope Cuts & Mentoring',
+    domainId: 'systems',
+    levelNote: 'Whiteboard alignment, Day-2 pruning, and mentoring first-time hackathon teams',
+    proofIds: ['proof-hackathon-softskills', 'proof-fandrop-wallet', 'proof-supplychek'],
   },
 ];

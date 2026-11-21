@@ -250,6 +250,13 @@ export const INSTITUTIONAL_MILESTONES: InstitutionalMilestone[] = [
         date: 'Nov 2026',
       },
       {
+        src: '/photos/ongov/ontario-cyber-summit-stage.jpg',
+        alt: 'Gurpratap on stage during Ontario 2026 Cyber Security Summit session',
+        caption: 'On stage during Ontario\'s 2026 Cyber Security Summit.',
+        location: 'Ontario Cyber Security Summit',
+        date: 'Nov 10, 2026',
+      },
+      {
         src: '/photos/bramhacks/bramhacks-team-frame.jpg',
         alt: 'BramHacks 2025 team photo with Parasynth laptop demo',
         caption: 'Team Parasynth at BramHacks 2025: automated SolidWorks terrain-wheel pipeline.',

@@ -32,7 +32,7 @@ export function WriteupsFeed() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <span className="font-mono text-xs uppercase tracking-widest text-teal-bright">
-              06 // Public Documentation &amp; Writeups
+              07 // Public Documentation &amp; Writeups
             </span>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Medium Articles, Technical Breakdowns &amp; Field Notes

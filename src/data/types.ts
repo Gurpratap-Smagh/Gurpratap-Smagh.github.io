@@ -21,6 +21,51 @@ export interface InstitutionalMilestone {
   photos: PhotoItem[];
 }
 
+export type HackathonTag =
+  | 'Wins & Podiums'
+  | 'In-Person & Whiteboard'
+  | 'Virtual & Global Teams'
+  | 'Blockchain & Web3';
+
+export interface HackathonEntry {
+  id: string;
+  badge: string;
+  title: string;
+  project: string;
+  mode: 'In-Person' | 'Virtual / Online' | 'Hybrid';
+  date: string;
+  location: string;
+  outcome: string;
+  tags: HackathonTag[];
+  softSkills: string[];
+  teamAndMentors: string;
+  story: string;
+  hardDecision: string;
+  gitProof: {
+    repo: string;
+    window: string;
+    highlights: string[];
+    url?: string;
+    liveUrl?: string;
+    postUrl?: string;
+  };
+  photos: PhotoItem[];
+}
+
+export interface Web3BuildEntry {
+  id: string;
+  name: string;
+  chain: string;
+  date: string;
+  summary: string;
+  securityOrContractNote: string;
+  commitWindow: string;
+  repoUrl?: string;
+  liveUrl?: string;
+  writeupUrl?: string;
+  photo?: PhotoItem;
+}
+
 export type ProofKind =
   | 'REPO'
   | 'WRITEUP'

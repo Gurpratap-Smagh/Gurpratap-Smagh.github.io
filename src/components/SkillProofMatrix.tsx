@@ -44,7 +44,7 @@ export function SkillProofMatrix({ onOpenLightbox }: SkillProofMatrixProps) {
         <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <span className="font-mono text-xs uppercase tracking-widest text-teal-bright">
-              02 // Zero Unverified Buzzwords
+              03 // Zero Unverified Buzzwords
             </span>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Skills Linked Directly to Proof

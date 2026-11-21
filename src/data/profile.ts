@@ -40,9 +40,9 @@ export const PROFILE = {
       accent: 'teal' as const,
     },
     {
-      value: '3rd & 1st',
+      value: 'Track Win · 1st · 3rd',
       label: 'Hackathon Podiums',
-      detail: '3rd Brampton SecOps ($1,000), 1st AchievaFlow, Top 20/200 IBM Z',
+      detail: 'FanDrop Track Winner, 1st AchievaFlow, 3rd Brampton SecOps ($1,000), Top 20/200 IBM Z',
       accent: 'gold' as const,
     },
     {
