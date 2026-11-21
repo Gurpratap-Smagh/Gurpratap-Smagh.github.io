@@ -20,7 +20,7 @@ export function ArchitectureDossier({ onOpenLightbox }: ArchitectureDossierProps
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <span className="font-mono text-xs uppercase tracking-widest text-signal-orange">
-            04 // Systems &amp; Security Architecture
+            05 // Systems &amp; Security Architecture
           </span>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
             How the Systems Actually Work (and What Broke Along the Way)

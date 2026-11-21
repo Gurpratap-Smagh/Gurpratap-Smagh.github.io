@@ -9,7 +9,7 @@ export function CredentialsFooter() {
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <span className="font-mono text-xs uppercase tracking-widest text-gold-bright">
-                08 // Academic Standing &amp; Credentials
+                09 // Academic Standing &amp; Credentials
               </span>
               <h2 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
                 {PROFILE.education.institution}

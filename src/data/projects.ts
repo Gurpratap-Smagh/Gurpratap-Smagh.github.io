@@ -147,9 +147,9 @@ export const FLAGSHIP_DOSSIERS: FlagshipDossier[] = [
         date: 'Nov 4, 2026',
       },
       {
-        src: '/photos/omnipulse/pi-sink-live-rig.jpg',
-        alt: 'Raspberry Pi sink and replay laptops on showcase table',
-        caption: 'Hardware table rig: Pi sink, replay panel, and Elasticsearch ingest views.',
+        src: '/photos/omnipulse/atrium-showcase-pitch.jpg',
+        alt: 'Explaining honeypot correlation architecture at OmniPulse 2026 Conference',
+        caption: 'Walking conference attendees through sensor.action separation and header-order clustering.',
         location: 'OmniPulse 2026',
         date: 'Nov 4, 2026',
       },
@@ -270,11 +270,11 @@ export const FLAGSHIP_DOSSIERS: FlagshipDossier[] = [
     ],
     photos: [
       {
-        src: '/photos/ongov/ongov-team-awards.jpg',
-        alt: 'Competing at Ontario Cyber Security CTF 2026',
-        caption: 'Humber team at Ontario\'s Cyber Security CTF Competition (2026 Edition).',
-        location: 'Ontario Gov CTF',
-        date: 'Nov 2026',
+        src: '/photos/ongov/ontario-cyber-summit-stage.jpg',
+        alt: 'Gurpratap on stage at Ontario 2026 Cyber Security Summit',
+        caption: 'Representing Humber on stage at Ontario\'s 2026 Cyber Security Summit.',
+        location: 'Ontario Cyber Security Summit',
+        date: 'Nov 10, 2026',
       },
     ],
   },
@@ -367,15 +367,6 @@ export const BUILD_PROJECTS: BuildProject[] = [
       'Signed .pkpass generation (node-forge PKCS#7 + fflate), PassKit device endpoints, RS256 Google Wallet JWTs, Drizzle SQL migrations, one-shot FanCam, and Vitest test coverage.',
     stack: ['TypeScript', 'Apple PassKit', 'Google Wallet API', 'Drizzle SQL', 'Vitest'],
     outcome: 'Track Winners after pitching founders Raine Maida & Mathew Mozaffari',
-    photos: [
-      {
-        src: '/photos/hackathons/fandrop-wallet-ui.jpg',
-        alt: 'FanDrop Apple and Google Wallet Passport UI',
-        caption: 'Anonymous Fan Passport (FP-MMGH-G95B) with native Apple and Google Wallet actions.',
-        location: 'Catalyst by Speer',
-        date: 'Oct 18, 2026',
-      },
-    ],
   },
   {
     id: 'skillstake',
@@ -391,15 +382,6 @@ export const BUILD_PROJECTS: BuildProject[] = [
     outcome: 'Live Solana Devnet deployment tested with Phantom wallet',
     repoUrl: 'https://github.com/Gurpratap-Smagh/revenium',
     liveUrl: 'https://revenium-app.vercel.app',
-    photos: [
-      {
-        src: '/photos/web3/skillstake-phantom-devnet.jpg',
-        alt: 'SkillStake connected to Phantom wallet on Solana Devnet',
-        caption: 'SkillStake running on Solana Devnet with Phantom wallet connected (Oct 23, 2025).',
-        location: 'Solana Devnet',
-        date: 'Oct 23, 2025',
-      },
-    ],
   },
   {
     id: 'eth-hd-wallet',
@@ -416,15 +398,6 @@ export const BUILD_PROJECTS: BuildProject[] = [
     repoUrl: 'https://github.com/Gurpratap-Smagh/etherium_wallet',
     liveUrl: 'https://etherium-wallet-rouge.vercel.app',
     postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7355032614967099393',
-    photos: [
-      {
-        src: '/photos/web3/eth-hd-wallet-live.jpg',
-        alt: 'Bromskiii Ethereum HD Wallet web interface',
-        caption: 'Live client-side BIP-32 wallet, RPC balance checker, and key converter.',
-        location: 'Vercel Production',
-        date: 'Sep 2025',
-      },
-    ],
   },
   {
     id: 'parasynth',

@@ -33,43 +33,7 @@ export const HACKATHONS: HackathonEntry[] = [
         'Oct 18 21:55Z (63cf02d): Real concert timeline images, Drizzle SQL migrations, Vitest tests',
       ],
     },
-    photos: [
-      {
-        src: '/photos/hackathons/fandrop-whiteboard-flow.jpg',
-        alt: 'Original handwritten FanDrop whiteboard flow from Catalyst by Speer',
-        caption: 'The actual Catalyst hackathon whiteboard mapping Step 1 Scan QR -> Digital Wallet -> Show Flow -> Post-Concert Memory Book.',
-        location: 'Catalyst by Speer',
-        date: 'Oct 18, 2026',
-      },
-      {
-        src: '/photos/hackathons/fandrop-wallet-ui.jpg',
-        alt: 'Fan Passport UI with Add to Apple Wallet and Save to Google Wallet buttons',
-        caption: 'Zero-PII Anonymous Fan Passport (FP-MMGH-G95B) with one-tap Apple Wallet and Google Wallet integration.',
-        location: 'FanDrop Pitch Deck',
-        date: 'Oct 18, 2026',
-      },
-      {
-        src: '/photos/hackathons/fandrop-passport-history.jpg',
-        alt: 'Multi-show Fan Passport loyalty tier view across concerts',
-        caption: 'Cross-artist passport tracking shows attended, photos captured, and loyalty tiers without creating an account.',
-        location: 'FanDrop Demo',
-        date: 'Oct 18, 2026',
-      },
-      {
-        src: '/photos/hackathons/fandrop-entertainer-funnel.jpg',
-        alt: 'Entertainer POV live fan stream and 36.4 percent scan-to-check-in funnel',
-        caption: 'Artist control-room dashboard surfacing live check-in peaks and drop-off funnels without third-party gatekeepers.',
-        location: 'FanDrop Deck',
-        date: 'Oct 18, 2026',
-      },
-      {
-        src: '/photos/hackathons/fandrop-stage-winners.jpg',
-        alt: 'Five-person FanDrop team on stage under FanDrop screen after winning track',
-        caption: 'Team on stage with the FanDrop screen after pitching founders Raine Maida and Mathew Mozaffari and winning the track.',
-        location: 'Catalyst by Speer Stage',
-        date: 'Oct 18, 2026',
-      },
-    ],
+    photos: [],
   },
   {
     id: 'supplychek-brampton',
@@ -100,7 +64,7 @@ export const HACKATHONS: HackathonEntry[] = [
         'Day 1 Whiteboard: Biometric privacy guardrails & logistics target lock',
         'Day 2 (3-hr pivot): Cut 12 features down to dual-passkey instruction signing',
         'Crypto spec: SHA-256 request binding + WebAuthn passkeys + Ed25519 audit receipts',
-        'Day 3 Podium: 3rd Place ($1,000) awarded by Deputy Mayor Harkirat Singh + MP Certificate',
+        'Day 3 Podium: 3rd Place ($1,000) awarded by Deputy Mayor Harkirat Singh',
       ],
     },
     photos: [
@@ -123,13 +87,6 @@ export const HACKATHONS: HackathonEntry[] = [
         alt: 'SupplyChek 3rd Place $1,000 cheque ceremony',
         caption: '3rd Place ($1,000) cheque ceremony with Rogers Cybersecure Catalyst and Brampton leadership.',
         location: 'Brampton Innovation District',
-        date: 'Sep 27, 2026',
-      },
-      {
-        src: '/photos/bramsec/mp-certificate.jpg',
-        alt: 'Certificate of Achievement from MP Amandeep Sodhi',
-        caption: 'Certificate awarded by Amandeep Sodhi, MP for Brampton Centre.',
-        location: 'Brampton, ON',
         date: 'Sep 27, 2026',
       },
     ],
@@ -168,15 +125,7 @@ export const HACKATHONS: HackathonEntry[] = [
       liveUrl: 'https://safe-scan-nine.vercel.app',
       postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7460019024597475328',
     },
-    photos: [
-      {
-        src: '/photos/hackathons/safescan-live.jpg',
-        alt: 'SafeScan live web application landing page at safe-scan-nine.vercel.app',
-        caption: 'Live SafeScan deployment (IBM Z x UNSA Hackathon 2026) combining barcode lookups, openFDA recalls, and personalized AI follow-ups.',
-        location: 'Live on Vercel',
-        date: 'May 10, 2026',
-      },
-    ],
+    photos: [],
   },
   {
     id: 'givehub-zetachain',
@@ -211,22 +160,7 @@ export const HACKATHONS: HackathonEntry[] = [
       liveUrl: 'https://give-hub-nngk.vercel.app/',
       postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7376019080115535872',
     },
-    photos: [
-      {
-        src: '/photos/web3/givehub-tx-metamask.jpg',
-        alt: 'GiveHub campaign page with MetaMask confirmed transaction notification on Testnet Blockscout',
-        caption: 'Timestamp-matched Jan 1, 2026 screenshot: live GiveHub campaign UI with MetaMask confirming Transaction 17 on Testnet Blockscout.',
-        location: 'Local Testnet Capture',
-        date: 'Jan 1, 2026',
-      },
-      {
-        src: '/photos/web3/givehub-ui.jpg',
-        alt: 'GiveHub omnichain crowdfunding homepage showing live campaigns',
-        caption: 'Timestamp-matched Jan 1, 2026 capture of the GiveHub campaign directory after the security & UI hardening sprint.',
-        location: 'GiveHub Production UI',
-        date: 'Jan 1, 2026',
-      },
-    ],
+    photos: [],
   },
   {
     id: 'agromart-hedera',
@@ -261,15 +195,7 @@ export const HACKATHONS: HackathonEntry[] = [
       liveUrl: 'https://agro-mart-beta.vercel.app',
       postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7390472669269368832',
     },
-    photos: [
-      {
-        src: '/photos/web3/agromart-live.jpg',
-        alt: 'Lovtiti Agro Mart live web application at agro-mart-beta.vercel.app',
-        caption: 'Live Lovtiti Agro Mart marketplace connecting African farmers directly with global buyers via Hedera.',
-        location: 'Live on Vercel',
-        date: 'Nov 1, 2025',
-      },
-    ],
+    photos: [],
   },
   {
     id: 'achievaflow-1st',
@@ -304,13 +230,6 @@ export const HACKATHONS: HackathonEntry[] = [
       postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7386165642455851009',
     },
     photos: [
-      {
-        src: '/photos/hackathons/achievaflow-1st-place.jpg',
-        alt: 'AchievaFlow 1st Place winning team next to Humber Longo Centre Builders of Brilliance banner',
-        caption: 'Timestamp-matched Oct 20, 2025 photo: 1st Place team beside Humber Polytechnic Longo Centre for Entrepreneurship banner.',
-        location: 'Humber Polytechnic',
-        date: 'Oct 20, 2025',
-      },
       {
         src: '/photos/hackathons/achievaflow-stage.jpg',
         alt: 'AchievaFlow Data Drive Hackathon full stage lineup with judges and participants',
@@ -359,20 +278,6 @@ export const HACKATHONS: HackathonEntry[] = [
         location: 'BramHacks 2025',
         date: 'Nov 10, 2025',
       },
-      {
-        src: '/photos/hackathons/bramhacks-welcome-team.jpg',
-        alt: 'BramHacks 2025 team standing by welcome screen',
-        caption: 'Timestamp-matched Nov 10, 2025 team shot at the BramHacks venue.',
-        location: 'Brampton, ON',
-        date: 'Nov 10, 2025',
-      },
-      {
-        src: '/photos/hackathons/bramhacks-devpost-team.jpg',
-        alt: 'Devpost team matching roster showing Shaelyn, Jordan, Lakshan, Anthony, and Gurpratap',
-        caption: 'Timestamp-matched Oct 29, 2025 Devpost roster forming the CAD + software team.',
-        location: 'Devpost Match',
-        date: 'Oct 29, 2025',
-      },
     ],
   },
 ];
@@ -389,13 +294,6 @@ export const WEB3_BUILDS: Web3BuildEntry[] = [
     commitWindow: '2025-08-10 -> 2026-01-06',
     repoUrl: 'https://github.com/Gurpratap-Smagh/Give-hub',
     liveUrl: 'https://give-hub-nngk.vercel.app/',
-    photo: {
-      src: '/photos/web3/givehub-tx-metamask.jpg',
-      alt: 'GiveHub MetaMask confirmed testnet transaction screenshot',
-      caption: 'GiveHub cross-chain campaign + MetaMask Transaction 17 Testnet Blockscout confirmation (Jan 1, 2026).',
-      location: 'GiveHub / ZetaChain',
-      date: 'Jan 1, 2026',
-    },
   },
   {
     id: 'web3-skillstake',
@@ -408,13 +306,6 @@ export const WEB3_BUILDS: Web3BuildEntry[] = [
     commitWindow: '2025-10-23 (5 commits, abb40ba wallet connects)',
     repoUrl: 'https://github.com/Gurpratap-Smagh/revenium',
     liveUrl: 'https://revenium-app.vercel.app',
-    photo: {
-      src: '/photos/web3/skillstake-phantom-devnet.jpg',
-      alt: 'SkillStake dApp connected with Phantom wallet on Solana Devnet',
-      caption: 'Timestamp-matched Oct 23, 2025 capture: SkillStake running on Solana Testnet/Devnet with Phantom connected (3M REV).',
-      location: 'Solana Devnet',
-      date: 'Oct 23, 2025',
-    },
   },
   {
     id: 'web3-eth-hd-wallet',
@@ -427,13 +318,6 @@ export const WEB3_BUILDS: Web3BuildEntry[] = [
     commitWindow: '2025-07-24 to 2025-09-17 (23 commits)',
     repoUrl: 'https://github.com/Gurpratap-Smagh/etherium_wallet',
     liveUrl: 'https://etherium-wallet-rouge.vercel.app',
-    photo: {
-      src: '/photos/web3/eth-hd-wallet-live.jpg',
-      alt: 'Bromskiii Ethereum HD Wallet live interface',
-      caption: 'Live BIP-32 Ethereum wallet generator, balance lookup, and key converter deployed on Vercel.',
-      location: 'Live on Vercel',
-      date: 'Jul to Sep 2025',
-    },
   },
   {
     id: 'web3-agromart',
@@ -446,13 +330,6 @@ export const WEB3_BUILDS: Web3BuildEntry[] = [
     commitWindow: '2025-10-31 to 2025-11-01',
     repoUrl: 'https://github.com/Gurpratap-Smagh/agro-mart',
     liveUrl: 'https://agro-mart-beta.vercel.app',
-    photo: {
-      src: '/photos/web3/agromart-live.jpg',
-      alt: 'Lovtiti Agro Mart blockchain marketplace live interface',
-      caption: 'Live Lovtiti Agro Mart storefront powered by Hedera and Next.js.',
-      location: 'Live on Vercel',
-      date: 'Nov 1, 2025',
-    },
   },
   {
     id: 'web3-scam-research',
@@ -465,12 +342,5 @@ export const WEB3_BUILDS: Web3BuildEntry[] = [
     commitWindow: 'Published Aug 17, 2025 on Medium',
     writeupUrl:
       'https://medium.com/@gsmag404/exposing-the-arbitrage-ai-bot-scam-the-remix-subdomain-trap-1a36e2c55849',
-    photo: {
-      src: '/photos/web3/web3-scam-remix.jpg',
-      alt: 'Side-by-side Remix IDE Solidity scam contract diff',
-      caption: 'Timestamp-matched Aug 17, 2025 forensic diff comparing the drainer Solidity contract against legitimate code.',
-      location: 'Medium Threat Intel',
-      date: 'Aug 17, 2025',
-    },
   },
 ];

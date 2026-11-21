@@ -206,11 +206,10 @@ export const PROOF_ARTIFACTS: Record<string, ProofArtifact> = {
   'proof-fandrop-wallet': {
     id: 'proof-fandrop-wallet',
     title: 'FanDrop Apple & Google Wallet Integration (Catalyst Track Winner)',
-    kind: 'EVENT PHOTO',
+    kind: 'REPO',
     detail:
       'Signed .pkpass (node-forge PKCS#7 + fflate), PassKit endpoints, RS256 Google Wallet JWTs, Drizzle migrations, and whiteboard flow pitched to founders Raine Maida & Mathew Mozaffari.',
     anchorId: 'hackathons',
-    photoSrc: '/photos/hackathons/fandrop-wallet-ui.jpg',
   },
   'proof-skillstake': {
     id: 'proof-skillstake',
@@ -219,7 +218,6 @@ export const PROOF_ARTIFACTS: Record<string, ProofArtifact> = {
     detail:
       'Anchor program + Next.js Phantom/Solflare wallet dApp with SPL token faucet, Keccak Proof-of-Work rewards, and Devnet IDL integration.',
     url: 'https://revenium-app.vercel.app',
-    photoSrc: '/photos/web3/skillstake-phantom-devnet.jpg',
   },
   'proof-eth-wallet': {
     id: 'proof-eth-wallet',
@@ -228,7 +226,6 @@ export const PROOF_ARTIFACTS: Record<string, ProofArtifact> = {
     detail:
       'Client-side deterministic HD wallet derivation, Alchemy RPC balance check, and private-to-public key tools (23 commits).',
     url: 'https://etherium-wallet-rouge.vercel.app',
-    photoSrc: '/photos/web3/eth-hd-wallet-live.jpg',
   },
   'proof-hackathon-softskills': {
     id: 'proof-hackathon-softskills',
@@ -237,14 +234,24 @@ export const PROOF_ARTIFACTS: Record<string, ProofArtifact> = {
     detail:
       'Cut 12 SupplyChek features down to 1 signing hook after Day 2 mentor feedback; mentored first-timers in SafeScan; synced async Canada <-> Africa sprints in Agro-Mart.',
     anchorId: 'hackathons',
-    photoSrc: '/photos/hackathons/achievaflow-1st-place.jpg',
+    photoSrc: '/photos/hackathons/achievaflow-stage.jpg',
   },
   'proof-gfact': {
     id: 'proof-gfact',
     title: 'GIAC GFACT & ISC2 CC Certifications',
     kind: 'CERT',
     detail: 'GFACT (Oct 2026 to Oct 2030 via CyberStart 4th place) + ISC2 CC (License 2688611) + Google Cybersecurity.',
+    url: 'https://www.credly.com/badges/33ff7ea8-5a30-4124-a3ab-2397609e99a3',
     anchorId: 'credentials',
+  },
+  'proof-cyberstart-top': {
+    id: 'proof-cyberstart-top',
+    title: 'Rogers CyberStart Canada Top Performer & 16-Event CTF Track Record',
+    kind: 'CERT',
+    detail:
+      'Picked up a CyberStart card at BramHacks (Nov 2025) -> 200+ consecutive TryHackMe days -> 4th in CyberStart CTF -> SANS GFACT (Credly verified) -> THEM?! #46 global.',
+    url: 'https://www.credly.com/badges/33ff7ea8-5a30-4124-a3ab-2397609e99a3',
+    anchorId: 'ctfs',
   },
 };
 
@@ -343,7 +350,7 @@ export const SKILL_NODES: SkillNode[] = [
     name: 'Live Event Infra Ops (1,000+ Users)',
     domainId: 'infra',
     levelNote: 'Real-time VPN/server triage, conflict mediation & playbooks',
-    proofIds: ['proof-themctf-breach', 'proof-themctf-author'],
+    proofIds: ['proof-themctf-breach', 'proof-themctf-author', 'proof-cyberstart-top'],
   },
   {
     id: 'sk-chall-dev',
@@ -433,6 +440,6 @@ export const SKILL_NODES: SkillNode[] = [
     name: 'Technical Co-Leadership, Scope Cuts & Mentoring',
     domainId: 'systems',
     levelNote: 'Whiteboard alignment, Day-2 pruning, and mentoring first-time hackathon teams',
-    proofIds: ['proof-hackathon-softskills', 'proof-fandrop-wallet', 'proof-supplychek'],
+    proofIds: ['proof-hackathon-softskills', 'proof-fandrop-wallet', 'proof-supplychek', 'proof-cyberstart-top'],
   },
 ];

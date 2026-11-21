@@ -21,7 +21,7 @@ export function FieldStories({ onOpenLightbox }: FieldStoriesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <span className="font-mono text-xs uppercase tracking-widest text-gold-bright">
-            05 // Beyond the One-Page Resume
+            06 // Beyond the One-Page Resume
           </span>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Field Stories, Conflict Mediation &amp; What Actually Happened

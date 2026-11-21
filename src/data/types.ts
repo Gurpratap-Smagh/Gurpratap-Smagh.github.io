@@ -174,3 +174,26 @@ export interface CertificationItem {
   url?: string;
   note: string;
 }
+
+export type CtfChallengeType =
+  | 'Forensics & DFIR'
+  | 'Hardware & PCB'
+  | 'OSINT'
+  | 'Crypto'
+  | 'Web & Pwn'
+  | 'SecOps & Threat Hunting'
+  | 'Infra & Challenge Authoring';
+
+export interface CtfRecord {
+  id: string;
+  name: string;
+  date: string;
+  teamOrRole: string;
+  format: 'On-Site Finals' | 'In-Person' | 'Online' | 'Organizer / Author';
+  outcome: string;
+  challengeTypes: CtfChallengeType[];
+  challengesAndWork: string;
+  proofUrl?: string;
+  proofLabel?: string;
+  anchorId?: string;
+}

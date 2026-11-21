@@ -5,9 +5,10 @@ import { PROFILE } from '../data/profile';
 const NAV_ITEMS = [
   { label: 'Institutional', href: '#institutional' },
   { label: 'Hackathons', href: '#hackathons' },
+  { label: 'CTFs', href: '#ctfs' },
   { label: 'Skills -> Proof', href: '#skills-proof' },
   { label: 'Architecture', href: '#architecture' },
-  { label: 'Field Stories', href: '#stories' },
+  { label: 'Stories', href: '#stories' },
   { label: 'Builds', href: '#builds' },
   { label: 'Writeups', href: '#writeups' },
 ];
@@ -23,10 +24,10 @@ export function Navbar() {
             &lt;/&gt;
           </span>
           <div className="leading-tight">
-            <span className="block font-display text-sm font-bold tracking-tight text-slate-100">
+            <span className="block whitespace-nowrap font-display text-sm font-bold tracking-tight text-slate-100">
               Gurpratap Smagh
             </span>
-            <span className="block font-mono text-[11px] text-slate-400">
+            <span className="block whitespace-nowrap font-mono text-[11px] text-slate-400">
               bromskiii · Humber Eng &apos;29
             </span>
           </div>
@@ -37,7 +38,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-1.5 font-mono text-xs text-slate-300 transition hover:bg-panel hover:text-teal-bright"
+              className="whitespace-nowrap rounded-md px-2.5 py-1.5 font-mono text-xs text-slate-300 transition hover:bg-panel hover:text-teal-bright"
             >
               {item.label}
             </a>

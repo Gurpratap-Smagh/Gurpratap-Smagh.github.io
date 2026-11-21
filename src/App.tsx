@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { InstitutionalShowcase } from './components/InstitutionalShowcase';
 import { HackathonShowcase } from './components/HackathonShowcase';
+import { CtfTrackRecord } from './components/CtfTrackRecord';
 import { SkillProofMatrix } from './components/SkillProofMatrix';
 import { ArchitectureDossier } from './components/ArchitectureDossier';
 import { FieldStories } from './components/FieldStories';
@@ -29,6 +30,7 @@ export function App() {
         <Hero onOpenLightbox={openLightbox} />
         <InstitutionalShowcase onOpenLightbox={openLightbox} />
         <HackathonShowcase onOpenLightbox={openLightbox} />
+        <CtfTrackRecord />
         <SkillProofMatrix onOpenLightbox={openLightbox} />
         <ArchitectureDossier onOpenLightbox={openLightbox} />
         <FieldStories onOpenLightbox={openLightbox} />

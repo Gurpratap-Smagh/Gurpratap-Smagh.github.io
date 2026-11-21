@@ -97,19 +97,32 @@ export function InstitutionalShowcase({ onOpenLightbox }: InstitutionalShowcaseP
                     <div className="flex items-center justify-between pb-2 font-mono text-[11px] text-slate-400">
                       <span className="inline-flex items-center gap-1.5">
                         <Images className="h-3.5 w-3.5 text-teal-bright" />
-                        Verified Event Gallery ({item.photos.length} photos)
+                        Verified Event Gallery ({item.photos.length}{' '}
+                        {item.photos.length === 1 ? 'photo' : 'photos'})
                       </span>
                       <span>Click any frame to inspect</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                    <div
+                      className={`grid gap-2.5 ${
+                        item.photos.length === 1
+                          ? 'grid-cols-1'
+                          : item.photos.length === 2
+                            ? 'grid-cols-2'
+                            : 'grid-cols-2 sm:grid-cols-3'
+                      }`}
+                    >
                       {item.photos.slice(0, 6).map((photo, pIdx) => (
                         <button
                           key={photo.src}
                           type="button"
                           onClick={() => onOpenLightbox(item.photos, pIdx)}
                           className={`group relative overflow-hidden rounded-lg border border-hairline bg-obsidian text-left transition hover:border-teal-forensic ${
-                            pIdx === 0 && item.photos.length >= 4 ? 'col-span-2 row-span-2' : ''
+                            pIdx === 0 && item.photos.length >= 4
+                              ? 'col-span-2 row-span-2'
+                              : pIdx === 0 && item.photos.length === 3
+                                ? 'col-span-2'
+                                : ''
                           }`}
                         >
                           <img

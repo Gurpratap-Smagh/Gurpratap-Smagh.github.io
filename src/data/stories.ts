@@ -28,13 +28,6 @@ export const FIELD_STORIES: FieldStory[] = [
         location: 'Rennes, France',
         date: 'Jun 14, 2026',
       },
-      {
-        src: '/photos/france/paris-eiffel.jpg',
-        alt: 'By the Eiffel Tower in Paris',
-        caption: 'Wrapping up the France trip after the Rennes finals.',
-        location: 'Paris, France',
-        date: 'Jun 16, 2026',
-      },
     ],
     links: [
       { label: 'EEF Scholarship Post', url: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7481873888939806720' },
@@ -55,11 +48,11 @@ export const FIELD_STORIES: FieldStory[] = [
     softSkills: ['Conflict Mediation Under Pressure', 'Leading Without Authority', 'Live Incident Triage', 'Post-Incident Playbook Authoring'],
     photos: [
       {
-        src: '/photos/france/ceremony-countdown.jpg',
-        alt: 'Midnight Flag EXECUTION ceremony screen with teammate',
-        caption: 'Standing with teammates under competition countdown pressure.',
+        src: '/photos/france/esna-group-finale.jpg',
+        alt: 'Midnight Flag CTF finalist teams inside the ESNA Bretagne amphitheatre',
+        caption: 'Inside the ESNA Bretagne amphitheatre with the Midnight Flag finalist cohort.',
         location: 'ESNA Bretagne',
-        date: 'Jun 13, 2026',
+        date: 'Jun 14, 2026',
       },
     ],
     links: [
@@ -79,13 +72,6 @@ export const FIELD_STORIES: FieldStory[] = [
       'Automation multiplies whatever discipline or blind spot you already have. Never reflash a broken evidence disk, and never hide architectural flaws in writeups.',
     softSkills: ['Intellectual Honesty', 'Executive-to-Engineer Communication', 'Root-Cause Forensics', 'Iterative Systems Design'],
     photos: [
-      {
-        src: '/photos/omnipulse/pi-sink-live-rig.jpg',
-        alt: 'V2 Raspberry Pi sink and Kibana pipeline at OmniPulse 2026',
-        caption: 'The V2 successor running reliably on the OmniPulse showcase table after fixing V1\'s tunnel and power flaws.',
-        location: 'Humber Barrett CTI',
-        date: 'Nov 4, 2026',
-      },
       {
         src: '/photos/omnipulse/atrium-showcase-pitch.jpg',
         alt: 'Walking visitors through the honeypot architecture',
@@ -139,7 +125,7 @@ export const FIELD_STORIES: FieldStory[] = [
     context:
       'In mid-2025, my practical security background was Intro to Cybersecurity rooms and basic TryHackMe streaks. No prior CTF circuit history, no formal security co-op.',
     whatHappened:
-      'I chained 200+ consecutive daily TryHackMe sessions, earned ISC2 CC and Google Cybersecurity certs, placed 4th in the CyberStart Canada CTF as a Top Performer to win a SANS GFACT scholarship (earned GIAC GFACT in Oct 2026), and applied every lab directly to harden my own apps (GiveHub, Coursify). That consistency carried into solo UofTCTF solves, earning a spot on THEM?!, clutching a custom polynomial nonce exploit in the final hour for 5th place (top 0.58%), helping hit 7th of 8,747 teams in picoCTF 2026, and placing 20th of 433 in Srdnlen CTF Quals.',
+      'Starting from a CyberStart Canada flyer picked up at a BramHacks booth in November 2025, I chained 200+ consecutive daily TryHackMe sessions (completing the 43h 53m Introductory Pathway), earned ISC2 CC and Google Cybersecurity certs, placed 4th in the CyberStart Canada CTF as a Top Performer to win a SANS GFACT scholarship (earned GIAC GFACT in Oct 2026), and applied every lab directly to harden my own apps (GiveHub, Coursify). That consistency carried into solo UofTCTF solves, earning a spot on THEM?!, clutching a custom polynomial nonce exploit in the final hour for 5th place (top 0.58%), helping hit 7th of 8,747 teams in picoCTF 2026, and placing 20th of 433 in Srdnlen CTF Quals.',
     takeaway:
       'Daily unglamorous reps beat talent bursts. Every streak day builds the pattern recognition you lean on during the last hour of a competition.',
     softSkills: ['Relentless Daily Consistency', 'Self-Directed Learning', 'High-Pressure Clutch Execution'],
@@ -148,13 +134,6 @@ export const FIELD_STORIES: FieldStory[] = [
         src: '/photos/n3summit/n3-interview-sycodal.jpg',
         alt: 'Ambassador interview at NGen N3 Summit',
         caption: 'Representing Humber and Youth Culture Inc. across advanced manufacturing and cyber booths.',
-        location: 'NGen N3 Summit',
-        date: 'Apr 2026',
-      },
-      {
-        src: '/photos/n3summit/n3-neuronic-hardware.jpg',
-        alt: 'Reviewing Neuronic Works hardware boards at N3 Summit',
-        caption: 'Evaluating embedded attack surfaces on the manufacturing expo floor.',
         location: 'NGen N3 Summit',
         date: 'Apr 2026',
       },

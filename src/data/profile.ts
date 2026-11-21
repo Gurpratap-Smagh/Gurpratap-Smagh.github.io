@@ -59,6 +59,8 @@ export const CERTIFICATIONS: CertificationItem[] = [
     name: 'GIAC Foundational Cybersecurity Technologies (GFACT)',
     issuer: 'GIAC / SANS Institute (CyberStart Top Performer Scholarship)',
     issued: 'Oct 2026 to Oct 2030',
+    credentialId: 'Analyst #8458',
+    url: 'https://www.credly.com/badges/33ff7ea8-5a30-4124-a3ab-2397609e99a3',
     note: 'Earned via CyberStart Canada Top Performer scholarship (4th in CyberStart Canada CTF, 200+ day TryHackMe streak).',
   },
   {
