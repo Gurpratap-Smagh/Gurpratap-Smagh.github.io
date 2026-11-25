@@ -39,8 +39,8 @@ const HERO_FRAMES: PhotoItem[] = [
     date: 'Sep 2026',
   },
   {
-    src: '/photos/hackathons/sophix-brampton-stage.jpg',
-    alt: 'Gurpratap pitching Sophix solo on stage in front of Brampton Venture Zone by TMU banner',
+    src: '/photos/hackathons/sophix-city-hall-audience.jpg',
+    alt: '200+ attendees at Brampton City Hall listening to Brampton AI Innovator pitches',
     caption: 'Pitched Sophix solo to 200+ attendees at Brampton City Hall: Proplr Cloud Services track winner.',
     location: 'Brampton City Hall',
     date: 'Nov 2026',
@@ -192,7 +192,7 @@ export function HomeIndex({ onOpenLightbox, onNavigate }: HomeIndexProps) {
                   </div>
                 </button>
 
-                <div className="grid grid-cols-3 gap-1.5 border-t border-rule bg-paper p-2">
+                <div className="grid grid-cols-2 gap-1.5 border-t border-rule bg-paper p-2 sm:grid-cols-4">
                   {HERO_FRAMES.map((frame, i) => (
                     <button
                       key={frame.src}
