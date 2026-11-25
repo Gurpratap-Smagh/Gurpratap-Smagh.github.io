@@ -103,8 +103,93 @@ export interface PortfolioEntry {
 
 export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   {
+    id: 'supplychek-secops',
+    title: 'SupplyChek: Zero-Trust Freight Instruction Signing',
+    date: 'Sep 25 to 27, 2026',
+    venue: 'Brampton SecOps Hackathon (Catalyst & TMU)',
+    outcomeBadge: '3rd Place · $1,000',
+    pillars: ['Security', 'Ops & Strategy'],
+    skillsProven: [
+      'Full-Stack / AI / Blockchain',
+      'Unscripted Pitching',
+      'Team Alignment & Ops',
+    ],
+    thumbnail: '/photos/bramsec/podium-3rd-place-check.jpg',
+    summary:
+      'Built hardware-bound WebAuthn passkey and Ed25519 cryptographic signing over SHA-256 dispatch mutations so spoofed delivery-change emails never reach drivers.',
+    mediaGallery: [
+      {
+        src: '/photos/bramsec/podium-3rd-place-check.jpg',
+        alt: 'SupplyChek 3rd Place $1,000 cheque ceremony at Brampton SecOps',
+        caption: '3rd Place ($1,000) podium ceremony with City of Brampton and Rogers Cybersecure Catalyst.',
+      },
+      {
+        src: '/photos/bramsec/supplychek-stage-pitch.jpg',
+        alt: 'Presenting SupplyChek live on stage at Brampton SecOps',
+        caption: 'Defending SupplyChek instruction-signing flow on stage.',
+      },
+      {
+        src: '/photos/bramsec/whiteboard-threat-model.jpg',
+        alt: 'Day 1 whiteboard threat modeling session for SupplyChek',
+        caption: 'Day 1 whiteboard trust-boundary mapping before writing application code.',
+      },
+    ],
+    technicalBreakdown:
+      'Canonicalizes destination, carrier, and payout fields into a deterministic SHA-256 request digest.\n\nDispatch authorities sign the instruction hash itself using WebAuthn hardware-bound biometric passkeys and receive Ed25519 audit receipts before any change unlocks in the driver workflow (74 commits across 32 hours).',
+    stack: ['TypeScript', 'Next.js', 'WebAuthn Passkeys', 'SHA-256', 'Ed25519'],
+    fieldNotes:
+      'By Day 2 evening we had a dozen features: paperwork OCR, compliance scoring, shadow-broker detection, Signal chat, and live tracking. Mentors Harman Grewal and Tracy Chong pushed us on scope bloat. After a 3-hour review, we killed 12 features and rebuilt the pitch around one sharp cryptographic choke point: authenticating the mutation, not just the user.',
+    links: {},
+    featuredInReel: true,
+  },
+  {
+    id: 'midnight-flag-france',
+    title: 'Midnight Flag CTF EXECUTION 2026 Finals (France)',
+    date: 'Jun 12 to 16, 2026',
+    venue: 'ESNA de Bretagne, Rennes/Bruz, France (THEM?!)',
+    outcomeBadge: '9th Student / 14th Overall',
+    pillars: ['Security', 'Ops & Strategy'],
+    skillsProven: [
+      'Hardware & IoT',
+      'DFIR & Forensics',
+      'Unscripted Pitching',
+      'Team Alignment & Ops',
+    ],
+    thumbnail: '/photos/france/esna-group-finale.jpg',
+    summary:
+      'Represented Humber Polytechnic as the sole Canadian competitor on global team THEM?! in an AI-free arena across hardware fault injection, firmware extraction, and DFIR.',
+    mediaGallery: [
+      {
+        src: '/photos/france/esna-group-finale.jpg',
+        alt: 'Midnight Flag CTF finalist teams inside the ESNA Bretagne amphitheatre',
+        caption: 'Finalist cohort inside the ESNA Bretagne amphitheatre.',
+      },
+      {
+        src: '/photos/france/hardware-bench-humber.jpg',
+        alt: 'Working in Humber Polytechnic shirt at the ESNA Bretagne bench',
+        caption: 'On-site hardware and DFIR bench inside ESNA de Bretagne, Rennes.',
+      },
+      {
+        src: '/photos/france/fault-injection-pcb.jpg',
+        alt: 'Close-up of PCB probing and logic analyzer wiring in France',
+        caption: 'EEPROM pinout probing and fault-injection target board.',
+      },
+    ],
+    technicalBreakdown:
+      'Qualified 8th out of 756+ teams into one of 17 seats in France, where all AI tools were banned inside the competition hall.\n\nExtracted EEPROM firmware via CH341A/UART pins, triggered manual voltage fault injection on target microcontrollers, recovered AES-CBC ransomware keys from Windows registry hives to decrypt Gestion.pdf.kiki, and chained cross-platform OSINT solves.',
+    stack: ['EEPROM / CH341A', 'Voltage Fault Injection', 'Logic Analyzer', 'Windows Registry DFIR', 'OSINT'],
+    fieldNotes:
+      'A $2,873 international trip plus logic analyzer logistics was unrealistic out of pocket. I wrote a formal institutional brief connecting the ESNA/DGSE event to Humber visibility and side-channel research deliverables, securing FAST travel sponsorship plus the EEF scholarship with help from Melanie Chai and Crystal Bhikha. Meeting my THEM?! Discord teammates offline at hour twelve made nobody quit when challenges stalled.',
+    links: {
+      writeup: 'https://ctftime.org/team/387399',
+      pdf: '/writeups/midnight-flag-voltage-fault-injection.pdf',
+      post: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7481873888939806720',
+    },
+    featuredInReel: true,
+  },
+  {
     id: 'l7-honeypot-engine',
-    title: 'L7 Honeypot & Causal Threat-Intel Engine (V1 ICS -> V2)',
+    title: 'L7 Honeypot at Expo',
     date: 'Mar 2026 to Present',
     venue: 'OmniPulse Tech 2026 (Humber Barrett CTI)',
     outcomeBadge: '1,900+ Req / 3 Days (V2)',
@@ -173,51 +258,6 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     featuredInReel: true,
   },
   {
-    id: 'midnight-flag-france',
-    title: 'Midnight Flag CTF EXECUTION 2026 Finals (France)',
-    date: 'Jun 12 to 16, 2026',
-    venue: 'ESNA de Bretagne, Rennes/Bruz, France (THEM?!)',
-    outcomeBadge: '9th Student / 14th Overall',
-    pillars: ['Security', 'Ops & Strategy'],
-    skillsProven: [
-      'Hardware & IoT',
-      'DFIR & Forensics',
-      'Unscripted Pitching',
-      'Team Alignment & Ops',
-    ],
-    thumbnail: '/photos/france/esna-group-finale.jpg',
-    summary:
-      'Represented Humber Polytechnic as the sole Canadian competitor on global team THEM?! in an AI-free arena across hardware fault injection, firmware extraction, and DFIR.',
-    mediaGallery: [
-      {
-        src: '/photos/france/esna-group-finale.jpg',
-        alt: 'Midnight Flag CTF finalist teams inside the ESNA Bretagne amphitheatre',
-        caption: 'Finalist cohort inside the ESNA Bretagne amphitheatre.',
-      },
-      {
-        src: '/photos/france/hardware-bench-humber.jpg',
-        alt: 'Working in Humber Polytechnic shirt at the ESNA Bretagne bench',
-        caption: 'On-site hardware and DFIR bench inside ESNA de Bretagne, Rennes.',
-      },
-      {
-        src: '/photos/france/fault-injection-pcb.jpg',
-        alt: 'Close-up of PCB probing and logic analyzer wiring in France',
-        caption: 'EEPROM pinout probing and fault-injection target board.',
-      },
-    ],
-    technicalBreakdown:
-      'Qualified 8th out of 756+ teams into one of 17 seats in France, where all AI tools were banned inside the competition hall.\n\nExtracted EEPROM firmware via CH341A/UART pins, triggered manual voltage fault injection on target microcontrollers, recovered AES-CBC ransomware keys from Windows registry hives to decrypt Gestion.pdf.kiki, and chained cross-platform OSINT solves.',
-    stack: ['EEPROM / CH341A', 'Voltage Fault Injection', 'Logic Analyzer', 'Windows Registry DFIR', 'OSINT'],
-    fieldNotes:
-      'A $2,873 international trip plus logic analyzer logistics was unrealistic out of pocket. I wrote a formal institutional brief connecting the ESNA/DGSE event to Humber visibility and side-channel research deliverables, securing FAST travel sponsorship plus the EEF scholarship with help from Melanie Chai and Crystal Bhikha. Meeting my THEM?! Discord teammates offline at hour twelve made nobody quit when challenges stalled.',
-    links: {
-      writeup: 'https://ctftime.org/team/387399',
-      pdf: '/writeups/midnight-flag-voltage-fault-injection.pdf',
-      post: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7481873888939806720',
-    },
-    featuredInReel: true,
-  },
-  {
     id: 'themctf-2026-infra-ir',
     title: 'THEM?!CTF 2026: Live Infra Ops & GCP Breach IR',
     date: 'May 29 to 31, 2026',
@@ -254,46 +294,6 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       writeup: 'https://ctftime.org/event/3209/weight',
       post: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7466259993957421059',
     },
-    featuredInReel: true,
-  },
-  {
-    id: 'supplychek-secops',
-    title: 'SupplyChek: Zero-Trust Freight Instruction Signing',
-    date: 'Sep 25 to 27, 2026',
-    venue: 'Brampton SecOps Hackathon (Catalyst & TMU)',
-    outcomeBadge: '3rd Place · $1,000',
-    pillars: ['Security', 'Ops & Strategy'],
-    skillsProven: [
-      'Full-Stack / AI / Blockchain',
-      'Unscripted Pitching',
-      'Team Alignment & Ops',
-    ],
-    thumbnail: '/photos/bramsec/podium-3rd-place-check.jpg',
-    summary:
-      'Built hardware-bound WebAuthn passkey and Ed25519 cryptographic signing over SHA-256 dispatch mutations so spoofed delivery-change emails never reach drivers.',
-    mediaGallery: [
-      {
-        src: '/photos/bramsec/podium-3rd-place-check.jpg',
-        alt: 'SupplyChek 3rd Place $1,000 cheque ceremony at Brampton SecOps',
-        caption: '3rd Place ($1,000) podium ceremony with City of Brampton and Rogers Cybersecure Catalyst.',
-      },
-      {
-        src: '/photos/bramsec/supplychek-stage-pitch.jpg',
-        alt: 'Presenting SupplyChek live on stage at Brampton SecOps',
-        caption: 'Defending SupplyChek instruction-signing flow on stage.',
-      },
-      {
-        src: '/photos/bramsec/whiteboard-threat-model.jpg',
-        alt: 'Day 1 whiteboard threat modeling session for SupplyChek',
-        caption: 'Day 1 whiteboard trust-boundary mapping before writing application code.',
-      },
-    ],
-    technicalBreakdown:
-      'Canonicalizes destination, carrier, and payout fields into a deterministic SHA-256 request digest.\n\nDispatch authorities sign the instruction hash itself using WebAuthn hardware-bound biometric passkeys and receive Ed25519 audit receipts before any change unlocks in the driver workflow (74 commits across 32 hours).',
-    stack: ['TypeScript', 'Next.js', 'WebAuthn Passkeys', 'SHA-256', 'Ed25519'],
-    fieldNotes:
-      'By Day 2 evening we had a dozen features: paperwork OCR, compliance scoring, shadow-broker detection, Signal chat, and live tracking. Mentors Harman Grewal and Tracy Chong pushed us on scope bloat. After a 3-hour review, we killed 12 features and rebuilt the pitch around one sharp cryptographic choke point: authenticating the mutation, not just the user.',
-    links: {},
     featuredInReel: true,
   },
   {
