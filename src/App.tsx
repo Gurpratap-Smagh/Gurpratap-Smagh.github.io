@@ -8,30 +8,41 @@ import { ProofReel } from './components/ProofReel';
 import { SkillProofTree } from './components/SkillProofTree';
 import { SplitHero } from './components/SplitHero';
 import { UnifiedArchive } from './components/UnifiedArchive';
-import { Pillar, PortfolioEntry, SkillNodeId } from './data/portfolioEntries';
+import { PortfolioEntry, ProjectCategory, SkillNodeId } from './data/portfolioEntries';
 
 export function App() {
-  const [selectedPillar, setSelectedPillar] = useState<Pillar | 'All' | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | 'All' | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<SkillNodeId | null>(null);
   const [activeEntry, setActiveEntry] = useState<PortfolioEntry | null>(null);
 
   const clearFilters = () => {
-    setSelectedPillar(null);
+    setSelectedCategory(null);
     setSelectedSkill(null);
+  };
+
+  const openCategoryFromHero = (category: ProjectCategory) => {
+    setSelectedSkill(null);
+    setSelectedCategory(category);
+    setTimeout(() => {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }, 30);
   };
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-body">
       <Navbar />
       <main className="flex-1">
-        <SplitHero />
+        <SplitHero
+          onOpenHackathons={() => openCategoryFromHero('Hackathons')}
+          onOpenCtfs={() => openCategoryFromHero('CTF Competitions')}
+        />
         <ProofReel onSelectEntry={setActiveEntry} />
         <CertificationsBand />
         <SkillProofTree selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />
         <UnifiedArchive
-          selectedPillar={selectedPillar}
+          selectedCategory={selectedCategory}
           selectedSkill={selectedSkill}
-          onSelectPillar={setSelectedPillar}
+          onSelectCategory={setSelectedCategory}
           onClearFilters={clearFilters}
           onSelectEntry={setActiveEntry}
         />

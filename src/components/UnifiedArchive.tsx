@@ -1,76 +1,82 @@
 import { RotateCcw } from 'lucide-react';
 import {
-  PILLARS,
+  EntryTier,
   PORTFOLIO_ENTRIES,
-  Pillar,
+  PROJECT_CATEGORIES,
   PortfolioEntry,
+  ProjectCategory,
   SkillNodeId,
 } from '../data/portfolioEntries';
 
 interface UnifiedArchiveProps {
-  selectedPillar: Pillar | 'All' | null;
+  selectedCategory: ProjectCategory | 'All' | null;
   selectedSkill: SkillNodeId | null;
-  onSelectPillar: (pillar: Pillar | 'All' | null) => void;
+  onSelectCategory: (cat: ProjectCategory | 'All' | null) => void;
   onClearFilters: () => void;
   onSelectEntry: (entry: PortfolioEntry) => void;
 }
 
+function tierBadgeStyle(tier: EntryTier): string {
+  if (tier === 'competition') return 'border-gold/50 bg-gold-soft text-navy';
+  if (tier === 'project') return 'border-navy/25 bg-navy/5 text-navy';
+  return 'border-line bg-slatebg text-muted';
+}
+
 export function UnifiedArchive({
-  selectedPillar,
+  selectedCategory,
   selectedSkill,
-  onSelectPillar,
+  onSelectCategory,
   onClearFilters,
   onSelectEntry,
 }: UnifiedArchiveProps) {
-  const hasSelection = selectedPillar !== null || selectedSkill !== null;
+  const hasSelection = selectedCategory !== null || selectedSkill !== null;
 
   const filtered = hasSelection
     ? PORTFOLIO_ENTRIES.filter((entry) => {
-        const matchesPillar =
-          selectedPillar === null ||
-          selectedPillar === 'All' ||
-          entry.pillars.includes(selectedPillar);
+        const matchesCat =
+          selectedCategory === null ||
+          selectedCategory === 'All' ||
+          entry.categories.includes(selectedCategory);
         const matchesSkill = !selectedSkill || entry.skillsProven.includes(selectedSkill);
-        return matchesPillar && matchesSkill;
+        return matchesCat && matchesSkill;
       })
     : [];
 
   return (
-    <section id="archive" className="bg-white pb-14 pt-2">
+    <section id="projects" className="bg-white pb-14 pt-2">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted">
-              Unified Archive
+              Projects &amp; Track Record
             </span>
-            <h2 className="mt-0.5 font-display text-2xl font-bold text-navy">
-              Builds, Hackathons, CTF Writeups &amp; Field Ops
-            </h2>
+            <h2 className="mt-0.5 font-display text-2xl font-bold text-navy">Projects</h2>
           </div>
 
-          <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Pillar Filter">
-            {PILLARS.map((pillar) => {
-              const active = selectedPillar === pillar;
+          <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Project Category Filter">
+            {PROJECT_CATEGORIES.map((category) => {
+              const active = selectedCategory === category;
               const count = PORTFOLIO_ENTRIES.filter((entry) => {
                 const matchSkill = !selectedSkill || entry.skillsProven.includes(selectedSkill);
-                const matchPillar = pillar === 'All' || entry.pillars.includes(pillar);
-                return matchSkill && matchPillar;
+                const matchCat = category === 'All' || entry.categories.includes(category);
+                return matchSkill && matchCat;
               }).length;
 
               return (
                 <button
-                  key={pillar}
+                  key={category}
                   type="button"
                   role="tab"
                   aria-selected={active}
-                  onClick={() => onSelectPillar(active ? null : pillar)}
+                  onClick={() => onSelectCategory(active ? null : category)}
                   className={`rounded-md border px-3 py-1.5 font-mono text-xs transition ${
                     active
                       ? 'border-gold bg-navy-secondary font-semibold text-white'
                       : 'border-line bg-slatebg text-body hover:border-gold hover:text-navy'
                   }`}
                 >
-                  {pillar} <span className={active ? 'text-gold' : 'text-muted'}>({count})</span>
+                  {category}{' '}
+                  <span className={active ? 'text-gold' : 'text-muted'}>({count})</span>
                 </button>
               );
             })}
@@ -86,8 +92,8 @@ export function UnifiedArchive({
               </>
             ) : (
               <>
-                No filter active ({PORTFOLIO_ENTRIES.length} entries indexed · click a skill or
-                pillar to expand)
+                No filter active ({PORTFOLIO_ENTRIES.length} entries indexed · select a skill or
+                category to expand)
               </>
             )}
             {selectedSkill && (
@@ -116,13 +122,13 @@ export function UnifiedArchive({
         {!hasSelection ? (
           <div className="mt-5 flex flex-col items-start justify-between gap-4 rounded-xl border border-line bg-slatebg p-5 sm:flex-row sm:items-center">
             <p className="text-sm text-body">
-              Archive is collapsed by default to keep the page fast to scan. Select a{' '}
-              <span className="font-semibold text-navy">Skill Proof</span> node above or pick a{' '}
-              <span className="font-semibold text-navy">Pillar</span> tab to view matching cards.
+              Projects are collapsed by default so the page stays fast to scan. Select a{' '}
+              <span className="font-semibold text-navy">Skill</span> above, tap a metric in the
+              hero, or choose a category tab.
             </p>
             <button
               type="button"
-              onClick={() => onSelectPillar('All')}
+              onClick={() => onSelectCategory('All')}
               className="shrink-0 rounded-md bg-navy px-4 py-2 font-mono text-xs font-semibold text-white transition hover:bg-navy-secondary"
             >
               Show All {PORTFOLIO_ENTRIES.length} Entries
@@ -131,7 +137,7 @@ export function UnifiedArchive({
         ) : filtered.length === 0 ? (
           <div className="mt-6 rounded-xl border border-line bg-slatebg p-8 text-center">
             <p className="font-mono text-sm text-navy">
-              No entries match both [{selectedPillar}] and [{selectedSkill}].
+              No entries match both [{selectedCategory}] and [{selectedSkill}].
             </p>
             <button
               type="button"
@@ -184,7 +190,11 @@ export function UnifiedArchive({
 
                   <div className="p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="inline-block rounded border border-gold/50 bg-gold-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-navy">
+                      <span
+                        className={`inline-block rounded border px-2 py-0.5 font-mono text-[11px] font-semibold ${tierBadgeStyle(
+                          entry.entryTier
+                        )}`}
+                      >
                         {entry.outcomeBadge}
                       </span>
                       <span className="font-mono text-[11px] text-muted">{entry.date}</span>
@@ -202,12 +212,12 @@ export function UnifiedArchive({
 
                 <div className="flex items-center justify-between gap-2 border-t border-line bg-slatebg/60 px-5 py-3">
                   <div className="flex flex-wrap gap-1.5">
-                    {entry.pillars.slice(0, 2).map((pillar) => (
+                    {entry.categories.slice(0, 2).map((cat) => (
                       <span
-                        key={pillar}
+                        key={cat}
                         className="rounded border border-line bg-white px-2 py-0.5 font-mono text-[11px] text-muted"
                       >
-                        {pillar}
+                        {cat}
                       </span>
                     ))}
                   </div>

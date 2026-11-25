@@ -1,10 +1,10 @@
 import { RotateCcw } from 'lucide-react';
 import {
-  HARD_SKILLS,
+  CORE_OPS_SKILLS,
   PORTFOLIO_ENTRIES,
-  SOFT_OPS_SKILLS,
   SkillNode,
   SkillNodeId,
+  TECHNICAL_SKILLS,
 } from '../data/portfolioEntries';
 
 interface SkillProofTreeProps {
@@ -34,8 +34,17 @@ function SkillButton({
           : 'border-line bg-white text-navy hover:border-gold'
       }`}
     >
-      <div className="flex items-center justify-between gap-2">
-        <span className="font-display text-sm font-semibold">{node.id}</span>
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <span className="font-display text-sm font-semibold">{node.id}</span>
+          <span
+            className={`ml-2 inline-block font-mono text-[10px] ${
+              active ? 'text-slate-300' : 'text-muted'
+            }`}
+          >
+            ({node.covers})
+          </span>
+        </div>
         <span
           className={`shrink-0 rounded px-2 py-0.5 font-mono text-[11px] font-medium ${
             active ? 'bg-gold/20 text-gold' : 'bg-slatebg text-muted'
@@ -44,7 +53,7 @@ function SkillButton({
           {count} {count === 1 ? 'proof' : 'proofs'}
         </span>
       </div>
-      <p className={`mt-1 text-xs leading-relaxed ${active ? 'text-slate-200' : 'text-muted'}`}>
+      <p className={`mt-1.5 text-xs leading-relaxed ${active ? 'text-slate-200' : 'text-muted'}`}>
         {node.blurb}
       </p>
     </button>
@@ -62,13 +71,13 @@ export function SkillProofTree({ selectedSkill, onSelectSkill }: SkillProofTreeP
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted">
-                Interactive Skill Proof Tree
+                Skills -&gt; Proof
               </span>
               <h2 className="mt-0.5 font-display text-xl font-bold text-navy sm:text-2xl">
-                Every Claim Mapped to Shipped Evidence
+                Skills
               </h2>
               <p className="mt-1 text-sm text-body">
-                Select any hard or operational skill below to filter the archive to verified entries.
+                Technical and operational skills mapped directly to shipped work.
               </p>
             </div>
 
@@ -88,10 +97,10 @@ export function SkillProofTree({ selectedSkill, onSelectSkill }: SkillProofTreeP
             <div>
               <div className="mb-2.5 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-navy">
                 <span className="h-2 w-2 rounded-full bg-navy" />
-                <span>Column A · Hard Engineering &amp; Security</span>
+                <span>Column A · Technical Skills</span>
               </div>
               <div className="space-y-2.5">
-                {HARD_SKILLS.map((node) => (
+                {TECHNICAL_SKILLS.map((node) => (
                   <SkillButton
                     key={node.id}
                     node={node}
@@ -106,10 +115,10 @@ export function SkillProofTree({ selectedSkill, onSelectSkill }: SkillProofTreeP
             <div>
               <div className="mb-2.5 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-navy">
                 <span className="h-2 w-2 rounded-full bg-gold" />
-                <span>Column B · Soft &amp; Live Operations</span>
+                <span>Column B · Core &amp; Operational Skills</span>
               </div>
               <div className="space-y-2.5">
-                {SOFT_OPS_SKILLS.map((node) => (
+                {CORE_OPS_SKILLS.map((node) => (
                   <SkillButton
                     key={node.id}
                     node={node}

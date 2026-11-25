@@ -9,6 +9,17 @@ export function CredentialsFooter() {
           {PROFILE.education.institution} B.Eng. (87.9% Dean&apos;s List)
         </div>
         <div className="flex flex-wrap items-center gap-4">
+          <a href={PROFILE.links.github} target="_blank" rel="noreferrer" className="hover:text-navy">
+            GitHub
+          </a>
+          <a
+            href={PROFILE.links.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-navy"
+          >
+            LinkedIn
+          </a>
           <a
             href={CERTIFICATIONS[0]?.url}
             target="_blank"
@@ -19,9 +30,6 @@ export function CredentialsFooter() {
           </a>
           <a href={PROFILE.links.medium} target="_blank" rel="noreferrer" className="hover:text-navy">
             Medium
-          </a>
-          <a href={`mailto:${PROFILE.email}`} className="font-semibold text-navy hover:text-gold">
-            {PROFILE.email}
           </a>
         </div>
       </div>

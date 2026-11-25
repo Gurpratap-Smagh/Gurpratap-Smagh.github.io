@@ -1,11 +1,15 @@
-const HERO_METRICS = [
-  { value: '4', label: 'Hackathon Wins' },
-  { value: '2', label: 'International Onsite CTF Finals' },
-  { value: '3rd Yr', label: 'B.Eng. Info Systems' },
-  { value: 'HumberCTF', label: 'THEM?!' },
-];
+import { ArrowDownRight, ExternalLink } from 'lucide-react';
 
-export function SplitHero() {
+interface SplitHeroProps {
+  onOpenHackathons: () => void;
+  onOpenCtfs: () => void;
+}
+
+const HUMBER_PROFILE_URL =
+  'https://humber.ca/applied-technology/articles/from-humber-to-the-global-cybersecurity-stage';
+const THEMCTF_URL = 'https://themctf.com/';
+
+export function SplitHero({ onOpenHackathons, onOpenCtfs }: SplitHeroProps) {
   return (
     <section id="top" className="border-b border-line bg-white py-8 sm:py-10">
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-8">
@@ -34,18 +38,64 @@ export function SplitHero() {
           </p>
 
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-body">
-            I build zero-trust L7 honeypot telemetry pipelines and read-only cloud incident triage
-            agents, extract firmware under AI-free CTF hardware rules, and run live incident ops
-            for global competitions.
+            Third-year engineering student focused on DFIR, IoT security, and incident response.
+            Whether it is a hackathon build, a blockchain prototype, or a CTF challenge, I ask the
+            right questions early, align the team around a concrete plan, and deliver work that
+            holds up in code and on stage.
           </p>
 
           <div className="mt-5 grid grid-cols-2 divide-y divide-white/10 overflow-hidden rounded-lg bg-navy text-white sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-            {HERO_METRICS.map((m) => (
-              <div key={m.label} className="px-4 py-3">
-                <div className="font-mono text-lg font-bold text-gold sm:text-xl">{m.value}</div>
-                <div className="mt-0.5 text-xs font-medium text-slate-200">{m.label}</div>
+            <button
+              type="button"
+              onClick={onOpenHackathons}
+              className="group px-4 py-3 text-left transition hover:bg-navy-secondary"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <span className="font-mono text-lg font-bold text-gold sm:text-xl">4</span>
+                <ArrowDownRight className="h-3 w-3 opacity-70 transition group-hover:text-gold" />
               </div>
-            ))}
+              <div className="mt-0.5 text-xs font-medium text-slate-200">Hackathon Wins</div>
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenCtfs}
+              className="group px-4 py-3 text-left transition hover:bg-navy-secondary"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <span className="font-mono text-lg font-bold text-gold sm:text-xl">2</span>
+                <ArrowDownRight className="h-3 w-3 opacity-70 transition group-hover:text-gold" />
+              </div>
+              <div className="mt-0.5 text-xs font-medium text-slate-200">
+                International Onsite CTF Finals
+              </div>
+            </button>
+
+            <a
+              href={HUMBER_PROFILE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group block px-4 py-3 text-left transition hover:bg-navy-secondary"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <span className="font-mono text-lg font-bold text-gold sm:text-xl">3rd Yr</span>
+                <ExternalLink className="h-3 w-3 opacity-70 transition group-hover:text-gold" />
+              </div>
+              <div className="mt-0.5 text-xs font-medium text-slate-200">B.Eng. Info Systems</div>
+            </a>
+
+            <a
+              href={THEMCTF_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group block px-4 py-3 text-left transition hover:bg-navy-secondary"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <span className="font-mono text-lg font-bold text-gold sm:text-xl">HumberCTF</span>
+                <ExternalLink className="h-3 w-3 opacity-70 transition group-hover:text-gold" />
+              </div>
+              <div className="mt-0.5 text-xs font-medium text-slate-200">THEM?!</div>
+            </a>
           </div>
         </div>
       </div>

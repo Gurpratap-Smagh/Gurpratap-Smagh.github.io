@@ -3,11 +3,8 @@ import { Menu, X } from 'lucide-react';
 import { PROFILE } from '../data/profile';
 
 const JUMP_LINKS = [
-  { label: 'Proof', href: '#proof' },
-  { label: 'Certs', href: '#certs' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Archive', href: '#archive' },
-  { label: 'Conferences', href: '#events' },
+  { label: 'Projects', href: '#projects' },
 ];
 
 export function Navbar() {
@@ -25,7 +22,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Section navigation">
+        <nav className="hidden items-center gap-6 sm:flex" aria-label="Section navigation">
           {JUMP_LINKS.map((item) => (
             <a
               key={item.href}
@@ -37,7 +34,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="hidden items-center gap-4 sm:flex">
           <a
             href={PROFILE.links.github}
             target="_blank"
@@ -54,20 +51,6 @@ export function Navbar() {
           >
             LinkedIn
           </a>
-          <a
-            href="/Gurpratap_Smagh_Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-md bg-navy px-3 py-1.5 font-mono text-xs font-semibold text-white transition hover:bg-navy-secondary"
-          >
-            Resume PDF
-          </a>
-          <a
-            href={`mailto:${PROFILE.email}`}
-            className="rounded-md border border-navy px-3 py-1.5 font-mono text-xs font-semibold text-navy transition hover:border-gold hover:bg-gold-soft"
-          >
-            Email
-          </a>
         </div>
 
         <button
@@ -83,7 +66,7 @@ export function Navbar() {
 
       {menuOpen && (
         <div className="border-t border-line bg-white px-4 py-3 sm:hidden">
-          <div className="flex flex-wrap gap-3 pb-3">
+          <div className="flex flex-wrap items-center gap-4">
             {JUMP_LINKS.map((item) => (
               <a
                 key={item.href}
@@ -94,13 +77,11 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-          </div>
-          <div className="flex flex-wrap items-center gap-2.5 border-t border-line pt-3">
             <a
               href={PROFILE.links.github}
               target="_blank"
               rel="noreferrer"
-              className="font-mono text-xs font-medium text-body"
+              className="font-mono text-xs font-medium text-body hover:text-navy"
             >
               GitHub
             </a>
@@ -108,23 +89,9 @@ export function Navbar() {
               href={PROFILE.links.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="font-mono text-xs font-medium text-body"
+              className="font-mono text-xs font-medium text-body hover:text-navy"
             >
               LinkedIn
-            </a>
-            <a
-              href="/Gurpratap_Smagh_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-md bg-navy px-3 py-1.5 font-mono text-xs font-semibold text-white"
-            >
-              Resume PDF
-            </a>
-            <a
-              href={`mailto:${PROFILE.email}`}
-              className="rounded-md border border-navy px-3 py-1.5 font-mono text-xs font-semibold text-navy"
-            >
-              Email
             </a>
           </div>
         </div>

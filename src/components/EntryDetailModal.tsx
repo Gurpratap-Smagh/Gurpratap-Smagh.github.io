@@ -305,12 +305,12 @@ export function EntryDetailModal({ entry, onClose }: EntryDetailModalProps) {
                 </div>
 
                 <div className="flex flex-wrap gap-1.5">
-                  {entry.pillars.map((p) => (
+                  {entry.categories.map((cat) => (
                     <span
-                      key={p}
+                      key={cat}
                       className="rounded border border-line bg-white px-2.5 py-1 font-mono text-xs text-navy"
                     >
-                      Pillar: {p}
+                      Category: {cat}
                     </span>
                   ))}
                 </div>

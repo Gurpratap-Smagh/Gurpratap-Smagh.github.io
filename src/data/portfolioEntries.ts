@@ -1,72 +1,95 @@
-export type Pillar = 'Security' | 'Engineering' | 'AI' | 'Ops & Strategy';
+export type ProjectCategory =
+  | 'Hackathons'
+  | 'CTF Competitions'
+  | 'Engineering & IoT'
+  | 'CTF Writeups';
 
-export const PILLARS: ('All' | Pillar)[] = [
+export const PROJECT_CATEGORIES: ('All' | ProjectCategory)[] = [
   'All',
-  'Security',
-  'Engineering',
-  'AI',
-  'Ops & Strategy',
+  'Hackathons',
+  'CTF Competitions',
+  'Engineering & IoT',
+  'CTF Writeups',
 ];
 
+export type EntryTier = 'competition' | 'project' | 'writeup';
+
 export type SkillNodeId =
-  | 'DFIR & Forensics'
-  | 'Hardware & IoT'
-  | 'Threat Infra & Honeypots'
-  | 'Full-Stack / AI / Blockchain'
-  | 'Crisis Regulation'
-  | 'Live Incident Triage'
-  | 'Unscripted Pitching'
-  | 'Team Alignment & Ops';
+  | 'Security, DFIR & Incident Response'
+  | 'Software Engineering & Systems'
+  | 'Applied AI & Data Workflows'
+  | 'Hardware, IoT & Embedded'
+  | 'Problem Scoping & Threat Modeling'
+  | 'Technical Communication'
+  | 'Teamwork & Execution'
+  | 'Incident Leadership Under Pressure';
 
 export interface SkillNode {
   id: SkillNodeId;
-  group: 'hard' | 'soft';
+  group: 'technical' | 'operational';
+  covers: string;
   blurb: string;
 }
 
-export const HARD_SKILLS: SkillNode[] = [
+export const TECHNICAL_SKILLS: SkillNode[] = [
   {
-    id: 'DFIR & Forensics',
-    group: 'hard',
-    blurb: 'Memory/disk carving, Windows Registry & Chronicle YARA-L, nested binary triage.',
+    id: 'Security, DFIR & Incident Response',
+    group: 'technical',
+    covers: 'Security roles',
+    blurb:
+      'Raw disk/filesystem forensics, ELF reverse engineering, live infra containment, PHP/HTTP deception honeypots, Elastic/Fluent Bit telemetry.',
   },
   {
-    id: 'Hardware & IoT',
-    group: 'hard',
-    blurb: 'CH341A EEPROM readout, fault injection, FPGA UART MFA, Raspberry Pi sensors, ROS2.',
+    id: 'Software Engineering & Systems',
+    group: 'technical',
+    covers: 'Dev roles',
+    blurb:
+      'Python, full-stack web apps, WebAuthn/PassKit, cryptographic verification, Docker, Linux/WireGuard networking, automation tooling.',
   },
   {
-    id: 'Threat Infra & Honeypots',
-    group: 'hard',
-    blurb: 'Zero-trust edge telemetry (WireGuard + Fluent Bit + Elastic), CTFd/VPN hardening.',
+    id: 'Applied AI & Data Workflows',
+    group: 'technical',
+    covers: 'AI roles',
+    blurb:
+      'Incident triage agents, MCP & memory-bank architectures, anomaly detection (scikit-learn, TF-IDF, clustering), prompt/eval pipelines.',
   },
   {
-    id: 'Full-Stack / AI / Blockchain',
-    group: 'hard',
-    blurb: 'Google Cloud ADK + SPIFFE, WebAuthn + PassKit, Foundry/Slither, deterministic RAG.',
+    id: 'Hardware, IoT & Embedded',
+    group: 'technical',
+    covers: 'IoT / Hardware roles',
+    blurb:
+      'Wireless Sensor Networks (WSN), ESP32/Raspberry Pi, Zigbee/NFC/UART, CH341A EEPROM readout, logic analysis, fault injection.',
   },
 ];
 
-export const SOFT_OPS_SKILLS: SkillNode[] = [
+export const CORE_OPS_SKILLS: SkillNode[] = [
   {
-    id: 'Crisis Regulation',
-    group: 'soft',
-    blurb: 'De-escalating disputes under live load, owning V1 failures publicly, 48h patch runs.',
+    id: 'Problem Scoping & Threat Modeling',
+    group: 'operational',
+    covers: 'PM + Security + Dev',
+    blurb:
+      'Finding edge cases and blind spots early, questioning ambiguous specs, turning vague prompts into clear execution plans.',
   },
   {
-    id: 'Live Incident Triage',
-    group: 'soft',
-    blurb: 'Containing compromised GCP hosts, causal alert routing, deterministic kill-chain calls.',
+    id: 'Technical Communication',
+    group: 'operational',
+    covers: 'PM + AI + Dev + Security',
+    blurb:
+      'Articulating complex architectures clearly to engineers and executives, stage pitches, technical writeups, and C-suite Q&A.',
   },
   {
-    id: 'Unscripted Pitching',
-    group: 'soft',
-    blurb: 'Solo City Hall pitches (200+ crowd), C-suite Q&A, FAST institutional funding briefs.',
+    id: 'Teamwork & Execution',
+    group: 'operational',
+    covers: 'All 4 tracks',
+    blurb:
+      'Aligning multi-discipline hackathon teams, dividing ownership cleanly, mentoring new builders, and shipping under tight deadlines.',
   },
   {
-    id: 'Team Alignment & Ops',
-    group: 'soft',
-    blurb: 'Co-leading 5 builders, mentoring first-timers, async Canada-Africa merges, playbooks.',
+    id: 'Incident Leadership Under Pressure',
+    group: 'operational',
+    covers: 'Security + PM',
+    blurb:
+      'Keeping rooms calm during live attacks, splitting noise from facts, delegating recovery tasks, and writing post-incident playbooks.',
   },
 ];
 
@@ -82,7 +105,8 @@ export interface PortfolioEntry {
   date: string;
   venue: string;
   outcomeBadge: string;
-  pillars: Pillar[];
+  entryTier: EntryTier;
+  categories: ProjectCategory[];
   skillsProven: SkillNodeId[];
   thumbnail?: string;
   thumbLabel?: string;
@@ -104,15 +128,17 @@ export interface PortfolioEntry {
 export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   {
     id: 'supplychek-secops',
-    title: 'SupplyChek: Zero-Trust Freight Instruction Signing',
+    title: 'SupplyChek: Signed Freight Instruction Verification',
     date: 'Sep 25 to 27, 2026',
     venue: 'Brampton SecOps Hackathon (Catalyst & TMU)',
     outcomeBadge: '3rd Place · $1,000',
-    pillars: ['Security', 'Ops & Strategy'],
+    entryTier: 'competition',
+    categories: ['Hackathons', 'Engineering & IoT'],
     skillsProven: [
-      'Full-Stack / AI / Blockchain',
-      'Unscripted Pitching',
-      'Team Alignment & Ops',
+      'Software Engineering & Systems',
+      'Problem Scoping & Threat Modeling',
+      'Technical Communication',
+      'Teamwork & Execution',
     ],
     thumbnail: '/photos/bramsec/podium-3rd-place-check.jpg',
     summary:
@@ -148,12 +174,13 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Jun 12 to 16, 2026',
     venue: 'ESNA de Bretagne, Rennes/Bruz, France (THEM?!)',
     outcomeBadge: '9th Student / 14th Overall',
-    pillars: ['Security', 'Ops & Strategy'],
+    entryTier: 'competition',
+    categories: ['CTF Competitions'],
     skillsProven: [
-      'Hardware & IoT',
-      'DFIR & Forensics',
-      'Unscripted Pitching',
-      'Team Alignment & Ops',
+      'Security, DFIR & Incident Response',
+      'Hardware, IoT & Embedded',
+      'Technical Communication',
+      'Teamwork & Execution',
     ],
     thumbnail: '/photos/france/esna-group-finale.jpg',
     summary:
@@ -193,16 +220,18 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Mar 2026 to Present',
     venue: 'OmniPulse Tech 2026 (Humber Barrett CTI)',
     outcomeBadge: '1,900+ Req / 3 Days (V2)',
-    pillars: ['Security', 'Engineering'],
+    entryTier: 'project',
+    categories: ['Engineering & IoT'],
     skillsProven: [
-      'Threat Infra & Honeypots',
-      'DFIR & Forensics',
-      'Hardware & IoT',
-      'Live Incident Triage',
+      'Security, DFIR & Incident Response',
+      'Software Engineering & Systems',
+      'Applied AI & Data Workflows',
+      'Hardware, IoT & Embedded',
+      'Problem Scoping & Threat Modeling',
     ],
     thumbnail: '/photos/omnipulse/kibana-geoip-demo.jpg',
     summary:
-      'I built a stateless Raspberry Pi sensor network that keeps zero SIEM ports exposed while flagging unmapped exploits via causal escalation scoring.',
+      'Built a stateless Raspberry Pi deception sensor network that keeps SIEM ingestion ports private over WireGuard while flagging unmapped exploits via causal escalation scoring.',
     mediaGallery: [
       {
         src: '/photos/omnipulse/kibana-geoip-demo.jpg',
@@ -211,10 +240,10 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       },
     ],
     technicalBreakdown:
-      'Edge Raspberry Pi decoys (Apache/PHP, S7Comm, Cowrie) perform zero local analysis. They stamp sensor.action and ship raw JSON over WireGuard and Fluent Bit into Elasticsearch.\n\nPython correlator.py polls via Point-in-Time cursor every 3s, strips empty GET SHA-256 (e3b0c442...), fingerprints exact HTTP header arrival order via MD5[:8], checks Shannon entropy (>4.8 bits/byte), and separates lure:* probes from primitive:* commands (primitive:id, primitive:whoami) to flag causal_escalation: true.',
-    stack: ['Python', 'Elasticsearch', 'Kibana', 'WireGuard', 'Fluent Bit', 'SQLite', 'FastAPI'],
+      'Edge Raspberry Pi decoys (Apache/PHP, S7Comm, Cowrie) perform zero local analysis. They stamp sensor.action and ship raw JSON over WireGuard and Fluent Bit into Elasticsearch.\n\nPython correlator.py polls via Point-in-Time cursor every 3s, strips empty GET SHA-256 (e3b0c442...), fingerprints exact HTTP header arrival order via MD5[:8], checks Shannon entropy (>4.8 bits/byte) alongside clustering/TF-IDF grouping, and separates lure:* probes from primitive:* commands to flag causal_escalation: true.',
+    stack: ['Python', 'Elasticsearch', 'Kibana', 'WireGuard', 'Fluent Bit', 'scikit-learn', 'Raspberry Pi'],
     fieldNotes:
-      'V1 ran on a Raspberry Pi disguised as a CANDU Siemens S7-1200 PLC inside my school locker over a hotspot and reverse SSH tunnel (7,856 hits / 1,481 IPs). An overly aggressive firewall script locked me out, Windows mangled the SD partition table on inspection, and a DIY buck converter brownout killed SSH mid-write. Instead of reflashing, I hex-carved the raw evidence partitions back out and published every V1 flaw openly. That transparency caught industry feedback from Guidewire and R.U.D.R.A and directly shaped V2.',
+      'V1 ran on a Raspberry Pi disguised as a CANDU Siemens S7-1200 PLC inside my school locker over a hotspot and reverse SSH tunnel (7,856 hits / 1,481 IPs). An overly aggressive firewall script locked me out, Windows mangled the SD partition table on inspection, and a DIY buck converter brownout killed SSH mid-write. Instead of reflashing, I hex-carved the raw evidence partitions back out and published every V1 flaw openly, drawing feedback from Guidewire and R.U.D.R.A that shaped V2.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/hp-attack-panel',
       writeup: 'https://medium.com/@gsmag404',
@@ -228,15 +257,17 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Nov 2026 (R&D: Dec 2026 to Aug 2027)',
     venue: 'Brampton AI Innovator Hackathon (Brampton City Hall)',
     outcomeBadge: 'Track Winner · Proplr R&D',
-    pillars: ['AI', 'Security'],
+    entryTier: 'competition',
+    categories: ['Hackathons'],
     skillsProven: [
-      'Full-Stack / AI / Blockchain',
-      'Live Incident Triage',
-      'Unscripted Pitching',
+      'Applied AI & Data Workflows',
+      'Problem Scoping & Threat Modeling',
+      'Technical Communication',
+      'Security, DFIR & Incident Response',
     ],
     thumbnail: '/photos/hackathons/sophix-brampton-stage.jpg',
     summary:
-      'I architected a read-only incident triage agent on Google Cloud ADK and SPIFFE Agent Identity that traverses CMDB dependency graphs and runbooks to route alerts accurately.',
+      'Architected a read-only incident triage agent on Google Cloud ADK and SPIFFE Agent Identity that traverses CMDB dependency graphs and runbooks to route alerts accurately.',
     mediaGallery: [
       {
         src: '/photos/hackathons/sophix-brampton-stage.jpg',
@@ -262,17 +293,18 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'THEM?!CTF 2026: Live Infra Ops & GCP Breach IR',
     date: 'May 29 to 31, 2026',
     venue: 'THEM?! International CTF (CTFtime Event 3209)',
-    outcomeBadge: 'Live IR · 1,500+ Players',
-    pillars: ['Security', 'Ops & Strategy'],
+    outcomeBadge: 'CTF Infra · 1,500+ Players',
+    entryTier: 'competition',
+    categories: ['CTF Competitions'],
     skillsProven: [
-      'Live Incident Triage',
-      'Crisis Regulation',
-      'Threat Infra & Honeypots',
-      'Team Alignment & Ops',
+      'Security, DFIR & Incident Response',
+      'Incident Leadership Under Pressure',
+      'Teamwork & Execution',
+      'Software Engineering & Systems',
     ],
     thumbnail: '/photos/themctf-2026-logo.jpg',
     summary:
-      'I contained a pre-launch GCP compromise across disk images and Flask code, mediated team conflict under fire, and kept CTFd/VPN infrastructure live for 1,500+ global players.',
+      'Contained a pre-launch GCP compromise across disk images and Flask code, mediated team conflict under fire, and kept CTFd/VPN infrastructure live for 1,500+ global players.',
     mediaGallery: [
       {
         src: '/photos/themctf-2026-logo.jpg',
@@ -286,8 +318,8 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       },
     ],
     technicalBreakdown:
-      'Days before launch, forensic triage across /mnt/ctfdisk auth.log, wtmp (last), and /tmp/ssh-* agent-forwarding sockets uncovered unauthorized access and an injected Flask @app.after_request admin escalation backdoor (_promote_them_team_member).\n\nDeclared Total Loss to force a clean rebuild, patched VPN/server routing mid-event across 40+ challenges ($6,000+ prize pool, max 25.00 weight), authored DFIRxBlockchain challenges, and wrote the team configuration playbook.',
-    stack: ['Linux Disk Forensics', 'GCP', 'Flask / Python', 'CTFd / WireGuard VPN', 'Incident Playbooks'],
+      'Days before launch, forensic triage across /mnt/ctfdisk auth.log, wtmp (last), and /tmp/ssh-* agent-forwarding sockets uncovered unauthorized access and an injected Flask @app.after_request admin escalation backdoor (_promote_them_team_member).\n\nDeclared Total Loss to force a clean rebuild, patched Docker/VPN/server routing mid-event across 40+ challenges ($6,000+ prize pool, max 25.00 weight), authored DFIRxBlockchain challenges, and wrote the team configuration playbook.',
+    stack: ['Linux Disk Forensics', 'GCP', 'Flask / Python', 'Docker / WireGuard VPN', 'Incident Playbooks'],
     fieldNotes:
       'Infra failures triggered sharp friction between two senior leads while over 1,000 participants waited on the scoreboard. With zero formal authority, I calmed the channel down, shifted the argument to concrete disk checks and containment owners, ran the 48-hour live triage loop cleanly, and turned what broke into the SOP the team uses today.',
     links: {
@@ -300,10 +332,11 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     id: 'voltage-spike-writeup',
     title: 'I Shocked a Chip and It Gave Me the Flag.',
     date: 'Jun 13, 2026',
-    venue: 'Midnight Flag CTF Finals · Hardware Track',
-    outcomeBadge: 'Hardware Writeup · PDF',
-    pillars: ['Security', 'Engineering'],
-    skillsProven: ['Hardware & IoT', 'DFIR & Forensics'],
+    venue: 'Midnight Flag CTF Finals · Hardware Challenge',
+    outcomeBadge: 'Hardware Challenge · PDF',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: ['Hardware, IoT & Embedded', 'Technical Communication'],
     thumbnail: '/photos/france/fault-injection-pcb.jpg',
     summary:
       'Five hours mapping CH341A pinouts with no AI or docs in France before landing a manual power-rail voltage spike that bypassed the firmware check in seconds.',
@@ -318,7 +351,7 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Interfaced a custom undocumented microcontroller and 24Cxxx EEPROM with a CH341A programmer in an AI-banned competition hall.\n\nAfter cross-referencing loosely related datasheets for five hours to establish clean serial comms, we skipped nanosecond pulse generators and introduced a controlled manual voltage surge on the power rail to glitch the instruction check.',
     stack: ['CH341A Programmer', '24Cxxx EEPROM', 'Voltage Fault Injection', 'Datasheet Pinout Mapping'],
     fieldNotes:
-      'Writing without Copilot or forum threads revealed the exact line between my knowledge and my tools. Setup looked like low-value busywork until I spent five hours stuck before reading byte one; the exploit itself finished in seconds.',
+      'Working without Copilot or forum threads revealed the exact line between my knowledge and my tools. Setup looked like low-value busywork until I spent five hours stuck before reading byte one; the exploit itself finished in seconds.',
     links: {
       pdf: '/writeups/midnight-flag-voltage-fault-injection.pdf',
     },
@@ -330,8 +363,14 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Oct to Nov 2025',
     venue: 'Humber Longo Centre & BramHacks 2025',
     outcomeBadge: '1st Place · AchievaFlow',
-    pillars: ['AI', 'Ops & Strategy'],
-    skillsProven: ['Unscripted Pitching', 'Team Alignment & Ops', 'Hardware & IoT'],
+    entryTier: 'competition',
+    categories: ['Hackathons'],
+    skillsProven: [
+      'Applied AI & Data Workflows',
+      'Problem Scoping & Threat Modeling',
+      'Technical Communication',
+      'Teamwork & Execution',
+    ],
     thumbnail: '/photos/hackathons/achievaflow-stage.jpg',
     summary:
       'Combined medical, business, and engineering teammates to clinch 1st Place at AchievaFlow, then co-built Parasynth terrain-to-SolidWorks CAD generation at BramHacks.',
@@ -362,9 +401,13 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'Google Mandiant Investigation: AD Kill-Chain Hunt',
     date: 'Nov 2026',
     venue: "Google Mandiant · Humber SecOps & Ontario's Cyber Summit",
-    outcomeBadge: 'Mandiant · AD Kill-Chain',
-    pillars: ['Security'],
-    skillsProven: ['DFIR & Forensics', 'Live Incident Triage'],
+    outcomeBadge: 'Mandiant · AD Investigation',
+    entryTier: 'competition',
+    categories: ['CTF Competitions'],
+    skillsProven: [
+      'Security, DFIR & Incident Response',
+      'Incident Leadership Under Pressure',
+    ],
     thumbnail: '/photos/ongov/ontario-cyber-summit-stage.jpg',
     summary:
       'Reconstructed an end-to-end Google Mandiant enterprise AD intrusion investigation spanning SyncAuthToken theft, DLL sideloading, LSASS dumping, DCSync, and covert exfiltration.',
@@ -376,36 +419,41 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       },
     ],
     technicalBreakdown:
-      'Authored multi-stage YARA-L UDM queries in Google SecOps Chronicle for the Mandiant investigation across Sysmon events (1, 3, 17, 18, 23, 26), PowerShell 4104 script blocks, and Windows Security 4624 logs.\n\nCorrelated PID 9012 to unmanaged PowerShell host scs_sync.exe, ntkd.exe/dbgeng.dll sideloading, DCSync replication GUID 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2, \\dnsresolver_pipe, and staging domain chemscalere.com.',
-    stack: ['Google Mandiant IR', 'Google SecOps Chronicle', 'YARA-L / UDM', 'Sysmon', 'Windows Event Logs'],
+      'Correlated Sysmon events (1, 3, 17, 18, 23, 26), PowerShell 4104 script blocks, and Windows Security 4624 logs inside Google SecOps for the Mandiant investigation.\n\nPinned PID 9012 to unmanaged PowerShell host scs_sync.exe, ntkd.exe/dbgeng.dll sideloading, DCSync replication GUID 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2, \\dnsresolver_pipe, and staging domain chemscalere.com.',
+    stack: ['Google Mandiant IR', 'Google SecOps', 'Sysmon Telemetry', 'Windows Event Logs'],
     fieldNotes:
-      'Tracing lateral movement through UDM fields rather than isolated alerts kept false leads out when reconstructing both host execution and DNS exfiltration infrastructure.',
+      'Tracing lateral movement through structured host telemetry rather than isolated alerts kept false leads out when reconstructing both host execution and DNS exfiltration infrastructure.',
     links: {},
     featuredInReel: true,
   },
   {
-    id: 'humber-robotics-asv',
-    title: 'Humber ASV SeaForge & SpiderbotX Walker',
-    date: 'Apr 2025 to 2026',
+    id: 'humber-wireless-asv',
+    title: 'Humber ASV Web Platform & Wireless IoT Labs (ESP32 / WSN)',
+    date: 'Apr 2025 to Nov 2026',
     venue: 'Humber Polytechnic & Barrett CTI',
-    outcomeBadge: 'ROS2 + Barrett CTI',
-    pillars: ['Engineering'],
-    skillsProven: ['Hardware & IoT', 'Full-Stack / AI / Blockchain'],
+    outcomeBadge: 'React Web + ESP32 / WSN',
+    entryTier: 'project',
+    categories: ['Engineering & IoT'],
+    skillsProven: [
+      'Hardware, IoT & Embedded',
+      'Software Engineering & Systems',
+      'Teamwork & Execution',
+    ],
     thumbnail: '/photos/bramhacks/bramhacks-team-frame.jpg',
     summary:
-      'Decoupled ROS2 Jetson autonomy loops simulated in NVIDIA Isaac Sim for Humber ASV alongside the 10 kg Klann-linkage SpiderbotX walking robot.',
+      'Built ESP32 SoftAP/Station TCP sensor telemetry labs (WSN), the HumberASV React platform, and co-built the Year 1 Arduino SpiderbotX walker demoed at Barrett CTI.',
     mediaGallery: [
       {
         src: '/photos/bramhacks/bramhacks-team-frame.jpg',
-        alt: 'Hardware and software robotics sprint team showcase',
+        alt: 'Hardware and software engineering showcase in Brampton/Etobicoke',
         caption: 'Hands-on hardware-software systems integration in Brampton/Etobicoke.',
       },
     ],
     technicalBreakdown:
-      'Built ROS2 sensor/actuation pipelines with GPS/MQTT telemetry verified in NVIDIA Isaac Sim and paired with a TypeScript/React SeaForge control interface.\n\nEarlier in Year 1, co-designed SolidWorks Klann-linkage leg assemblies and Arduino C++ ultrasonic rerouting for the 10 kg SpiderbotX walker demoed at Barrett CTI.',
-    stack: ['ROS2', 'NVIDIA Jetson', 'Isaac Sim', 'MQTT', 'SolidWorks', 'Arduino C++', 'React'],
+      'Built wireless sensor network (WSN) labs on ESP32 configuring Wi-Fi SoftAP and Station TCP sockets to stream TMP36 temperature readings into an LCD server, alongside Zigbee/NFC/UART hardware work.\n\nDeveloped the React/TypeScript web platform for Humber ASV and co-built the 10 kg Klann-linkage SpiderbotX walker in C++ with ultrasonic obstacle rerouting.',
+    stack: ['ESP32 / WSN', 'TCP Sockets', 'Arduino C++', 'React / TypeScript', 'SolidWorks'],
     fieldNotes:
-      'Hardware-in-the-loop delays exposed why decoupled ROS2 telemetry queues matter before putting any autonomous vessel on open water.',
+      'Testing real ESP32 wireless sensor links and motor timing side-by-side exposed packet framing and physical calibration constraints early.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/HumberASV-Website',
     },
@@ -417,11 +465,15 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Nov 2025 to Oct 2026',
     venue: 'Rogers Cybersecure Catalyst (TMU) · SANS GIAC GFACT',
     outcomeBadge: 'Top Performer 2026 · 91% GFACT',
-    pillars: ['Ops & Strategy', 'Security'],
-    skillsProven: ['Unscripted Pitching', 'Crisis Regulation', 'DFIR & Forensics'],
+    entryTier: 'competition',
+    categories: ['CTF Competitions'],
+    skillsProven: [
+      'Security, DFIR & Incident Response',
+      'Technical Communication',
+    ],
     thumbnail: '/photos/n3summit/n3-interview-sycodal.jpg',
     summary:
-      'I showed daily consistency from a November 2025 booth card through 200+ consecutive TryHackMe days, finishing 4th in CyberStart CTF and scoring 91% on GIAC GFACT (#8458).',
+      'Showed daily consistency from a November 2025 booth card through 200+ consecutive TryHackMe days, finishing 4th in CyberStart CTF and scoring 91% on GIAC GFACT (#8458).',
     mediaGallery: [
       {
         src: '/photos/n3summit/n3-interview-sycodal.jpg',
@@ -443,11 +495,16 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     id: 'holmes-osint-writeup',
     title: 'We Hunted a Killer Online (Midnight Flag OSINT)',
     date: 'Jun 14, 2026',
-    venue: 'Midnight Flag CTF Finals · OSINT',
-    outcomeBadge: 'OSINT Writeup · PDF',
-    pillars: ['Security', 'Ops & Strategy'],
-    skillsProven: ['DFIR & Forensics', 'Team Alignment & Ops'],
-    thumbLabel: 'OSINT // PDF DOSSIER',
+    venue: 'Midnight Flag CTF Finals · OSINT Challenge',
+    outcomeBadge: 'OSINT Challenge · PDF',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: [
+      'Security, DFIR & Incident Response',
+      'Teamwork & Execution',
+      'Technical Communication',
+    ],
+    thumbLabel: 'OSINT // PDF WRITEUP',
     summary:
       'Traced a suspect persona from an 1896 Philadelphia Inquirer clipping through Chronicling America, itch.io, Instagram Python screenshots, and GitHub commit 9c79ae0.',
     mediaGallery: [],
@@ -462,12 +519,17 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'fandrop-wallet',
-    title: 'FanDrop: Zero-PII Apple & Google Wallet Fan Pass',
+    title: 'FanDrop: Apple & Google Wallet Fan Pass',
     date: 'Oct 17 to 18, 2026',
     venue: 'Catalyst by Speer Hackathon (Toronto)',
     outcomeBadge: 'Track Winner · Catalyst',
-    pillars: ['Engineering', 'Ops & Strategy'],
-    skillsProven: ['Full-Stack / AI / Blockchain', 'Unscripted Pitching'],
+    entryTier: 'competition',
+    categories: ['Hackathons'],
+    skillsProven: [
+      'Software Engineering & Systems',
+      'Problem Scoping & Threat Modeling',
+      'Technical Communication',
+    ],
     thumbLabel: 'PASSKIT // WALLET',
     summary:
       'Replaced high-drop-off concert signup forms with a single QR tap installing a signed Apple .pkpass and RS256 Google Wallet pass for direct artist push updates.',
@@ -485,8 +547,14 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'May 9 to 10, 2026',
     venue: 'IBM Z x Sheridan Hackathon',
     outcomeBadge: 'Top 20 / 200 · IBM Z',
-    pillars: ['AI', 'Engineering'],
-    skillsProven: ['Full-Stack / AI / Blockchain', 'Team Alignment & Ops'],
+    entryTier: 'competition',
+    categories: ['Hackathons'],
+    skillsProven: [
+      'Applied AI & Data Workflows',
+      'Software Engineering & Systems',
+      'Teamwork & Execution',
+      'Problem Scoping & Threat Modeling',
+    ],
     thumbLabel: 'NEXT.JS // OPENFDA RAG',
     summary:
       'Co-led 5 builders (mentoring first-timers) to correlate scanned barcodes against Open Food Facts, openFDA recalls, and personal allergies with grounded RAG Q&A.',
@@ -507,18 +575,23 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'GiveHub: ZetaChain ZRC-20 Crowdfunding & CI Audit',
     date: 'Aug 2025 to Jan 2026',
     venue: 'ZetaChain x Google Cloud Buildathon',
-    outcomeBadge: 'Web3 + Slither Audit',
-    pillars: ['Engineering', 'Security'],
-    skillsProven: ['Full-Stack / AI / Blockchain', 'Threat Infra & Honeypots'],
-    thumbLabel: 'SOLIDITY // FOUNDRY',
+    outcomeBadge: 'Web3 Build + Audit',
+    entryTier: 'project',
+    categories: ['Hackathons', 'Engineering & IoT'],
+    skillsProven: [
+      'Software Engineering & Systems',
+      'Problem Scoping & Threat Modeling',
+      'Security, DFIR & Incident Response',
+    ],
+    thumbLabel: 'SOLIDITY // WEB3 CI',
     summary:
-      'Solo-built cross-chain ZRC-20 crowdfunding with live WebSocket updates, then returned months later to harden contracts with Foundry, Slither, and CodeQL CI gates.',
+      'Solo-built cross-chain ZRC-20 crowdfunding with live WebSocket updates, then returned months later to harden contracts, containers, and dependencies.',
     mediaGallery: [],
     technicalBreakdown:
-      'Wrote 21.5 KB CrossChainCrowdfund.sol enforcing non-custodial swap-and-forward settlement on ZetaChain, verified with Foundry unit/fuzz tests, locked down GCP container IAM permissions, and integrated Slither + CodeQL static security scans.',
-    stack: ['Solidity', 'Foundry', 'ZetaChain ZRC-20', 'Next.js', 'Slither', 'CodeQL'],
+      'Wrote CrossChainCrowdfund.sol enforcing non-custodial swap-and-forward settlement on ZetaChain, locked down GCP container IAM permissions, and integrated CodeQL static security scans and dependency auditing.',
+    stack: ['Solidity', 'ZetaChain ZRC-20', 'Next.js', 'GCP', 'CodeQL'],
     fieldNotes:
-      'Most hackathon repos rot the Sunday evening they are submitted. Going back in December to strip dependency issues and enforce Slither/CodeQL gates turned prototype code into clean engineering proof.',
+      'Most hackathon repos rot the Sunday evening they are submitted. Going back months later to strip vulnerable packages and tighten IAM/CI gates turned prototype code into durable engineering proof.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/Give-hub',
       demo: 'https://give-hub-nngk.vercel.app/',
@@ -526,22 +599,26 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     },
   },
   {
-    id: 'illumiauth-fpga',
-    title: 'IllumiAuth: Optical Environmental FPGA MFA',
+    id: 'illumiauth-mfa',
+    title: 'IllumiAuth: Environmental-Context Hardware MFA PoC',
     date: 'Dec 2025',
-    venue: 'Humber Polytechnic B.Eng. Design',
-    outcomeBadge: 'FPGA Physical MFA',
-    pillars: ['Engineering', 'Security'],
-    skillsProven: ['Hardware & IoT'],
-    thumbLabel: 'FPGA // UART // RUST',
+    venue: 'Humber Polytechnic Semester 3 Project',
+    outcomeBadge: 'Hardware Serial MFA PoC',
+    entryTier: 'project',
+    categories: ['Engineering & IoT'],
+    skillsProven: [
+      'Hardware, IoT & Embedded',
+      'Software Engineering & Systems',
+    ],
+    thumbLabel: 'UART // JAVAFX // RUST',
     summary:
-      'Built a hardware second factor that blocks host authentication unless ambient optical readings sampled by an FPGA match calibrated physical bounds.',
+      'Built a hardware-triggered login proof of concept that reads real-time ambient light over serial UART and blocks authentication until physical threshold checks match.',
     mediaGallery: [],
     technicalBreakdown:
-      'LDR analog voltage divider feeds FPGA ADC sampling and deterministic C noise filtering, streaming framed JSON packets over UART to a JavaFX/Rust host lock daemon.',
-    stack: ['FPGA', 'Low-Level C', 'ADC / UART', 'Rust', 'JavaFX'],
+      'Samples ambient light sensor thresholds over serial UART into a JavaFX desktop authentication client via JSerialComm with structured JSON parsing, paired with a Rust host state-monitoring tamper check PoC.',
+    stack: ['Serial UART / JSON', 'JavaFX / JSerialComm', 'Rust', 'Hardware MFA PoC'],
     fieldNotes:
-      'Calibrating optical hysteresis in C prevented fluorescent light flicker from locking users out while still rejecting flashlight spoofing attempts.',
+      'Adding sensor hysteresis prevented room flicker from locking sessions falsely while enforcing a real physical-presence gate before password entry.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/Illumi-Auth',
       post: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7406138958046236672',
@@ -552,10 +629,11 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'GitHub is Scary: The Illusion of Deletion',
     date: 'Mar 27, 2026',
     venue: 'TAMUctf 2026 · Medium Writeup',
-    outcomeBadge: 'Medium · Git Internals',
-    pillars: ['Security'],
-    skillsProven: ['DFIR & Forensics'],
-    thumbLabel: 'GIT OBJECTS // DFIR',
+    outcomeBadge: 'DFIR Writeup · Medium',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: ['Security, DFIR & Incident Response', 'Technical Communication'],
+    thumbLabel: 'GIT OBJECTS // WRITEUP',
     summary:
       'Walkthrough of how deleted commits and leaked secrets remain recoverable through dangling git objects, retained PR refs, and shared fork object pools.',
     mediaGallery: [],
@@ -573,9 +651,14 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'Retro Forensics: Srdnlen CTF & Chocolate Doom C Mod',
     date: 'Mar to Apr 2026',
     venue: 'Srdnlen CTF (20th/433) & UMassCTF (45th)',
-    outcomeBadge: '20th / 433 · Medium',
-    pillars: ['Security', 'Engineering'],
-    skillsProven: ['DFIR & Forensics'],
+    outcomeBadge: 'DFIR Challenge · Medium',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: [
+      'Security, DFIR & Incident Response',
+      'Software Engineering & Systems',
+      'Technical Communication',
+    ],
     thumbLabel: 'C ENGINE // WIN98 DMP',
     summary:
       'Unpacked a Win98 memory dump into FAT32, ISO9660, and 1991 MS-DOS TOWN.ZZT board tiles, and patched Chocolate Doom C source to debug desynced .lmp demos.',
@@ -594,16 +677,21 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: '0xL4ugh Awesome Router: Embedded Web x Pwn',
     date: 'Jan 27, 2026',
     venue: '0xL4ugh CTF 2026 (9th Overall)',
-    outcomeBadge: '9th Overall · Medium',
-    pillars: ['Security'],
-    skillsProven: ['Hardware & IoT', 'DFIR & Forensics'],
+    outcomeBadge: 'IoT Challenge · Medium',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: [
+      'Security, DFIR & Incident Response',
+      'Hardware, IoT & Embedded',
+      'Technical Communication',
+    ],
     thumbLabel: 'IOT // WEB X PWN',
     summary:
       'Documented the router exploitation chain pairing reflected XSS and binary primitives during my first month competing on the THEM?! roster.',
     mediaGallery: [],
     technicalBreakdown:
-      'Traced embedded router CGI handlers, chained reflected XSS to reach authenticated admin endpoints, and bypassed native binary checks.',
-    stack: ['IoT Router Security', 'Reflected XSS', 'Pwn / Reversing', '0xL4ugh CTF'],
+      'Traced embedded router CGI handlers, chained reflected XSS to reach authenticated admin endpoints, and bypassed native binary ELF checks.',
+    stack: ['IoT Router Security', 'ELF Reversing', 'Reflected XSS', '0xL4ugh CTF'],
     fieldNotes:
       'Landing a solid router solve during my first 30 days on THEM?! proved I could pull weight outside solo forensics rooms.',
     links: {
@@ -615,9 +703,10 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'Is Your Pokemon-Card Fake? (UofTCTF Forensics)',
     date: 'Jan 12, 2026',
     venue: 'UofTCTF 2026 (Solo -> THEM?! Invite)',
-    outcomeBadge: 'UofTCTF · Medium',
-    pillars: ['Security'],
-    skillsProven: ['DFIR & Forensics'],
+    outcomeBadge: 'DFIR Challenge · Medium',
+    entryTier: 'writeup',
+    categories: ['CTF Writeups'],
+    skillsProven: ['Security, DFIR & Incident Response', 'Technical Communication'],
     thumbLabel: 'IMAGE DFIR // METADATA',
     summary:
       'Solo UofTCTF digital image and file-structure forensics solve that helped earn my trial invitation onto global team THEM?!.',
@@ -636,9 +725,10 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     title: 'Lovtiti Agro-Mart: Hedera Supply-Chain Storefront',
     date: 'Oct 31 to Nov 1, 2025',
     venue: 'Hedera Africa Hackathon (DoraHacks)',
-    outcomeBadge: 'Hedera Build',
-    pillars: ['Engineering', 'Ops & Strategy'],
-    skillsProven: ['Full-Stack / AI / Blockchain', 'Team Alignment & Ops'],
+    outcomeBadge: 'Hedera Hackathon Build',
+    entryTier: 'project',
+    categories: ['Hackathons', 'Engineering & IoT'],
+    skillsProven: ['Software Engineering & Systems', 'Teamwork & Execution'],
     thumbLabel: 'HEDERA // PRISMA',
     summary:
       'Shipped a Next.js + Prisma marketplace anchored with Hedera settlement across distributed Canada and Africa teammates to reduce agricultural middleman spoilage.',
@@ -660,8 +750,12 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     date: 'Jul to Oct 2025',
     venue: 'npm Registry & Solana/Ethereum Devnet',
     outcomeBadge: 'npm + Solana / ETH',
-    pillars: ['Engineering', 'Security'],
-    skillsProven: ['Full-Stack / AI / Blockchain'],
+    entryTier: 'project',
+    categories: ['Engineering & IoT'],
+    skillsProven: [
+      'Software Engineering & Systems',
+      'Security, DFIR & Incident Response',
+    ],
     thumbLabel: 'NPM // RUST // BIP-32',
     summary:
       'Published @gurpratap/safe-pass XSS allow-list package on npm alongside SkillStake (Rust/Anchor Solana PoW staking) and a zero-persistence BIP-32 HD Ethereum wallet.',
