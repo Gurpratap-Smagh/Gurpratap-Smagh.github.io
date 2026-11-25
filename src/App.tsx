@@ -28,6 +28,13 @@ export function App() {
     }, 30);
   };
 
+  const selectSkillFromTree = (skill: SkillNodeId | null) => {
+    setSelectedSkill(skill);
+    if (skill !== null) {
+      setSelectedCategory(null);
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-body">
       <Navbar />
@@ -38,7 +45,7 @@ export function App() {
         />
         <ProofReel onSelectEntry={setActiveEntry} />
         <CertificationsBand />
-        <SkillProofTree selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />
+        <SkillProofTree selectedSkill={selectedSkill} onSelectSkill={selectSkillFromTree} />
         <UnifiedArchive
           selectedCategory={selectedCategory}
           selectedSkill={selectedSkill}
