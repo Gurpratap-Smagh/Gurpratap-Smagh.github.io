@@ -185,10 +185,15 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Unscripted Pitching',
       'Team Alignment & Ops',
     ],
-    thumbnail: '/photos/france/hardware-bench-humber.jpg',
+    thumbnail: '/photos/france/esna-group-finale.jpg',
     summary:
       'Represented Humber Polytechnic as the sole Canadian competitor on global team THEM?! in an AI-free arena across hardware fault injection, firmware extraction, and DFIR.',
     mediaGallery: [
+      {
+        src: '/photos/france/esna-group-finale.jpg',
+        alt: 'Midnight Flag CTF finalist teams inside the ESNA Bretagne amphitheatre',
+        caption: 'Finalist cohort inside the ESNA Bretagne amphitheatre.',
+      },
       {
         src: '/photos/france/hardware-bench-humber.jpg',
         alt: 'Working in Humber Polytechnic shirt at the ESNA Bretagne bench',
@@ -198,11 +203,6 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
         src: '/photos/france/fault-injection-pcb.jpg',
         alt: 'Close-up of PCB probing and logic analyzer wiring in France',
         caption: 'EEPROM pinout probing and fault-injection target board.',
-      },
-      {
-        src: '/photos/france/esna-group-finale.jpg',
-        alt: 'Midnight Flag CTF finalist teams inside the ESNA Bretagne amphitheatre',
-        caption: 'Finalist cohort inside the ESNA Bretagne amphitheatre.',
       },
     ],
     technicalBreakdown:
@@ -230,10 +230,15 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Threat Infra & Honeypots',
       'Team Alignment & Ops',
     ],
-    thumbnail: '/photos/france/esna-group-finale.jpg',
+    thumbnail: '/photos/themctf-2026-logo.jpg',
     summary:
       'I contained a pre-launch GCP compromise across disk images and Flask code, mediated team conflict under fire, and kept CTFd/VPN infrastructure live for 1,500+ global players.',
     mediaGallery: [
+      {
+        src: '/photos/themctf-2026-logo.jpg',
+        alt: 'THEM?!CTF 2026 official competition flag logo',
+        caption: 'THEM?!CTF 2026 (CTFtime Event 3209 · 1,500+ players · Max 25.00 weight).',
+      },
       {
         src: '/photos/france/esna-group-finale.jpg',
         alt: 'THEM?! teammates together at ESNA Bretagne after co-hosting THEM?!CTF',
@@ -354,15 +359,15 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'chronicle-udm-hunt',
-    title: 'Chronicle UDM Active Directory Threat Hunt',
+    title: 'Google Mandiant Investigation: AD Kill-Chain Hunt',
     date: 'Nov 2026',
-    venue: "Humber SecOps Lab & Ontario's Cyber Summit",
-    outcomeBadge: 'AD Kill-Chain Hunt',
+    venue: "Google Mandiant · Humber SecOps & Ontario's Cyber Summit",
+    outcomeBadge: 'Mandiant · AD Kill-Chain',
     pillars: ['Security'],
     skillsProven: ['DFIR & Forensics', 'Live Incident Triage'],
     thumbnail: '/photos/ongov/ontario-cyber-summit-stage.jpg',
     summary:
-      'Reconstructed an end-to-end AD intrusion with YARA-L UDM rules spanning SyncAuthToken theft, DLL sideloading, LSASS dumping, DCSync, and covert exfiltration.',
+      'Reconstructed an end-to-end Google Mandiant enterprise AD intrusion investigation spanning SyncAuthToken theft, DLL sideloading, LSASS dumping, DCSync, and covert exfiltration.',
     mediaGallery: [
       {
         src: '/photos/ongov/ontario-cyber-summit-stage.jpg',
@@ -371,8 +376,8 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       },
     ],
     technicalBreakdown:
-      'Authored multi-stage YARA-L UDM queries across Sysmon events (1, 3, 17, 18, 23, 26), PowerShell 4104 script blocks, and Windows Security 4624 logs.\n\nCorrelated PID 9012 to unmanaged PowerShell host scs_sync.exe, ntkd.exe/dbgeng.dll sideloading, DCSync replication GUID 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2, \\dnsresolver_pipe, and staging domain chemscalere.com.',
-    stack: ['Google SecOps Chronicle', 'YARA-L', 'UDM', 'Sysmon', 'Windows Event Logs'],
+      'Authored multi-stage YARA-L UDM queries in Google SecOps Chronicle for the Mandiant investigation across Sysmon events (1, 3, 17, 18, 23, 26), PowerShell 4104 script blocks, and Windows Security 4624 logs.\n\nCorrelated PID 9012 to unmanaged PowerShell host scs_sync.exe, ntkd.exe/dbgeng.dll sideloading, DCSync replication GUID 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2, \\dnsresolver_pipe, and staging domain chemscalere.com.',
+    stack: ['Google Mandiant IR', 'Google SecOps Chronicle', 'YARA-L / UDM', 'Sysmon', 'Windows Event Logs'],
     fieldNotes:
       'Tracing lateral movement through UDM fields rather than isolated alerts kept false leads out when reconstructing both host execution and DNS exfiltration infrastructure.',
     links: {},

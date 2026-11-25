@@ -62,12 +62,20 @@ export function ProofReel({ onSelectEntry }: ProofReelProps) {
               onClick={() => onSelectEntry(entry)}
               className="group w-[265px] shrink-0 snap-start overflow-hidden rounded-xl border border-line bg-white text-left transition hover:border-gold sm:w-[290px]"
             >
-              <div className="aspect-[16/10] w-full overflow-hidden border-b border-line bg-slatebg">
+              <div
+                className={`aspect-[16/10] w-full overflow-hidden border-b border-line ${
+                  entry.thumbnail?.includes('logo') ? 'bg-white p-2.5' : 'bg-slatebg'
+                }`}
+              >
                 <img
                   src={entry.thumbnail}
                   alt={entry.mediaGallery[0]?.alt ?? entry.title}
                   loading="lazy"
-                  className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.03]"
+                  className={`h-full w-full transition duration-300 group-hover:scale-[1.03] ${
+                    entry.thumbnail?.includes('logo')
+                      ? 'object-contain'
+                      : 'object-cover object-top'
+                  }`}
                 />
               </div>
               <div className="p-3.5">

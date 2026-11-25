@@ -146,11 +146,15 @@ export function EntryDetailModal({ entry, onClose }: EntryDetailModalProps) {
           {/* Multi-photo carousel */}
           {activePhoto && (
             <div className="border-b border-line bg-slatebg">
-              <div className="relative bg-navy">
+              <div className={`relative ${activePhoto.src.includes('logo') ? 'bg-white p-4' : 'bg-navy'}`}>
                 <img
                   src={activePhoto.src}
                   alt={activePhoto.alt}
-                  className="aspect-[16/9] max-h-[320px] w-full object-cover object-top"
+                  className={`aspect-[16/9] max-h-[320px] w-full ${
+                    activePhoto.src.includes('logo')
+                      ? 'object-contain'
+                      : 'object-cover object-top'
+                  }`}
                 />
 
                 {photos.length > 1 && (

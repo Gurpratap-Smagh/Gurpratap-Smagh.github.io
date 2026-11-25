@@ -123,12 +123,20 @@ export function UnifiedArchive({
               >
                 <div>
                   {entry.thumbnail ? (
-                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-line bg-slatebg">
+                    <div
+                      className={`aspect-[16/9] w-full overflow-hidden border-b border-line ${
+                        entry.thumbnail.includes('logo') ? 'bg-white p-3' : 'bg-slatebg'
+                      }`}
+                    >
                       <img
                         src={entry.thumbnail}
                         alt={entry.mediaGallery[0]?.alt ?? entry.title}
                         loading="lazy"
-                        className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.03]"
+                        className={`h-full w-full transition duration-300 group-hover:scale-[1.03] ${
+                          entry.thumbnail.includes('logo')
+                            ? 'object-contain'
+                            : 'object-cover object-top'
+                        }`}
                       />
                     </div>
                   ) : (

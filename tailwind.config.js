@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         navy: {
-          DEFAULT: '#081020',
-          secondary: '#11203D',
+          DEFAULT: '#0F254A',
+          secondary: '#1A3566',
         },
         gold: {
           DEFAULT: '#C8A028',
