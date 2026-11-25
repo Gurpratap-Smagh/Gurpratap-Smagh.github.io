@@ -4,16 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#081020',
-        'navy-card': 'rgba(17, 32, 61, 0.65)',
+        navy: {
+          DEFAULT: '#081020',
+          secondary: '#11203D',
+        },
         gold: {
           DEFAULT: '#C8A028',
-          hover: '#E2B93B',
-          badge: '#E5C158',
+          hover: '#B58F1F',
+          soft: '#FEF9E7',
         },
-        ink: '#F3F6FA',
-        muted: '#94A3B8',
-        tagtext: '#CBD5E1',
+        slatebg: '#F8FAFC',
+        body: '#334155',
+        muted: '#64748B',
+        line: '#E2E8F0',
       },
       fontFamily: {
         display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],

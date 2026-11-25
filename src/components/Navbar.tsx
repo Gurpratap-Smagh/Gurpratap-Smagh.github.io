@@ -1,124 +1,133 @@
-import { BookOpen, Github, Linkedin, Mail, ShieldCheck } from 'lucide-react';
-import { CERTIFICATIONS, PROFILE } from '../data/profile';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { PROFILE } from '../data/profile';
 
-export type AppRoute = 'home' | 'work' | 'ctfs' | 'academia';
+const JUMP_LINKS = [
+  { label: 'Proof', href: '#proof' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Archive', href: '#archive' },
+  { label: 'Events', href: '#events' },
+];
 
-interface NavbarProps {
-  isDetailPage: boolean;
-  onGoHome: (section?: 'pinned' | 'archive') => void;
-}
+export function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export function Navbar({ isDetailPage, onGoHome }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-navy/90 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#/"
-          onClick={(e) => {
-            e.preventDefault();
-            onGoHome();
-          }}
-          className="flex items-center gap-2.5 text-left"
-        >
-          <span className="flex h-7 w-7 items-center justify-center rounded-md border border-gold/40 bg-gold/10 font-mono text-xs font-bold text-gold-badge">
+    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+        <a href="#top" className="flex shrink-0 items-center gap-2.5 text-left">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-navy font-mono text-xs font-bold text-gold">
             GS
           </span>
-          <div>
-            <div className="font-display text-sm font-bold leading-tight text-ink">
-              Gurpratap Smagh
-            </div>
-            <div className="font-mono text-[10px] text-muted">
-              bromskiii · Humber B.Eng. &apos;29
-            </div>
-          </div>
+          <span className="font-display text-sm font-bold tracking-tight text-navy sm:text-base">
+            Gurpratap Smagh
+          </span>
         </a>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          {!isDetailPage ? (
-            <>
-              <a
-                href="#pinned"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onGoHome('pinned');
-                }}
-                className="hidden rounded-md px-2.5 py-1 font-mono text-xs text-muted transition hover:text-gold sm:inline-block"
-              >
-                Highlights
-              </a>
-              <a
-                href="#archive"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onGoHome('archive');
-                }}
-                className="hidden rounded-md px-2.5 py-1 font-mono text-xs text-muted transition hover:text-gold sm:inline-block"
-              >
-                Archive
-              </a>
-            </>
-          ) : (
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Section navigation">
+          {JUMP_LINKS.map((item) => (
             <a
-              href="#/"
-              onClick={(e) => {
-                e.preventDefault();
-                onGoHome();
-              }}
-              className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-xs text-ink transition hover:border-gold/55 hover:text-gold"
+              key={item.href}
+              href={item.href}
+              className="font-mono text-xs font-medium text-muted transition hover:text-navy"
             >
-              &lt;- Hub
+              {item.label}
             </a>
-          )}
+          ))}
+        </nav>
 
-          <a
-            href={CERTIFICATIONS[0]?.url}
-            target="_blank"
-            rel="noreferrer"
-            title="GIAC GFACT Credly"
-            aria-label="GIAC GFACT Credly"
-            className="rounded-md border border-white/10 bg-white/[0.04] p-1.5 text-muted transition hover:border-gold/55 hover:text-gold"
-          >
-            <ShieldCheck className="h-4 w-4" />
-          </a>
+        <div className="hidden items-center gap-3 sm:flex">
           <a
             href={PROFILE.links.github}
             target="_blank"
             rel="noreferrer"
-            title="GitHub"
-            aria-label="GitHub"
-            className="rounded-md border border-white/10 bg-white/[0.04] p-1.5 text-muted transition hover:border-gold/55 hover:text-gold"
+            className="font-mono text-xs font-medium text-body transition hover:text-navy"
           >
-            <Github className="h-4 w-4" />
+            GitHub
           </a>
           <a
             href={PROFILE.links.linkedin}
             target="_blank"
             rel="noreferrer"
-            title="LinkedIn"
-            aria-label="LinkedIn"
-            className="rounded-md border border-white/10 bg-white/[0.04] p-1.5 text-muted transition hover:border-gold/55 hover:text-gold"
+            className="font-mono text-xs font-medium text-body transition hover:text-navy"
           >
-            <Linkedin className="h-4 w-4" />
+            LinkedIn
           </a>
           <a
-            href={PROFILE.links.medium}
+            href="/Gurpratap_Smagh_Resume.pdf"
             target="_blank"
             rel="noreferrer"
-            title="Medium"
-            aria-label="Medium"
-            className="hidden rounded-md border border-white/10 bg-white/[0.04] p-1.5 text-muted transition hover:border-gold/55 hover:text-gold sm:inline-flex"
+            className="rounded-md bg-navy px-3 py-1.5 font-mono text-xs font-semibold text-white transition hover:bg-navy-secondary"
           >
-            <BookOpen className="h-4 w-4" />
+            Resume PDF
           </a>
           <a
             href={`mailto:${PROFILE.email}`}
-            className="inline-flex items-center gap-1.5 rounded-md border border-gold/45 bg-gold/15 px-2.5 py-1.5 font-mono text-xs font-semibold text-gold-badge transition hover:bg-gold hover:text-navy"
+            className="rounded-md border border-navy px-3 py-1.5 font-mono text-xs font-semibold text-navy transition hover:border-gold hover:bg-gold-soft"
           >
-            <Mail className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Email</span>
+            Email
           </a>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="inline-flex items-center justify-center rounded-md border border-line p-1.5 text-navy sm:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </button>
       </div>
+
+      {menuOpen && (
+        <div className="border-t border-line bg-white px-4 py-3 sm:hidden">
+          <div className="flex flex-wrap gap-3 pb-3">
+            {JUMP_LINKS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="font-mono text-xs font-medium text-body hover:text-navy"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center gap-2.5 border-t border-line pt-3">
+            <a
+              href={PROFILE.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono text-xs font-medium text-body"
+            >
+              GitHub
+            </a>
+            <a
+              href={PROFILE.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono text-xs font-medium text-body"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="/Gurpratap_Smagh_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md bg-navy px-3 py-1.5 font-mono text-xs font-semibold text-white"
+            >
+              Resume PDF
+            </a>
+            <a
+              href={`mailto:${PROFILE.email}`}
+              className="rounded-md border border-navy px-3 py-1.5 font-mono text-xs font-semibold text-navy"
+            >
+              Email
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
