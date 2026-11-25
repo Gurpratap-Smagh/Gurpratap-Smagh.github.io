@@ -357,7 +357,7 @@ export function AcademiaAndWriting({ onOpenLightbox }: AcademiaAndWritingProps) 
                         className="inline-flex items-center gap-1 font-mono text-xs text-forest hover:underline"
                       >
                         <BookOpen className="h-3.5 w-3.5" />
-                        Open on {item.platform}
+                        {item.url.endsWith('.pdf') ? 'Open Illustrated PDF' : `Open on ${item.platform}`}
                         <ExternalLink className="h-3 w-3" />
                       </a>
                     )}

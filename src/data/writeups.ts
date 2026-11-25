@@ -34,28 +34,60 @@ export const WRITEUPS: WriteupItem[] = [
     ],
   },
   {
+    id: 'midnight-flag-voltage-spike',
+    kind: 'CTF Writeup',
+    platform: 'Site Dossier',
+    title: 'I Shocked a Chip and It Gave Me the Flag.',
+    date: 'Jun 13, 2026',
+    tags: ['Midnight Flag', 'Hardware Track', 'Fault Injection', 'CH341A', 'AI-Free'],
+    summary:
+      '5 hours of setup. No AI. No docs. One voltage spike. Bypassed a custom microcontroller check at ESNA Bretagne using a CH341A programmer and manual power-rail fault injection.',
+    excerpt:
+      '"AI was banned at the competition. No Copilot. No ChatGPT. Five hours on setup alone. Five hours before a single byte was read. Knowing the vulnerability window was wide enough for manual timing was the insight. The spike itself took seconds."',
+    url: '/writeups/midnight-flag-voltage-fault-injection.pdf',
+    fullMarkdownSections: [
+      {
+        heading: '1. The Black Box (5 Hours Before 1 Byte)',
+        body: 'The organisers handed us a custom microcontroller and a CH341A programmer with zero documentation, setup guide, or forum threads. With AI banned in the ESNA Bretagne arena, we traced pinouts manually, cross-referenced loosely similar datasheets, and iterated through raw trial and error for five hours before reading a single byte.',
+      },
+      {
+        heading: '2. The Voltage Spike (Manual Fault Injection)',
+        body: 'With clean firmware running on the chip, standard fault injection usually demands nanosecond-precise timing hardware. Instead, we used a wire and a power rail to introduce a controlled voltage surge at the target execution cycle. The vulnerability window was wide enough that manual timing glitched the check and printed the flag in seconds.',
+      },
+      {
+        heading: '3. Takeaway (Where Experience Starts)',
+        body: 'The exploit took minutes; getting there took the entire day. Piecing setup together manually through datasheets and hardware correlation without AI shortcuts revealed exactly where fundamentals end and tooling begins.',
+      },
+    ],
+  },
+  {
     id: 'holmes-osint-france',
     kind: 'CTF Writeup',
     platform: 'Site Dossier',
-    title: 'Holmes the Inspired Killer (Midnight Flag CTF France OSINT)',
+    title: 'We Hunted a Killer Online (Holmes OSINT, Midnight Flag France)',
     date: 'Jun 14, 2026',
     tags: ['OSINT', 'Midnight Flag', 'Cross-Platform Pivoting', 'France Finals'],
     summary:
-      'Co-authored finals writeup (bromskiii & tegeda_): pivoting from an 1896 Philadelphia Inquirer confession to itch.io, Instagram Python screenshots, and a killer GitHub repo.',
+      'Co-authored finals writeup (bromskiii & tegeda_): tracing a fictional killer across an 1896 Philadelphia Inquirer confession, itch.io, Instagram Python code, GitHub commit 9c79ae0, and a private diary.',
     excerpt:
-      '"Going in, neither of us had done OSINT. Putting the witness quote in quotes on Google jumped straight from 1896 Chronicling America archives to itch.io, Instagram, and USER_PROFILES in a Python screenshot."',
+      '"We traced a fictional killer across a 130-year-old newspaper, a gaming forum, Instagram, a developer platform, a coded cipher, and a private diary using nothing but public information and a search bar."',
+    url: '/writeups/midnight-flag-we-hunted-a-killer-online.pdf',
     fullMarkdownSections: [
       {
-        heading: '1. Newspaper Clipping -> Chronicling America (1896)',
-        body: 'Starting with a newspaper clipping and a witness quote ("I only got to explore part of the castle..."), Library of Congress Chronicling America archive matching traced the source to H.H. Holmes\'s written confession sold to the Philadelphia Inquirer on April 12, 1896. Modern CCTV ruled out historical figures immediately, pointing to a modern imitator.',
+        heading: 'Scene 1 & 2: Witness Quote -> Philadelphia Inquirer (Apr 12, 1896)',
+        body: 'Starting from a single newspaper clipping and the witness quote ("I only got to explore part of the castle. I\'d love to see the rest in real life someday."), Library of Congress newspaper archive matching pinned the source to H.H. Holmes\'s confession in the Philadelphia Inquirer, April 12, 1896.',
       },
       {
-        heading: '2. Google Dork Breakthrough -> itch.io -> Instagram',
-        body: 'After hitting dead ends on medical theories and a decoy TikTok, exact-quoted Google dorking on the witness phrase hit an itch.io profile named holmes-obsessed commenting on a serial-killer simulation game. That profile linked directly to Instagram handle elizabethbathory_lover, which held a screenshot of a Python codebase.',
+        heading: 'Scene 3 & 4: Google Dork -> itch.io -> Instagram -> GitHub (9c79ae0)',
+        body: 'After dead ends on medical theories and TikTok, exact-quoted Google search surfaced itch.io user holmes-obsessed reviewing a serial-killer simulation game. That profile linked to Instagram account elizabethbathory_lover, whose Python code screenshot exposed username zodiac_enjoyer and led straight to GitHub commit 9c79ae0.',
       },
       {
-        heading: '3. Code Screenshot Pivot -> GitHub Confirmation',
-        body: 'Reverse image searches returned nothing on the Python snippet. Inspecting strings inside the screenshot revealed a USER_PROFILES dictionary containing the username zodiac_enjoyer. Searching GitHub for "zodiac enjoyer" hit the suspect\'s repository directly and completed the identity trace.',
+        heading: 'Scene 5 & 6: WHITECHAPELBOSS Cipher -> Central Park Diary (HEZJ)',
+        body: 'Deciphering the encoded image revealed WHITECHAPELBOSS, unlocking a private repository holding an April 6, 2026 Central Park newspaper clipping and a handwritten diary where the suspect adopted the four-letter alias HEZJ.',
+      },
+      {
+        heading: 'Verdict & Teamwork (bromskiii & tegeda_)',
+        body: 'Every clue came from artifacts the subject posted themselves. At 2 AM, momentum held because whenever one of us hit a wall, the other found the next crack.',
       },
     ],
   },

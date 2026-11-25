@@ -11,6 +11,7 @@ import {
 import { PROFILE } from '../data/profile';
 import { PhotoItem, WorkItem, WorkTag } from '../data/types';
 import { WORK_ITEMS, WORK_TAGS } from '../data/work';
+import { WRITEUPS } from '../data/writeups';
 import { AppRoute } from './Navbar';
 import { SkillProofMatrix } from './SkillProofMatrix';
 import { WorkDetailModal } from './WorkDetailModal';
@@ -38,9 +39,9 @@ const HERO_FRAMES: PhotoItem[] = [
     date: 'Sep 2026',
   },
   {
-    src: '/photos/hackathons/sophix-city-hall-podium.jpg',
-    alt: 'Gurpratap pitching Sophix solo at Brampton City Hall podium during Brampton AI Innovator',
-    caption: 'Solo pitch to 200+ attendees at Brampton City Hall: Proplr Cloud Services track win (Sophix).',
+    src: '/photos/hackathons/sophix-city-hall-audience.jpg',
+    alt: 'Packed audience at Brampton City Hall listening to pitches during Brampton AI Innovator',
+    caption: 'Pitched Sophix solo to 200+ attendees at Brampton City Hall: Proplr Cloud Services track winner.',
     location: 'Brampton City Hall',
     date: 'Nov 2026',
   },
@@ -399,6 +400,68 @@ export function HomeIndex({ onOpenLightbox, onNavigate }: HomeIndexProps) {
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-rule bg-surface py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-rust">
+                Medium Articles &amp; Midnight Flag Field Reports
+              </span>
+              <h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-ink">
+                Selected Technical Writeups
+              </h2>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('academia')}
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-rule bg-paper px-3.5 py-2 font-mono text-xs font-semibold text-forest transition hover:border-forest hover:bg-forest-soft"
+            >
+              All {WRITEUPS.length} Writeups &amp; Interactive Readers -&gt;
+            </button>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {WRITEUPS.filter((w) =>
+              [
+                'midnight-flag-voltage-spike',
+                'holmes-osint-france',
+                'medium-github-scary',
+                'medium-retro-forensics',
+                'medium-0xl4ugh',
+                'medium-pokemon-fake',
+              ].includes(w.id)
+            ).map((w) => (
+              <a
+                key={w.id}
+                href={w.url ?? '#/academia'}
+                target={w.url ? '_blank' : undefined}
+                rel={w.url ? 'noreferrer' : undefined}
+                className="group flex flex-col justify-between rounded-xl border border-rule bg-paper p-4 transition hover:border-forest hover:bg-surface"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 font-mono text-[10px] text-muted">
+                    <span className="rounded border border-cobalt/30 bg-cobalt-soft px-2 py-0.5 font-semibold text-cobalt">
+                      {w.url?.endsWith('.pdf') ? 'Hosted PDF' : w.platform}
+                    </span>
+                    <span>{w.date}</span>
+                  </div>
+                  <h3 className="mt-2 font-display text-base font-bold text-ink group-hover:text-forest">
+                    {w.title}
+                  </h3>
+                  <p className="mt-1.5 line-clamp-3 text-xs leading-relaxed text-muted">
+                    {w.summary}
+                  </p>
+                </div>
+                <div className="mt-3 inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-rust group-hover:underline">
+                  {w.url?.endsWith('.pdf') ? 'Open Illustrated PDF' : `Read on ${w.platform}`}
+                  <ExternalLink className="h-3 w-3" />
+                </div>
+              </a>
             ))}
           </div>
         </div>
