@@ -41,13 +41,6 @@ export const INSTITUTIONAL_MILESTONES: InstitutionalMilestone[] = [
         location: 'Rennes Finals Bench',
         date: 'Jun 13, 2026',
       },
-      {
-        src: '/photos/france/ctf-table-grind.jpg',
-        alt: 'Midnight Flag CTF teammates collaborating at competition table',
-        caption: 'In-person coordination at the THEM?! table: meeting distributed international teammates face to face for the first time.',
-        location: 'ESNA Bretagne Floor',
-        date: 'Jun 13, 2026',
-      },
     ],
   },
   {
@@ -72,13 +65,6 @@ export const INSTITUTIONAL_MILESTONES: InstitutionalMilestone[] = [
         alt: 'Demonstrating live Kibana GeoIP threat telemetry at OmniPulse Tech 2026',
         caption: 'Presenting the live Kibana GeoIP map showing real attacker traffic hitting the honeypot pipeline.',
         location: 'Humber Polytechnic Atrium',
-        date: 'Nov 4, 2026',
-      },
-      {
-        src: '/photos/omnipulse/atrium-showcase-pitch.jpg',
-        alt: 'Explaining correlation architecture to attendees at OmniPulse 2026 Conference',
-        caption: 'Walking industry visitors and Humber peers through causal escalation and header-order fingerprinting.',
-        location: 'OmniPulse 2026 Conference',
         date: 'Nov 4, 2026',
       },
     ],

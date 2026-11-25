@@ -146,13 +146,6 @@ export const FLAGSHIP_DOSSIERS: FlagshipDossier[] = [
         location: 'Humber Polytechnic',
         date: 'Nov 4, 2026',
       },
-      {
-        src: '/photos/omnipulse/atrium-showcase-pitch.jpg',
-        alt: 'Explaining honeypot correlation architecture at OmniPulse 2026 Conference',
-        caption: 'Walking conference attendees through sensor.action separation and header-order clustering.',
-        location: 'OmniPulse 2026',
-        date: 'Nov 4, 2026',
-      },
     ],
   },
   {

@@ -197,3 +197,35 @@ export interface CtfRecord {
   proofLabel?: string;
   anchorId?: string;
 }
+
+export type WorkTag =
+  | 'Security & DFIR'
+  | 'SW Dev'
+  | 'AI / RAG'
+  | 'Web3'
+  | 'Hackathons'
+  | 'CTFs'
+  | 'Hardware & OT'
+  | 'Academia';
+
+export interface WorkItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  venue: string;
+  outcome?: string;
+  tags: WorkTag[];
+  featured?: boolean;
+  summary: string;
+  technicalArchitecture: string;
+  tradeOff?: string;
+  softSkills?: string[];
+  stack: string[];
+  gitProof?: string;
+  repoUrl?: string;
+  liveUrl?: string;
+  writeupUrl?: string;
+  postUrl?: string;
+  photo?: PhotoItem;
+}

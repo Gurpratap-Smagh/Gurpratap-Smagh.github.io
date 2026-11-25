@@ -4,20 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: '#090C11',
-        panel: '#111620',
-        elevated: '#161D2B',
-        hairline: '#1E293B',
-        teal: {
-          forensic: '#249996',
-          bright: '#2DD4BF',
+        paper: '#F4F0E8',
+        surface: '#FAF8F3',
+        sand: '#EAE4D6',
+        rule: '#D4CCB9',
+        ink: '#171614',
+        muted: '#57534A',
+        forest: {
+          DEFAULT: '#1B4D3E',
+          bright: '#143A2E',
+          soft: '#E3EFEA',
         },
-        gold: {
-          humber: '#E5A823',
-          bright: '#F0B429',
+        rust: {
+          DEFAULT: '#B84422',
+          bright: '#963519',
+          soft: '#F9EAE4',
         },
-        signal: {
-          orange: '#F97316',
+        cobalt: {
+          DEFAULT: '#1E40AF',
+          bright: '#1E3A8A',
+          soft: '#E8EEF9',
+        },
+        ochre: {
+          DEFAULT: '#A16207',
+          bright: '#854D0E',
+          soft: '#FEF3C7',
         },
       },
       fontFamily: {
@@ -28,4 +39,4 @@ export default {
     },
   },
   plugins: [],
-}
+};

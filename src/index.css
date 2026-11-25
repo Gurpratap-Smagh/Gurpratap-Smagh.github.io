@@ -4,8 +4,8 @@
 
 @layer base {
   html {
-    background-color: #090C11;
-    color: #F1F5F9;
+    background-color: #F4F0E8;
+    color: #171614;
     font-family: Inter, system-ui, sans-serif;
   }
 
@@ -15,24 +15,24 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #090C11;
+    background: #F4F0E8;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1E293B;
+    background: #C9BFA9;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #249996;
+    background: #1B4D3E;
   }
 }
 
 .hero-grid {
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(36, 153, 150, 0.12), transparent 45%),
-    radial-gradient(circle at 82% 14%, rgba(229, 168, 35, 0.08), transparent 40%),
-    linear-gradient(to right, rgba(30, 41, 59, 0.28) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 41, 59, 0.28) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    radial-gradient(circle at 18% 18%, rgba(27, 77, 62, 0.06), transparent 45%),
+    radial-gradient(circle at 86% 12%, rgba(184, 68, 34, 0.05), transparent 40%),
+    linear-gradient(to right, rgba(212, 204, 185, 0.42) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 204, 185, 0.42) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
 }

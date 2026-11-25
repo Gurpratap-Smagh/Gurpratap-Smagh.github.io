@@ -4,11 +4,13 @@ import { CYBERSTART_ARC, CTF_CHALLENGE_SUMMARY, DOCUMENTED_CTFS } from '../data/
 import { CtfChallengeType } from '../data/types';
 
 const FORMAT_STYLES = {
-  'On-Site Finals': 'border-gold-humber/45 bg-gold-humber/15 text-gold-bright',
-  'Organizer / Author': 'border-signal-orange/45 bg-signal-orange/15 text-signal-orange',
-  'In-Person': 'border-teal-forensic/45 bg-teal-forensic/15 text-teal-bright',
-  Online: 'border-hairline bg-elevated text-slate-300',
+  'On-Site Finals': 'border-rust/35 bg-rust-soft text-rust',
+  'Organizer / Author': 'border-ochre/35 bg-ochre-soft text-ochre',
+  'In-Person': 'border-forest/35 bg-forest-soft text-forest',
+  Online: 'border-rule bg-sand text-ink',
 };
+
+const TOP_FEATURED_COUNT = 6;
 
 export function CtfTrackRecord() {
   const [selectedType, setSelectedType] = useState<'All' | CtfChallengeType>('All');
@@ -34,36 +36,38 @@ export function CtfTrackRecord() {
     [selectedType],
   );
 
+  const cardCtfs = selectedType === 'All' ? visibleCtfs.slice(0, TOP_FEATURED_COUNT) : visibleCtfs;
+  const tableCtfs = selectedType === 'All' ? visibleCtfs.slice(TOP_FEATURED_COUNT) : [];
+
   return (
-    <section id="ctfs" className="border-b border-hairline bg-obsidian py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+    <section id="ctfs" className="bg-paper py-12 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 border-b border-rule pb-6 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-gold-bright">
-              03 // Competitive CTFs, Challenge Types &amp; CyberStart Top Performer
+            <span className="font-mono text-xs uppercase tracking-widest text-rust">
+              Competitive CTFs, Challenge Types &amp; CyberStart Top Performer
             </span>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h1 className="mt-1.5 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
               From a CyberStart Booth Card to 16 Documented Competitions
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-              Documented competitions across forensics, hardware fault injection, OSINT, cryptography,
-              enterprise SecOps log hunting, and live CTF infrastructure ops. Filter by challenge discipline
-              to inspect exact solves and writeups.
+            </h1>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Competitions spanning hardware fault injection, Win98/DOOM forensics, OSINT, cryptography,
+              Chronicle UDM threat hunting, and live CTFd infrastructure operations.
             </p>
           </div>
-          <div className="font-mono text-xs text-slate-400">
-            {DOCUMENTED_CTFS.length} documented CTFs · {CTF_CHALLENGE_SUMMARY.length} challenge disciplines
+          <div className="font-mono text-xs text-muted">
+            {DOCUMENTED_CTFS.length} documented CTFs · {CTF_CHALLENGE_SUMMARY.length} disciplines
           </div>
         </div>
 
         {/* Rogers CyberStart Canada Top Performer Spotlight */}
-        <article className="mt-10 overflow-hidden rounded-2xl border border-gold-humber/45 bg-panel p-6 lg:p-7">
+        <article className="mt-8 rounded-xl border border-ochre/40 bg-surface p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-md border border-gold-humber/50 bg-gold-humber/15 px-2.5 py-1 font-mono text-[11px] font-semibold text-gold-bright">
+              <span className="rounded border border-ochre/40 bg-ochre-soft px-2.5 py-1 font-mono text-[11px] font-semibold text-ochre">
                 {CYBERSTART_ARC.badge}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-hairline bg-elevated px-2.5 py-1 font-mono text-[11px] text-teal-bright">
+              <span className="inline-flex items-center gap-1.5 rounded border border-rule bg-paper px-2.5 py-1 font-mono text-[11px] text-forest">
                 <Calendar className="h-3 w-3" />
                 {CYBERSTART_ARC.period}
               </span>
@@ -73,7 +77,7 @@ export function CtfTrackRecord() {
               href={CYBERSTART_ARC.verifyUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-gold-humber/45 bg-elevated px-3 py-1.5 font-mono text-xs font-medium text-gold-bright transition hover:border-gold-bright"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-forest bg-forest px-3 py-1.5 font-mono text-xs font-medium text-surface transition hover:bg-forest-bright"
             >
               <ShieldCheck className="h-3.5 w-3.5" />
               Verify GFACT on Credly
@@ -81,23 +85,20 @@ export function CtfTrackRecord() {
             </a>
           </div>
 
-          <h3 className="mt-4 font-display text-2xl font-bold text-white">
+          <h2 className="mt-4 font-display text-2xl font-bold text-ink">
             {CYBERSTART_ARC.headline}
-          </h3>
-          <p className="mt-2.5 max-w-4xl text-sm leading-relaxed text-slate-300">
+          </h2>
+          <p className="mt-2 max-w-4xl text-sm leading-relaxed text-muted">
             {CYBERSTART_ARC.summary}
           </p>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {CYBERSTART_ARC.milestones.map((m) => (
-              <div
-                key={m.label}
-                className="rounded-xl border border-hairline bg-obsidian/75 p-3.5"
-              >
-                <div className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
+              <div key={m.label} className="rounded-lg border border-rule bg-paper/80 p-3.5">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-muted">
                   {m.label}
                 </div>
-                <div className="mt-1 font-mono text-xs font-semibold text-teal-bright">
+                <div className="mt-1 font-mono text-xs font-semibold text-forest">
                   {m.value}
                 </div>
               </div>
@@ -106,17 +107,17 @@ export function CtfTrackRecord() {
         </article>
 
         {/* Challenge Type Filters */}
-        <div className="mt-10">
+        <div className="mt-8">
           <div className="flex flex-wrap items-center gap-1.5" role="tablist" aria-label="CTF Challenge Types">
             <button
               type="button"
               role="tab"
               aria-selected={selectedType === 'All'}
               onClick={() => setSelectedType('All')}
-              className={`rounded-md border px-3 py-1.5 font-mono text-xs transition ${
+              className={`rounded-md border px-3 py-1.5 font-mono text-xs font-medium transition ${
                 selectedType === 'All'
-                  ? 'border-teal-bright bg-teal-forensic/20 text-teal-bright'
-                  : 'border-hairline bg-panel text-slate-300 hover:text-white'
+                  ? 'border-forest bg-forest text-surface'
+                  : 'border-rule bg-surface text-muted hover:text-ink'
               }`}
             >
               All ({DOCUMENTED_CTFS.length})
@@ -128,10 +129,10 @@ export function CtfTrackRecord() {
                 role="tab"
                 aria-selected={selectedType === cat.type}
                 onClick={() => setSelectedType(cat.type)}
-                className={`rounded-md border px-3 py-1.5 font-mono text-xs transition ${
+                className={`rounded-md border px-3 py-1.5 font-mono text-xs font-medium transition ${
                   selectedType === cat.type
-                    ? 'border-teal-bright bg-teal-forensic/20 text-teal-bright'
-                    : 'border-hairline bg-panel text-slate-300 hover:text-white'
+                    ? 'border-forest bg-forest text-surface'
+                    : 'border-rule bg-surface text-muted hover:text-ink'
                 }`}
               >
                 {cat.type} ({typeCounts[cat.type]})
@@ -139,68 +140,49 @@ export function CtfTrackRecord() {
             ))}
           </div>
 
-          {activeCategorySummary ? (
-            <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-teal-forensic/35 bg-panel/80 p-4">
-              <Terminal className="mt-0.5 h-4 w-4 shrink-0 text-teal-bright" />
-              <div className="text-xs leading-relaxed text-slate-300 sm:text-sm">
-                <span className="font-mono font-semibold text-teal-bright">
+          {activeCategorySummary && (
+            <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-forest/30 bg-forest-soft/60 p-4">
+              <Terminal className="mt-0.5 h-4 w-4 shrink-0 text-forest" />
+              <div className="text-xs leading-relaxed text-ink sm:text-sm">
+                <span className="font-mono font-semibold text-forest">
                   {activeCategorySummary.type}:{' '}
                 </span>
                 {activeCategorySummary.focus}
               </div>
             </div>
-          ) : (
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {CTF_CHALLENGE_SUMMARY.slice(0, 4).map((item) => (
-                <button
-                  key={item.type}
-                  type="button"
-                  onClick={() => setSelectedType(item.type)}
-                  className="rounded-xl border border-hairline bg-panel/70 p-3.5 text-left transition hover:border-teal-forensic"
-                >
-                  <div className="flex items-center justify-between gap-2 font-mono text-xs font-semibold text-teal-bright">
-                    <span>{item.type}</span>
-                    <span className="text-slate-400">{typeCounts[item.type]}</span>
-                  </div>
-                  <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-400">
-                    {item.focus}
-                  </p>
-                </button>
-              ))}
-            </div>
           )}
         </div>
 
-        {/* Documented CTFs Roster */}
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {visibleCtfs.map((ctf) => (
+        {/* Flagship CTF Cards */}
+        <div className="mt-7 grid gap-4 md:grid-cols-2">
+          {cardCtfs.map((ctf) => (
             <article
               key={ctf.id}
-              className="flex flex-col justify-between rounded-xl border border-hairline bg-panel p-5 transition hover:border-slate-700"
+              className="flex flex-col justify-between rounded-xl border border-rule bg-surface p-5 transition hover:border-forest/55"
             >
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span
-                    className={`rounded-md border px-2 py-0.5 font-mono text-[10px] font-semibold ${
+                    className={`rounded border px-2 py-0.5 font-mono text-[10px] font-semibold ${
                       FORMAT_STYLES[ctf.format]
                     }`}
                   >
                     {ctf.format}
                   </span>
-                  <span className="font-mono text-[11px] text-slate-400">{ctf.date}</span>
+                  <span className="font-mono text-[11px] text-muted">{ctf.date}</span>
                 </div>
 
-                <h3 className="mt-2.5 flex items-start gap-2 font-display text-lg font-bold text-white">
-                  <Flag className="mt-1 h-4 w-4 shrink-0 text-teal-bright" />
+                <h3 className="mt-2.5 flex items-start gap-2 font-display text-lg font-bold text-ink">
+                  <Flag className="mt-1 h-4 w-4 shrink-0 text-rust" />
                   <span>{ctf.name}</span>
                 </h3>
 
                 <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                  <span className="inline-flex items-center gap-1 text-slate-400">
+                  <span className="inline-flex items-center gap-1 text-muted">
                     <Users className="h-3.5 w-3.5" />
                     {ctf.teamOrRole}
                   </span>
-                  <span className="inline-flex items-center gap-1 rounded border border-gold-humber/30 bg-obsidian/80 px-2 py-0.5 text-gold-bright">
+                  <span className="inline-flex items-center gap-1 rounded border border-ochre/35 bg-ochre-soft px-2 py-0.5 font-semibold text-ochre">
                     <Award className="h-3 w-3 shrink-0" />
                     {ctf.outcome}
                   </span>
@@ -210,44 +192,81 @@ export function CtfTrackRecord() {
                   {ctf.challengeTypes.map((ct) => (
                     <span
                       key={ct}
-                      className="rounded border border-teal-forensic/30 bg-teal-forensic/10 px-2 py-0.5 font-mono text-[10px] text-teal-bright"
+                      className="rounded border border-forest/25 bg-forest-soft px-2 py-0.5 font-mono text-[10px] font-medium text-forest"
                     >
                       {ct}
                     </span>
                   ))}
                 </div>
 
-                <p className="mt-3 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                <p className="mt-3 text-xs leading-relaxed text-muted sm:text-sm">
                   {ctf.challengesAndWork}
                 </p>
               </div>
 
-              {(ctf.proofUrl || ctf.anchorId) && (
-                <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-hairline pt-3 font-mono text-xs">
-                  {ctf.proofUrl && (
-                    <a
-                      href={ctf.proofUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-teal-bright hover:underline"
-                    >
-                      {ctf.proofLabel ?? 'Verified Proof'}
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  )}
-                  {ctf.anchorId && (
-                    <a
-                      href={`#${ctf.anchorId}`}
-                      className="text-slate-300 hover:text-gold-bright"
-                    >
-                      Inspect Full Dossier -&gt;
-                    </a>
-                  )}
+              {ctf.proofUrl && (
+                <div className="mt-4 border-t border-rule pt-3 font-mono text-xs">
+                  <a
+                    href={ctf.proofUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-forest hover:underline"
+                  >
+                    {ctf.proofLabel ?? 'Verified Proof'}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
                 </div>
               )}
             </article>
           ))}
         </div>
+
+        {/* Compact Roster Table for Additional 10 CTFs */}
+        {tableCtfs.length > 0 && (
+          <div className="mt-8 overflow-hidden rounded-xl border border-rule bg-surface">
+            <div className="border-b border-rule bg-sand/70 px-5 py-3">
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
+                Additional Documented Competitions ({tableCtfs.length})
+              </h3>
+            </div>
+            <div className="divide-y divide-rule">
+              {tableCtfs.map((ctf) => (
+                <div
+                  key={ctf.id}
+                  className="grid gap-3 px-5 py-4 md:grid-cols-12 md:items-center"
+                >
+                  <div className="md:col-span-4">
+                    <div className="font-display text-sm font-bold text-ink">{ctf.name}</div>
+                    <div className="mt-0.5 font-mono text-[11px] text-muted">
+                      {ctf.date} · {ctf.teamOrRole}
+                    </div>
+                  </div>
+                  <div className="md:col-span-3">
+                    <span className="inline-block rounded border border-ochre/35 bg-ochre-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-ochre">
+                      {ctf.outcome}
+                    </span>
+                  </div>
+                  <div className="md:col-span-4">
+                    <p className="text-xs leading-relaxed text-muted">{ctf.challengesAndWork}</p>
+                  </div>
+                  <div className="md:col-span-1 md:text-right">
+                    {ctf.proofUrl && (
+                      <a
+                        href={ctf.proofUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] font-medium text-forest hover:underline"
+                      >
+                        Proof
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

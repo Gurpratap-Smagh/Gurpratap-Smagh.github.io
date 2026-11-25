@@ -21,13 +21,6 @@ export const FIELD_STORIES: FieldStory[] = [
         location: 'ESNA de Bretagne',
         date: 'Jun 13, 2026',
       },
-      {
-        src: '/photos/france/ctf-table-grind.jpg',
-        alt: 'Collaborating face-to-face with THEM?! teammate in France',
-        caption: 'First time solving side-by-side at the same table instead of across timezones on Discord.',
-        location: 'Rennes, France',
-        date: 'Jun 14, 2026',
-      },
     ],
     links: [
       { label: 'EEF Scholarship Post', url: 'https://www.linkedin.com/feed/update/urn%3Ali%3Ashare%3A7481873888939806720' },
@@ -73,10 +66,10 @@ export const FIELD_STORIES: FieldStory[] = [
     softSkills: ['Intellectual Honesty', 'Executive-to-Engineer Communication', 'Root-Cause Forensics', 'Iterative Systems Design'],
     photos: [
       {
-        src: '/photos/omnipulse/atrium-showcase-pitch.jpg',
-        alt: 'Walking visitors through the honeypot architecture',
-        caption: 'Explaining V1 failures and V2 correlation mechanics to faculty and visitors.',
-        location: 'Humber Polytechnic Atrium',
+        src: '/photos/omnipulse/kibana-geoip-demo.jpg',
+        alt: 'Live Kibana GeoIP telemetry at OmniPulse Tech 2026',
+        caption: 'The V2 successor running live at OmniPulse Tech 2026 after fixing V1\'s tunnel and power flaws.',
+        location: 'Humber Barrett CTI',
         date: 'Nov 4, 2026',
       },
     ],
@@ -102,13 +95,6 @@ export const FIELD_STORIES: FieldStory[] = [
         alt: '3rd Place podium ceremony at Brampton SecOps',
         caption: 'Standing with the SupplyChek team, City of Brampton, and Rogers Cybersecure Catalyst mentors.',
         location: 'Brampton Innovation District',
-        date: 'Sep 2026',
-      },
-      {
-        src: '/photos/bramsec/table-build-session.jpg',
-        alt: 'Table build sprint at Brampton SecOps',
-        caption: 'Mid-sprint coordination turning threat model diagrams into working WebAuthn code.',
-        location: 'Brampton SecOps',
         date: 'Sep 2026',
       },
     ],
