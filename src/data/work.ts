@@ -89,6 +89,31 @@ export const WORK_ITEMS: WorkItem[] = [
     },
   },
   {
+    id: 'sophix-proplr',
+    title: 'Sophix: Read-Only AI Incident Triage Agent',
+    subtitle: 'Google Cloud ADK + SPIFFE Agent Identity traversing CMDB dependency graphs & runbooks',
+    date: 'Nov 2026 (R&D: Dec 2026 to Aug 2027)',
+    venue: 'Brampton AI Innovator Hackathon (Brampton City Hall)',
+    outcome: 'Track Winner (Proplr Cloud Services) · 36 Teams / 14 Hosts -> 8-Mo R&D',
+    tags: ['AI / RAG', 'Security & DFIR', 'SW Dev', 'Hackathons'],
+    featured: true,
+    summary:
+      'Pitched solo to 200+ attendees at Brampton City Hall and won the Proplr Cloud Services challenge track (36 teams across 14 enterprise hosts). Selected for an 8-month R&D engagement with Proplr (Dec 2026 to Aug 2027) to engineer and validate the production triage pipeline on Google Cloud ahead of Brampton Venture Expo 2027.',
+    technicalArchitecture:
+      'Built on Google Cloud ADK with cryptographic SPIFFE Agent Identity, enforcing strictly read-only graph traversal across CMDB service dependency graphs and historical runbooks to isolate root causes and route alerts to the right on-call team.',
+    tradeOff:
+      'Kept the triage agent strictly read-only with SPIFFE-scoped identity instead of granting autonomous remediation write permissions, eliminating blast-radius risk during live incident response.',
+    softSkills: ['Solo Stage Pitch (200+ Attendees)', 'Enterprise Problem Scoping', 'On-Call Workflow Empathy'],
+    stack: ['Google Cloud ADK', 'SPIFFE', 'CMDB Graph Traversal', 'Runbook RAG', 'Google Cloud'],
+    photo: {
+      src: '/photos/hackathons/sophix-brampton-stage.jpg',
+      alt: 'Gurpratap pitching Sophix on stage in front of Brampton Venture Zone by TMU banner',
+      caption: 'Solo pitch for Sophix at Brampton AI Innovator (Proplr Cloud Services track winner).',
+      location: 'Brampton City Hall',
+      date: 'Nov 2026',
+    },
+  },
+  {
     id: 'supplychek-secops',
     title: 'SupplyChek: Zero-Trust Freight Instruction Signing',
     subtitle: 'Dual WebAuthn biometric passkeys over canonical SHA-256 dispatch hashes + Ed25519 receipts',

@@ -37,6 +37,13 @@ const HERO_FRAMES: PhotoItem[] = [
     location: 'Rogers Cybersecure Catalyst',
     date: 'Sep 2026',
   },
+  {
+    src: '/photos/hackathons/sophix-city-hall-podium.jpg',
+    alt: 'Gurpratap pitching Sophix solo at Brampton City Hall podium during Brampton AI Innovator',
+    caption: 'Solo pitch to 200+ attendees at Brampton City Hall: Proplr Cloud Services track win (Sophix).',
+    location: 'Brampton City Hall',
+    date: 'Nov 2026',
+  },
 ];
 
 const JOURNEY_STEPS = [
@@ -66,10 +73,10 @@ const JOURNEY_STEPS = [
   },
   {
     period: 'Aug -> Nov 2026',
-    title: 'Podiums, GIAC GFACT & OmniPulse Showcase',
+    title: 'Podiums, GIAC GFACT, OmniPulse & Proplr Win',
     bullets: [
-      'Brampton SecOps 3rd Place ($1,000 SupplyChek) & Catalyst FanDrop Track Winners (Oct).',
-      'Passed GIAC GFACT (Oct 27, #8458), showcased L7 Honeypot at OmniPulse & Ontario Cyber Summit (Nov).',
+      'Brampton SecOps 3rd Place ($1,000 SupplyChek), Catalyst FanDrop win, & GIAC GFACT (#8458).',
+      'Solo win in Proplr track at Brampton AI Innovator (Sophix) -> Dec 2026-Aug 2027 R&D for Venture Expo 2027.',
     ],
   },
 ];
