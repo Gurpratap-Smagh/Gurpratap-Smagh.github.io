@@ -1,8 +1,8 @@
 const HERO_METRICS = [
   { value: '4', label: 'Hackathon Wins' },
   { value: '2', label: 'International Onsite CTF Finals' },
-  { value: '91%', label: 'GIAC GFACT' },
-  { value: '1,000+', label: 'Players on Live CTF Infra' },
+  { value: '3rd Yr', label: 'B.Eng. Info Systems' },
+  { value: 'HumberCTF', label: 'THEM?!' },
 ];
 
 export function SplitHero() {
@@ -42,7 +42,7 @@ export function SplitHero() {
           <div className="mt-5 grid grid-cols-2 divide-y divide-white/10 overflow-hidden rounded-lg bg-navy text-white sm:grid-cols-4 sm:divide-x sm:divide-y-0">
             {HERO_METRICS.map((m) => (
               <div key={m.label} className="px-4 py-3">
-                <div className="font-mono text-xl font-bold text-gold sm:text-2xl">{m.value}</div>
+                <div className="font-mono text-lg font-bold text-gold sm:text-xl">{m.value}</div>
                 <div className="mt-0.5 text-xs font-medium text-slate-200">{m.label}</div>
               </div>
             ))}
