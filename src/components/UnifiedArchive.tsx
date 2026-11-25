@@ -8,9 +8,9 @@ import {
 } from '../data/portfolioEntries';
 
 interface UnifiedArchiveProps {
-  selectedPillar: 'All' | Pillar;
+  selectedPillar: Pillar | 'All' | null;
   selectedSkill: SkillNodeId | null;
-  onSelectPillar: (pillar: 'All' | Pillar) => void;
+  onSelectPillar: (pillar: Pillar | 'All' | null) => void;
   onClearFilters: () => void;
   onSelectEntry: (entry: PortfolioEntry) => void;
 }
@@ -22,13 +22,18 @@ export function UnifiedArchive({
   onClearFilters,
   onSelectEntry,
 }: UnifiedArchiveProps) {
-  const filtered = PORTFOLIO_ENTRIES.filter((entry) => {
-    const matchesPillar = selectedPillar === 'All' || entry.pillars.includes(selectedPillar);
-    const matchesSkill = !selectedSkill || entry.skillsProven.includes(selectedSkill);
-    return matchesPillar && matchesSkill;
-  });
+  const hasSelection = selectedPillar !== null || selectedSkill !== null;
 
-  const isFiltered = selectedPillar !== 'All' || selectedSkill !== null;
+  const filtered = hasSelection
+    ? PORTFOLIO_ENTRIES.filter((entry) => {
+        const matchesPillar =
+          selectedPillar === null ||
+          selectedPillar === 'All' ||
+          entry.pillars.includes(selectedPillar);
+        const matchesSkill = !selectedSkill || entry.skillsProven.includes(selectedSkill);
+        return matchesPillar && matchesSkill;
+      })
+    : [];
 
   return (
     <section id="archive" className="bg-white pb-14 pt-2">
@@ -58,7 +63,7 @@ export function UnifiedArchive({
                   type="button"
                   role="tab"
                   aria-selected={active}
-                  onClick={() => onSelectPillar(pillar)}
+                  onClick={() => onSelectPillar(active ? null : pillar)}
                   className={`rounded-md border px-3 py-1.5 font-mono text-xs transition ${
                     active
                       ? 'border-gold bg-navy-secondary font-semibold text-white'
@@ -74,8 +79,17 @@ export function UnifiedArchive({
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <div className="font-mono text-xs text-muted">
-            Showing <span className="font-semibold text-navy">{filtered.length}</span> of{' '}
-            {PORTFOLIO_ENTRIES.length} entries
+            {hasSelection ? (
+              <>
+                Showing <span className="font-semibold text-navy">{filtered.length}</span> of{' '}
+                {PORTFOLIO_ENTRIES.length} entries
+              </>
+            ) : (
+              <>
+                No filter active ({PORTFOLIO_ENTRIES.length} entries indexed · click a skill or
+                pillar to expand)
+              </>
+            )}
             {selectedSkill && (
               <>
                 {' '}
@@ -87,19 +101,34 @@ export function UnifiedArchive({
             )}
           </div>
 
-          {isFiltered && (
+          {hasSelection && (
             <button
               type="button"
               onClick={onClearFilters}
               className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-navy hover:text-gold-hover"
             >
               <RotateCcw className="h-3.5 w-3.5" />
-              Clear Filter
+              Collapse / Clear
             </button>
           )}
         </div>
 
-        {filtered.length === 0 ? (
+        {!hasSelection ? (
+          <div className="mt-5 flex flex-col items-start justify-between gap-4 rounded-xl border border-line bg-slatebg p-5 sm:flex-row sm:items-center">
+            <p className="text-sm text-body">
+              Archive is collapsed by default to keep the page fast to scan. Select a{' '}
+              <span className="font-semibold text-navy">Skill Proof</span> node above or pick a{' '}
+              <span className="font-semibold text-navy">Pillar</span> tab to view matching cards.
+            </p>
+            <button
+              type="button"
+              onClick={() => onSelectPillar('All')}
+              className="shrink-0 rounded-md bg-navy px-4 py-2 font-mono text-xs font-semibold text-white transition hover:bg-navy-secondary"
+            >
+              Show All {PORTFOLIO_ENTRIES.length} Entries
+            </button>
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="mt-6 rounded-xl border border-line bg-slatebg p-8 text-center">
             <p className="font-mono text-sm text-navy">
               No entries match both [{selectedPillar}] and [{selectedSkill}].

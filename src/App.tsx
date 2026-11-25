@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CertificationsBand } from './components/CertificationsBand';
 import { CredentialsFooter } from './components/CredentialsFooter';
 import { EntryDetailModal } from './components/EntryDetailModal';
 import { EventLog } from './components/EventLog';
@@ -10,12 +11,12 @@ import { UnifiedArchive } from './components/UnifiedArchive';
 import { Pillar, PortfolioEntry, SkillNodeId } from './data/portfolioEntries';
 
 export function App() {
-  const [selectedPillar, setSelectedPillar] = useState<'All' | Pillar>('All');
+  const [selectedPillar, setSelectedPillar] = useState<Pillar | 'All' | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<SkillNodeId | null>(null);
   const [activeEntry, setActiveEntry] = useState<PortfolioEntry | null>(null);
 
   const clearFilters = () => {
-    setSelectedPillar('All');
+    setSelectedPillar(null);
     setSelectedSkill(null);
   };
 
@@ -25,6 +26,7 @@ export function App() {
       <main className="flex-1">
         <SplitHero />
         <ProofReel onSelectEntry={setActiveEntry} />
+        <CertificationsBand />
         <SkillProofTree selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />
         <UnifiedArchive
           selectedPillar={selectedPillar}

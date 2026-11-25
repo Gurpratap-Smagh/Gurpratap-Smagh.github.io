@@ -4,9 +4,10 @@ import { PROFILE } from '../data/profile';
 
 const JUMP_LINKS = [
   { label: 'Proof', href: '#proof' },
+  { label: 'Certs', href: '#certs' },
   { label: 'Skills', href: '#skills' },
   { label: 'Archive', href: '#archive' },
-  { label: 'Events', href: '#events' },
+  { label: 'Conferences', href: '#events' },
 ];
 
 export function Navbar() {

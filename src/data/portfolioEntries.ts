@@ -413,27 +413,27 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'cyberstart-ngen-arc',
-    title: 'CyberStart Top Performer -> 91% GFACT -> N3 Summit',
+    title: 'Rogers Cybersecure Catalyst · CyberStart Canada Top Performer 2026',
     date: 'Nov 2025 to Oct 2026',
-    venue: 'Rogers Cybersecure Catalyst · SANS · NGen Canada',
-    outcomeBadge: '91% GIAC GFACT',
+    venue: 'Rogers Cybersecure Catalyst (TMU) · SANS GIAC GFACT',
+    outcomeBadge: 'Top Performer 2026 · 91% GFACT',
     pillars: ['Ops & Strategy', 'Security'],
     skillsProven: ['Unscripted Pitching', 'Crisis Regulation', 'DFIR & Forensics'],
     thumbnail: '/photos/n3summit/n3-interview-sycodal.jpg',
     summary:
-      'Turned a November 2025 BramHacks booth flyer into a 200+ day lab streak, 4th in CyberStart CTF, a 91% GIAC GFACT pass (#8458), and NGen N3 floor advocacy.',
+      'I showed daily consistency from a November 2025 booth card through 200+ consecutive TryHackMe days, finishing 4th in CyberStart CTF and scoring 91% on GIAC GFACT (#8458).',
     mediaGallery: [
       {
         src: '/photos/n3summit/n3-interview-sycodal.jpg',
-        alt: 'Gurpratap representing Humber at the NGen N3 Advanced Manufacturing Summit',
-        caption: 'Ambassador floor interview at NGen N3 Summit covering OT, CAD, and industrial AI booths.',
+        alt: 'Gurpratap representing Humber at NGen N3 Summit',
+        caption: 'Technical floor advocacy after building daily security fundamentals.',
       },
     ],
     technicalBreakdown:
-      'Completed the 43h 53m CyberStart Canada 25/26 Pathway (THM-NJUMPMQAFZ) and sustained 200+ consecutive daily TryHackMe lab sessions across web, DFIR, OSINT, and SOC triage.\n\nEarned CyberStart Top Performer status (4th in CTF), won the SANS scholarship, scored 91% on GIAC GFACT (Oct 2026), and interviewed deep-tech booths as NGen N3 Youth Culture Ambassador.',
-    stack: ['GIAC GFACT (91%)', 'ISC2 CC', 'TryHackMe', 'SOC / DFIR Fundamentals', 'Technical Interviewing'],
+      'Completed the 43h 53m CyberStart Canada 25/26 Pathway (THM-NJUMPMQAFZ) and sustained 200+ consecutive daily TryHackMe lab sessions across web, DFIR, OSINT, and SOC triage.\n\nEarned Rogers Cybersecure Catalyst Top Performer recognition (4th in CyberStart Canada CTF), won the SANS scholarship, and passed GIAC GFACT with 91% (Analyst #8458, Oct 2026).',
+    stack: ['GIAC GFACT (91%)', 'ISC2 CC', 'TryHackMe', 'SOC / DFIR Fundamentals'],
     fieldNotes:
-      'I picked up the CyberStart application card off a hackathon table expecting nothing. Daily reps built the pattern recognition that later carried me into a top-50 global CTF team and international finals.',
+      'I picked up the CyberStart application card off a booth table expecting nothing, showed up every single day for 200+ days, and earned the GIAC GFACT scholarship that carried me onto a global top-50 CTF team.',
     links: {
       writeup: 'https://www.credly.com/badges/33ff7ea8-5a30-4124-a3ab-2397609e99a3',
     },
