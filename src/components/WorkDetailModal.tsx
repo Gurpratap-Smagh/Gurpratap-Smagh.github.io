@@ -57,23 +57,48 @@ export function WorkDetailModal({ item, onClose, onOpenLightbox }: WorkDetailMod
         </div>
 
         {item.photo && (
-          <button
-            type="button"
-            onClick={() => onOpenLightbox([item.photo!], 0)}
-            className="group mt-4 block w-full overflow-hidden rounded-lg border border-rule bg-sand text-left"
-          >
-            <img
-              src={item.photo.src}
-              alt={item.photo.alt}
-              className="aspect-[16/9] w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]"
-            />
-            <div className="border-t border-rule bg-paper px-3 py-2 font-mono text-[11px] text-muted">
-              <span className="font-semibold text-rust">
-                {item.photo.location} · {item.photo.date}
-              </span>{' '}
-              ({item.photo.caption})
-            </div>
-          </button>
+          <div className="mt-4 space-y-2">
+            <button
+              type="button"
+              onClick={() =>
+                onOpenLightbox(
+                  item.referencePhoto ? [item.photo!, item.referencePhoto] : [item.photo!],
+                  0
+                )
+              }
+              className="group block w-full overflow-hidden rounded-lg border border-rule bg-sand text-left"
+            >
+              <img
+                src={item.photo.src}
+                alt={item.photo.alt}
+                className="aspect-[16/9] w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]"
+              />
+              <div className="border-t border-rule bg-paper px-3 py-2 font-mono text-[11px] text-muted">
+                <span className="font-semibold text-rust">
+                  {item.photo.location} · {item.photo.date}
+                </span>{' '}
+                ({item.photo.caption})
+              </div>
+            </button>
+
+            {item.referencePhoto && (
+              <button
+                type="button"
+                onClick={() => onOpenLightbox([item.photo!, item.referencePhoto!], 1)}
+                className="flex w-full items-center gap-3 rounded-lg border border-rule bg-paper/70 p-2 text-left transition hover:border-forest"
+              >
+                <img
+                  src={item.referencePhoto.src}
+                  alt={item.referencePhoto.alt}
+                  className="h-14 w-24 shrink-0 rounded border border-rule object-cover"
+                />
+                <div className="font-mono text-[11px] text-muted">
+                  <span className="block font-semibold text-forest">Audience Reference</span>
+                  <span>{item.referencePhoto.caption}</span>
+                </div>
+              </button>
+            )}
+          </div>
         )}
 
         {item.outcome && (

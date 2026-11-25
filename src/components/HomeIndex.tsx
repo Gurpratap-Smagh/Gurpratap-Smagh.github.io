@@ -39,8 +39,8 @@ const HERO_FRAMES: PhotoItem[] = [
     date: 'Sep 2026',
   },
   {
-    src: '/photos/hackathons/sophix-city-hall-audience.jpg',
-    alt: 'Packed audience at Brampton City Hall listening to pitches during Brampton AI Innovator',
+    src: '/photos/hackathons/sophix-brampton-stage.jpg',
+    alt: 'Gurpratap pitching Sophix solo on stage in front of Brampton Venture Zone by TMU banner',
     caption: 'Pitched Sophix solo to 200+ attendees at Brampton City Hall: Proplr Cloud Services track winner.',
     location: 'Brampton City Hall',
     date: 'Nov 2026',

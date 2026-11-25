@@ -228,4 +228,5 @@ export interface WorkItem {
   writeupUrl?: string;
   postUrl?: string;
   photo?: PhotoItem;
+  referencePhoto?: PhotoItem;
 }

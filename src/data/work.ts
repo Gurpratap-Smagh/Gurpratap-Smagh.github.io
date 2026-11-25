@@ -112,6 +112,13 @@ export const WORK_ITEMS: WorkItem[] = [
       location: 'Brampton City Hall',
       date: 'Nov 2026',
     },
+    referencePhoto: {
+      src: '/photos/hackathons/sophix-city-hall-audience.jpg',
+      alt: '200+ attendees at Brampton City Hall listening to Brampton AI Innovator pitches',
+      caption: '200+ attendees at Brampton City Hall during the Brampton AI Innovator finals.',
+      location: 'Brampton City Hall',
+      date: 'Nov 2026',
+    },
   },
   {
     id: 'supplychek-secops',
