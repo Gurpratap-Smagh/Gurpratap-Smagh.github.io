@@ -1,59 +1,48 @@
 import { useEffect, useState } from 'react';
-import { AcademiaAndWriting } from './components/AcademiaAndWriting';
 import { CredentialsFooter } from './components/CredentialsFooter';
-import { CtfTrackRecord } from './components/CtfTrackRecord';
-import { HomeIndex } from './components/HomeIndex';
-import { AppRoute, Navbar } from './components/Navbar';
+import { HomeHub } from './components/HomeHub';
+import { Navbar } from './components/Navbar';
 import { PhotoLightbox } from './components/PhotoLightbox';
-import { WorkExplorer } from './components/WorkExplorer';
-import { PhotoItem, WorkTag } from './data/types';
+import { WorkDetailPage } from './components/WorkDetailPage';
+import { PhotoItem } from './data/types';
 
-function parseHashRoute(): { route: AppRoute; tag: WorkTag | null } {
+function parseRoute(): { view: 'home' | 'detail'; slug: string | null } {
   const raw = window.location.hash.replace(/^#/, '');
-  const [pathPart, queryPart] = raw.split('?');
-  let route: AppRoute = 'home';
-  if (pathPart.startsWith('/work')) route = 'work';
-  else if (pathPart.startsWith('/ctfs')) route = 'ctfs';
-  else if (pathPart.startsWith('/academia')) route = 'academia';
-
-  let tag: WorkTag | null = null;
-  if (queryPart) {
-    const params = new URLSearchParams(queryPart);
-    const t = params.get('tag') as WorkTag | null;
-    if (t) tag = t;
+  const match = raw.match(/^\/work\/([^/?#]+)/);
+  if (match) {
+    return { view: 'detail', slug: decodeURIComponent(match[1]) };
   }
-  return { route, tag };
+  return { view: 'home', slug: null };
 }
 
 export function App() {
-  const initial = parseHashRoute();
-  const [route, setRoute] = useState<AppRoute>(initial.route);
-  const [workInitialTag, setWorkInitialTag] = useState<WorkTag | null>(initial.tag);
+  const [route, setRoute] = useState(parseRoute);
   const [lightboxState, setLightboxState] = useState<{
     photos: PhotoItem[];
     index: number;
   } | null>(null);
 
   useEffect(() => {
-    const onHashChange = () => {
-      const parsed = parseHashRoute();
-      setRoute(parsed.route);
-      setWorkInitialTag(parsed.tag);
-    };
+    const onHashChange = () => setRoute(parseRoute());
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  const navigate = (target: AppRoute, tag?: WorkTag) => {
-    const hash =
-      target === 'home'
-        ? '/'
-        : target === 'work' && tag
-          ? `/work?tag=${encodeURIComponent(tag)}`
-          : `/${target}`;
-    window.location.hash = hash;
-    setWorkInitialTag(tag ?? null);
-    setRoute(target);
+  const goHome = (section?: 'pinned' | 'archive') => {
+    window.location.hash = '/';
+    setRoute({ view: 'home', slug: null });
+    if (section) {
+      setTimeout(() => {
+        document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+      }, 40);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const openEntry = (slug: string) => {
+    window.location.hash = `/work/${encodeURIComponent(slug)}`;
+    setRoute({ view: 'detail', slug });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -62,19 +51,19 @@ export function App() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-paper text-ink">
-      <Navbar route={route} onNavigate={(r) => navigate(r)} />
+    <div className="flex min-h-screen flex-col bg-navy text-ink">
+      <Navbar isDetailPage={route.view === 'detail'} onGoHome={goHome} />
       <main className="flex-1">
-        {route === 'home' && <HomeIndex onOpenLightbox={openLightbox} onNavigate={navigate} />}
-        {route === 'work' && (
-          <WorkExplorer
-            key={workInitialTag ?? 'all'}
-            initialTag={workInitialTag}
+        {route.view === 'home' ? (
+          <HomeHub onOpenEntry={openEntry} />
+        ) : (
+          <WorkDetailPage
+            slug={route.slug ?? 'l7-honeypot-engine'}
+            onBackToArchive={() => goHome('archive')}
+            onOpenEntry={openEntry}
             onOpenLightbox={openLightbox}
           />
         )}
-        {route === 'ctfs' && <CtfTrackRecord />}
-        {route === 'academia' && <AcademiaAndWriting onOpenLightbox={openLightbox} />}
       </main>
       <CredentialsFooter />
 

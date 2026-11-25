@@ -1,59 +1,27 @@
-import { BookOpen, Github, Linkedin, Mail, Shield } from 'lucide-react';
-import { PROFILE } from '../data/profile';
+import { CERTIFICATIONS, PROFILE } from '../data/profile';
 
 export function CredentialsFooter() {
   return (
-    <footer className="border-t border-rule bg-surface py-10">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+    <footer className="border-t border-white/[0.08] bg-navy py-8">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 font-mono text-xs text-muted sm:flex-row sm:items-center sm:px-6 lg:px-8">
         <div>
-          <div className="font-display text-base font-bold text-ink">{PROFILE.fullName}</div>
-          <p className="mt-1 font-mono text-xs text-muted">
-            {PROFILE.handle} · {PROFILE.location} · {PROFILE.availability}
-          </p>
+          <span className="font-semibold text-ink">{PROFILE.fullName}</span> · {PROFILE.education.institution} ·{' '}
+          {PROFILE.availability}
         </div>
-
-        <div className="flex flex-wrap gap-2">
-          <a
-            href={PROFILE.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-3 py-1.5 font-mono text-xs text-ink transition hover:border-forest hover:text-forest"
-          >
-            <Github className="h-3.5 w-3.5" />
+        <div className="flex flex-wrap items-center gap-4">
+          <a href={PROFILE.links.github} target="_blank" rel="noreferrer" className="hover:text-gold">
             GitHub
           </a>
-          <a
-            href={PROFILE.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-3 py-1.5 font-mono text-xs text-ink transition hover:border-forest hover:text-forest"
-          >
-            <Linkedin className="h-3.5 w-3.5" />
+          <a href={PROFILE.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-gold">
             LinkedIn
           </a>
-          <a
-            href={PROFILE.links.medium}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-3 py-1.5 font-mono text-xs text-ink transition hover:border-forest hover:text-forest"
-          >
-            <BookOpen className="h-3.5 w-3.5" />
+          <a href={PROFILE.links.medium} target="_blank" rel="noreferrer" className="hover:text-gold">
             Medium
           </a>
-          <a
-            href={PROFILE.links.ctftimeUser}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-3 py-1.5 font-mono text-xs text-ink transition hover:border-rust hover:text-rust"
-          >
-            <Shield className="h-3.5 w-3.5" />
-            CTFtime
+          <a href={CERTIFICATIONS[0]?.url} target="_blank" rel="noreferrer" className="hover:text-gold">
+            GIAC GFACT
           </a>
-          <a
-            href={`mailto:${PROFILE.email}`}
-            className="inline-flex items-center gap-1.5 rounded-md bg-rust px-3.5 py-1.5 font-mono text-xs font-semibold text-surface transition hover:bg-rust-bright"
-          >
-            <Mail className="h-3.5 w-3.5" />
+          <a href={`mailto:${PROFILE.email}`} className="text-gold-badge hover:text-gold-hover">
             {PROFILE.email}
           </a>
         </div>
