@@ -173,6 +173,30 @@ export const WORK_ITEMS: WorkItem[] = [
     postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7376019080115535872',
   },
   {
+    id: 'achievaflow-and-bramhacks',
+    title: 'AchievaFlow (1st Place) & BramHacks Parasynth CAD',
+    subtitle: 'Cross-disciplinary data/AI pitch + automated satellite topography -> SolidWorks wheel pipeline',
+    date: 'Oct to Nov 2025',
+    venue: 'Humber Longo Centre & BramHacks 2025',
+    outcome: '1st Place (AchievaFlow) · Live CAD Demo (BramHacks)',
+    tags: ['Academia', 'Hackathons', 'Hardware & OT', 'AI / RAG'],
+    featured: true,
+    summary:
+      'Combined engineers + medical + business teammates to win 1st Place at AchievaFlow, then co-built Parasynth at BramHacks generating parameterized SolidWorks rover wheels from satellite terrain data.',
+    technicalArchitecture:
+      'Automated topography feature extraction feeding parameterized SolidWorks CAD templates (Parasynth), plus executive data storytelling (AchievaFlow).',
+    softSkills: ['Cross-Disciplinary Teamwork', 'Executive Pitch Rehearsal', 'CAD-Software Handoff'],
+    stack: ['Python', 'SolidWorks CAD', 'Data Analytics'],
+    postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7386165642455851009',
+    photo: {
+      src: '/photos/hackathons/achievaflow-stage.jpg',
+      alt: 'AchievaFlow 1st Place stage lineup at Humber Longo Centre',
+      caption: 'AchievaFlow Data Drive Hackathon 1st Place stage lineup (Oct 20, 2025).',
+      location: 'Humber Longo Centre',
+      date: 'Oct 20, 2025',
+    },
+  },
+  {
     id: 'chronicle-udm-hunt',
     title: 'Chronicle UDM Enterprise Active Directory Threat Hunt',
     subtitle: 'YARA-L queries correlating Sysmon 1/3/17/18/23/26, PowerShell 4104 & 4624 lateral movement',
@@ -293,29 +317,6 @@ export const WORK_ITEMS: WorkItem[] = [
       'Exports `setText`, `escapeHTML`, `setSafeAttr`, configurable weak-pattern checks, and strict allow-list sanitization primitives.',
     stack: ['JavaScript', 'AppSec', 'XSS Defense', 'npm'],
     postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7365836749194805249',
-  },
-  {
-    id: 'achievaflow-and-bramhacks',
-    title: 'AchievaFlow (1st Place) & BramHacks Parasynth CAD',
-    subtitle: 'Cross-disciplinary data/AI pitch + automated satellite topography -> SolidWorks wheel pipeline',
-    date: 'Oct to Nov 2025',
-    venue: 'Humber Longo Centre & BramHacks 2025',
-    outcome: '1st Place (AchievaFlow) · Live CAD Demo (BramHacks)',
-    tags: ['Hackathons', 'Hardware & OT', 'AI / RAG', 'Academia'],
-    summary:
-      'Combined engineers + medical + business teammates to win 1st Place at AchievaFlow, then co-built Parasynth at BramHacks generating parameterized SolidWorks rover wheels from satellite terrain data.',
-    technicalArchitecture:
-      'Automated topography feature extraction feeding parameterized SolidWorks CAD templates (Parasynth), plus executive data storytelling (AchievaFlow).',
-    softSkills: ['Cross-Disciplinary Teamwork', 'Executive Pitch Rehearsal', 'CAD-Software Handoff'],
-    stack: ['Python', 'SolidWorks CAD', 'Data Analytics'],
-    postUrl: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7386165642455851009',
-    photo: {
-      src: '/photos/hackathons/achievaflow-stage.jpg',
-      alt: 'AchievaFlow 1st Place stage lineup at Humber Longo Centre',
-      caption: 'AchievaFlow Data Drive Hackathon 1st Place stage lineup (Oct 20, 2025).',
-      location: 'Humber Longo Centre',
-      date: 'Oct 20, 2025',
-    },
   },
   {
     id: 'humber-asv-and-spiderbot',
