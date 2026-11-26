@@ -1,5 +1,23 @@
-import { ExternalLink, ShieldCheck } from 'lucide-react';
+import { Award, ExternalLink, ShieldCheck } from 'lucide-react';
 import { CERTIFICATIONS } from '../data/profile';
+
+const ACCOLADES = [
+  {
+    title: 'Employability Experience Fund (EEF) Scholarship',
+    org: 'Humber Polytechnic',
+    detail: 'Institutional funding awarded to represent Humber at Midnight Flag Finals in France.',
+  },
+  {
+    title: 'Academic Scholarship & Dean\'s Honour List',
+    org: 'Humber Polytechnic · B.Eng.',
+    detail: '87.9% cumulative GPA across Semesters 1 to 4 with FAST travel sponsorship.',
+  },
+  {
+    title: 'Rogers CyberStart Canada Top Performer 2026',
+    org: 'Rogers Cybersecure Catalyst (TMU)',
+    detail: '4th in CyberStart Canada CTF · 200+ consecutive TryHackMe days · SANS scholarship.',
+  },
+];
 
 export function CertificationsBand() {
   return (
@@ -8,15 +26,13 @@ export function CertificationsBand() {
         <div className="flex flex-wrap items-end justify-between gap-2">
           <div>
             <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted">
-              Verified Credentials
+              Verified Credentials &amp; Recognition
             </span>
             <h2 className="mt-0.5 font-display text-xl font-bold text-navy sm:text-2xl">
-              Certifications &amp; CyberStart Top Performer Track
+              Certifications &amp; Accolades
             </h2>
           </div>
-          <span className="font-mono text-xs text-muted">
-            Click any credential to verify
-          </span>
+          <span className="font-mono text-xs text-muted">Click any cert to verify</span>
         </div>
 
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -47,6 +63,22 @@ export function CertificationsBand() {
 
               <p className="mt-2.5 text-xs leading-relaxed text-body">{cert.note}</p>
             </a>
+          ))}
+        </div>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          {ACCOLADES.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-line bg-slatebg px-4 py-3.5"
+            >
+              <div className="flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-navy">
+                <Award className="h-3.5 w-3.5 shrink-0 text-gold" />
+                <span>{item.org}</span>
+              </div>
+              <div className="mt-1 font-display text-sm font-bold text-navy">{item.title}</div>
+              <p className="mt-1 text-xs leading-relaxed text-muted">{item.detail}</p>
+            </div>
           ))}
         </div>
       </div>

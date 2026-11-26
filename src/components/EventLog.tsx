@@ -2,50 +2,36 @@ import { CONFERENCES_LIST } from '../data/eventsLog';
 
 export function EventLog() {
   return (
-    <section id="events" className="border-t border-line bg-slatebg py-10">
+    <section id="events" className="border-t border-line bg-slatebg py-8">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div>
           <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted">
-            Conferences, Summits &amp; Showcases
+            Conferences &amp; Summits
           </span>
-          <h2 className="mt-0.5 font-display text-xl font-bold text-navy sm:text-2xl">
-            Technical Summits &amp; Institutional Representation
+          <h2 className="mt-0.5 font-display text-lg font-bold text-navy sm:text-xl">
+            Summits, Showcases &amp; Briefings Attended
           </h2>
         </div>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-2">
+        <ul className="mt-4 divide-y divide-line overflow-hidden rounded-xl border border-line bg-white">
           {CONFERENCES_LIST.map((item) => (
-            <article
+            <li
               key={item.id}
-              className="flex flex-col overflow-hidden rounded-xl border border-line bg-white transition hover:border-gold"
+              className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
             >
-              {item.photo && (
-                <div className="aspect-[16/9] w-full overflow-hidden border-b border-line bg-slatebg">
-                  <img
-                    src={item.photo}
-                    alt={item.photoAlt ?? item.event}
-                    loading="lazy"
-                    className="h-full w-full object-cover object-top"
-                  />
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+                  <span className="font-display text-sm font-semibold text-navy">
+                    {item.event}
+                  </span>
+                  <span className="font-mono text-[11px] text-muted">{item.location}</span>
                 </div>
-              )}
-
-              <div className="flex flex-1 flex-col justify-between p-5">
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted">
-                    <span>{item.location}</span>
-                    <span>{item.date}</span>
-                  </div>
-                  <h3 className="mt-1.5 font-display text-lg font-bold text-navy">{item.event}</h3>
-                  <div className="mt-1.5 inline-block rounded border border-gold/50 bg-gold-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-navy">
-                    {item.roleOrFocus}
-                  </div>
-                  <p className="mt-2.5 text-sm leading-relaxed text-body">{item.takeaway}</p>
-                </div>
+                <p className="mt-0.5 text-xs leading-relaxed text-body">{item.takeaway}</p>
               </div>
-            </article>
+              <span className="shrink-0 font-mono text-[11px] text-muted">{item.date}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

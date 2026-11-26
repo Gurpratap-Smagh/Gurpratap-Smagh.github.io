@@ -519,7 +519,7 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'fandrop-wallet',
-    title: 'FanDrop: Apple & Google Wallet Fan Pass',
+    title: 'FanDrop: Apple & Google Wallet Fan Passport',
     date: 'Oct 17 to 18, 2026',
     venue: 'Catalyst by Speer Hackathon (Toronto)',
     outcomeBadge: 'Track Winner · Catalyst',
@@ -530,20 +530,26 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Problem Scoping & Threat Modeling',
       'Technical Communication',
     ],
-    thumbLabel: 'PASSKIT // WALLET',
+    thumbnail: '/photos/hackathons/fandrop-passport.jpg',
     summary:
-      'Replaced high-drop-off concert signup forms with a single QR tap installing a signed Apple .pkpass and RS256 Google Wallet pass for direct artist push updates.',
-    mediaGallery: [],
+      'Replaced high-drop-off concert signup forms with a single QR tap installing a signed Apple .pkpass and RS256 Google Wallet pass (`FP-U2UX-427F`) for direct artist push updates.',
+    mediaGallery: [
+      {
+        src: '/photos/hackathons/fandrop-passport.jpg',
+        alt: 'FanDrop live Fan Passport card showing Fan ID FP-U2UX-427F and Our Lady Peace Massey Hall event',
+        caption: 'Fan Passport UI (FP-U2UX-427F) built for Our Lady Peace at Massey Hall, Toronto.',
+      },
+    ],
     technicalBreakdown:
-      'Built PKCS#7 detached bundle signing (node-forge + fflate) to serve valid .pkpass files, PassKit device registration callbacks, RS256 Google Wallet JWT issuance, Drizzle SQL schemas, a one-shot FanCam, and Vitest test coverage.\n\nIncluded a resilient instant preview fallback when serverless runtimes hit Apple HTTP/2 APNs cert constraints.',
+      'Built PKCS#7 detached bundle signing (node-forge + fflate) to serve valid .pkpass archives, PassKit device registration callbacks, RS256 Google Wallet JWT issuance, Drizzle SQL schemas, a one-shot FanCam, and Vitest test coverage.\n\nIncluded an instant preview-pass fallback when serverless runtimes hit Apple HTTP/2 APNs cert constraints.',
     stack: ['TypeScript', 'React', 'Apple PassKit', 'Google Wallet API', 'Drizzle SQL', 'Vitest'],
     fieldNotes:
-      'On the whiteboard we rejected login walls, wristbands, and extra hardware tags. Pitching an empty-friction Wallet notification pass straight to founders Raine Maida and Mathew Mozaffari locked down the track win.',
+      'On the whiteboard we rejected login walls, wristbands, and extra hardware tags. Pitching a zero-signup Wallet notification pass straight to founders Raine Maida and Mathew Mozaffari locked down the track win.',
     links: {},
   },
   {
     id: 'safescan-rag',
-    title: 'SafeScan: Deterministic Barcode & RAG Engine',
+    title: 'SafeScan: Food Toxicity & Barcode Safety Engine',
     date: 'May 9 to 10, 2026',
     venue: 'IBM Z x Sheridan Hackathon',
     outcomeBadge: 'Top 20 / 200 · IBM Z',
@@ -555,15 +561,21 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Teamwork & Execution',
       'Problem Scoping & Threat Modeling',
     ],
-    thumbLabel: 'NEXT.JS // OPENFDA RAG',
+    thumbnail: '/photos/hackathons/safescan-logo.jpg',
     summary:
-      'Co-led 5 builders (mentoring first-timers) to correlate scanned barcodes against Open Food Facts, openFDA recalls, and personal allergies with grounded RAG Q&A.',
-    mediaGallery: [],
+      'Co-led 5 builders (mentoring first-timers) to build a Next.js 14 + Prisma app correlating barcodes against Open Food Facts, openFDA recalls, and personal allergies with optional Llama AI refinement.',
+    mediaGallery: [
+      {
+        src: '/photos/hackathons/safescan-logo.jpg',
+        alt: 'SafeScan AI-Powered Product Safety for Everyone logo',
+        caption: 'SafeScan brand mark for the IBM Z x Sheridan food & product safety build.',
+      },
+    ],
     technicalBreakdown:
-      'Cross-references barcode UPCs against PostgreSQL/Prisma profiles, UserMemory deduplication, Open Food Facts ingredient trees, and openFDA recall feeds with httpOnly JWT auth and 15 unit tests on chat routes.\n\nKept risk scoring 100% deterministic rather than trusting LLM intuition; constrained RAG strictly to explaining verified report rows.',
-    stack: ['Next.js 14', 'TypeScript', 'PostgreSQL', 'Prisma', 'openFDA API', 'Grounded RAG'],
+      'Built a Next.js 14 App Router + React 18 pipeline backed by PostgreSQL/Prisma, Zod validation, and jose JWT httpOnly sessions with tokenVersion invalidation.\n\nOrchestrates deterministic risk scoring across Open Food Facts and openFDA recall/adverse-event feeds via POST /api/reports and /api/users/:id/scans, keeping optional Featherless Llama-class AI analysis strictly grounded in persisted SafetyReport rows.',
+    stack: ['Next.js 14', 'TypeScript', 'PostgreSQL / Prisma', 'Zod / Jose JWT', 'openFDA API', 'Vitest'],
     fieldNotes:
-      'Split commits cleanly so first-time hackathon teammates shipped real endpoints without blocking integration. 33+ commits across the sprint (17 mine) carried us into the top 10% of 200 submissions.',
+      'Split routes and JSDoc API contracts cleanly so first-time hackathon teammates shipped real endpoints without blocking integration. 33+ commits across the sprint (17 mine) carried us into the top 10% of 200 submissions.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/SafeScan',
       demo: 'https://safe-scan-nine.vercel.app',
@@ -572,10 +584,10 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'givehub-omnichain',
-    title: 'GiveHub: ZetaChain ZRC-20 Crowdfunding & CI Audit',
+    title: 'GiveHub: Non-Custodial Cross-Chain Crowdfunding',
     date: 'Aug 2025 to Jan 2026',
     venue: 'ZetaChain x Google Cloud Buildathon',
-    outcomeBadge: 'Web3 Build + Audit',
+    outcomeBadge: 'Flagship Full-Stack & Web3',
     entryTier: 'project',
     categories: ['Hackathons', 'Engineering & IoT'],
     skillsProven: [
@@ -583,15 +595,21 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
       'Problem Scoping & Threat Modeling',
       'Security, DFIR & Incident Response',
     ],
-    thumbLabel: 'SOLIDITY // WEB3 CI',
+    thumbnail: '/photos/hackathons/givehub-ui.jpg',
     summary:
-      'Solo-built cross-chain ZRC-20 crowdfunding with live WebSocket updates, then returned months later to harden contracts, containers, and dependencies.',
-    mediaGallery: [],
+      'Solo-built monorepo pairing a Next.js/TypeScript campaign dashboard, Node/Express services, MongoDB, and non-custodial Solidity auto-swap-and-forward contracts on ZetaChain, containerized on IAM-locked GCP.',
+    mediaGallery: [
+      {
+        src: '/photos/hackathons/givehub-ui.jpg',
+        alt: 'GiveHub Support Causes You Care About cross-chain crowdfunding interface',
+        caption: 'Live GiveHub campaign discovery UI (give-hub-nngk.vercel.app).',
+      },
+    ],
     technicalBreakdown:
-      'Wrote CrossChainCrowdfund.sol enforcing non-custodial swap-and-forward settlement on ZetaChain, locked down GCP container IAM permissions, and integrated CodeQL static security scans and dependency auditing.',
-    stack: ['Solidity', 'ZetaChain ZRC-20', 'Next.js', 'GCP', 'CodeQL'],
+      'Structured as a single monorepo uniting a Next.js + TypeScript frontend, Node/Express backend, MongoDB persistence, and versioned Solidity contracts enforcing non-custodial auto swap-and-forward settlement so donations settle directly to campaign creators.\n\nContainerized backend services on Google Cloud with strict IAM boundaries, then returned months after the buildathon to run CodeQL scans and dependency hardening.',
+    stack: ['Next.js / TypeScript', 'Node / Express', 'Solidity (ZetaChain)', 'MongoDB', 'GCP IAM', 'CodeQL'],
     fieldNotes:
-      'Most hackathon repos rot the Sunday evening they are submitted. Going back months later to strip vulnerable packages and tighten IAM/CI gates turned prototype code into durable engineering proof.',
+      'GiveHub is the build I kept coming back to long after the hackathon ended. Instead of letting prototype code rot on Sunday night, I revisited the monorepo months later to tighten GCP IAM locks, audit network dependencies, and version the contracts properly.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/Give-hub',
       demo: 'https://give-hub-nngk.vercel.app/',
@@ -722,22 +740,28 @@ export const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   },
   {
     id: 'agromart-hedera',
-    title: 'Lovtiti Agro-Mart: Hedera Supply-Chain Storefront',
+    title: 'Lovtiti Agro-Mart: Hedera Farm-to-Buyer Contracts',
     date: 'Oct 31 to Nov 1, 2025',
     venue: 'Hedera Africa Hackathon (DoraHacks)',
-    outcomeBadge: 'Hedera Hackathon Build',
+    outcomeBadge: 'Hedera Smart Contracts',
     entryTier: 'project',
     categories: ['Hackathons', 'Engineering & IoT'],
     skillsProven: ['Software Engineering & Systems', 'Teamwork & Execution'],
-    thumbLabel: 'HEDERA // PRISMA',
+    thumbnail: '/photos/hackathons/agromart-hero.jpg',
     summary:
-      'Shipped a Next.js + Prisma marketplace anchored with Hedera settlement across distributed Canada and Africa teammates to reduce agricultural middleman spoilage.',
-    mediaGallery: [],
+      'Served as Smart Contract Developer on a 6-person distributed team building Lovtiti Agro-Mart, anchoring agricultural origin, HBAR payments, and reviews on Hedera.',
+    mediaGallery: [
+      {
+        src: '/photos/hackathons/agromart-hero.jpg',
+        alt: 'Lovtiti Agro-Mart Connecting African Farmers with Global Buyers landing page',
+        caption: 'Lovtiti Agro-Mart decentralized marketplace connecting rural farmers directly to buyers.',
+      },
+    ],
     technicalBreakdown:
-      'Separated Prisma SQL product/order schemas cleanly from Hedera payment confirmation hooks so engineers across multiple timezones could ship without merge conflicts.',
-    stack: ['Next.js', 'TypeScript', 'Hedera', 'Prisma'],
+      'Engineered Hedera smart contracts executing the HARAR lifecycle framework (History, Availability, Reviews, Authentication, Real-Time Updates) powered by HBAR micro-fees alongside MongoDB product listings and React storefront flows.',
+    stack: ['Hedera / HBAR', 'Smart Contracts', 'TypeScript / React', 'MongoDB'],
     fieldNotes:
-      'Async timezone handoffs only work when interface contracts are locked down before everyone goes to sleep.',
+      'Coordinating contract interfaces across a 6-person team split across Canada and Africa taught us to freeze schemas before anyone went offline.',
     links: {
       repo: 'https://github.com/Gurpratap-Smagh/agro-mart',
       demo: 'https://agro-mart-beta.vercel.app',

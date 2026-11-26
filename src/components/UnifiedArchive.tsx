@@ -168,7 +168,9 @@ export function UnifiedArchive({
                         alt={entry.mediaGallery[0]?.alt ?? entry.title}
                         loading="lazy"
                         className={`h-full w-full transition duration-300 group-hover:scale-[1.03] ${
-                          entry.thumbnail.includes('logo')
+                          entry.thumbnail.includes('logo') ||
+                          entry.thumbnail.includes('safescan') ||
+                          entry.thumbnail.includes('fandrop')
                             ? 'object-contain'
                             : 'object-cover object-top'
                         }`}
